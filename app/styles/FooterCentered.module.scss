@@ -1,0 +1,35 @@
+.footer {
+  width: 100%;
+  margin-top: auto; /* Ensures footer is at the bottom */
+  border-top: 1px solid var(--mantine-color-gray-2);
+  padding: var(--mantine-spacing-lg);
+  display: flex;
+  flex-direction: column; /* Centers everything */
+  align-items: center; /* Centers horizontally */
+  text-align: center; /* Ensures text stays centered */
+}
+
+.inner {
+  width: 100%;
+  max-width: 1200px; /* Ensures proper layout on larger screens */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.links {
+  display: flex;
+  gap: var(--mantine-spacing-md);
+}
+
+@media (max-width: 768px) {
+  .inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .links {
+    margin-top: var(--mantine-spacing-md);
+    flex-direction: column;
+  }
+}

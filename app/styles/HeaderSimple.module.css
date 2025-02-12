@@ -1,0 +1,41 @@
+.header {
+  width: 100%;
+  margin: 0 !important;
+  padding: 0 !important;
+  position: fixed; /* Ensure it stays at the top */
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: white; /* Ensure visibility */
+}
+
+/* Ensure inner content of the header does not add spacing */
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px; /* Keep a fixed height */
+  padding: 0 20px; /* Ensure spacing inside header */
+}
+
+  
+  .link {
+    display: block;
+    line-height: 1;
+    padding: 8px 12px;
+    border-radius: var(--mantine-radius-sm);
+    text-decoration: none;
+    color: var(--mantine-color-gray-7);
+    font-size: var(--mantine-font-size-sm);
+    font-weight: 500;
+  }
+  
+  .link:hover {
+    background-color: var(--mantine-color-gray-0);
+  }
+  
+  .link[data-active="true"] {
+    background-color: var(--mantine-color-blue-filled);
+    color: var(--mantine-color-white);
+  }
+  

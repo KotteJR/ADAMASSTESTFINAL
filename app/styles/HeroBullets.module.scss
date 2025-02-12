@@ -1,0 +1,45 @@
+$mantine-breakpoint-xs: 576px;
+$mantine-breakpoint-md: 768px;
+
+.heroSection {
+  width: 100vw;
+  min-height: 100vh; /* Full viewport height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 80px !important;/* Push Hero below header */
+  padding-left: 5%;
+  padding-right: 5%;
+  margin: 0 auto;
+  position: relative;
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 120px !important; /* Extra space for mobile */
+  }
+}
+
+
+.title {
+  color: var(--mantine-color-black);
+  font-family: Greycliff CF, var(--mantine-font-family);
+  font-size: 44px;
+  line-height: 1.2;
+  font-weight: 900;
+
+  @media (max-width: $mantine-breakpoint-xs) {
+    font-size: 28px;
+  }
+}
+
+.imageContainer {
+  display: flex;
+  justify-content: right;
+}
+
+.image {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+}
