@@ -52,7 +52,7 @@ export function FeaturesCards() {
     <Container size="lg" py="xl">
       <Group justify="center">
         <Badge variant="filled" size="lg">
-          WHATEVER YOU WANT TO PUT
+          OUR SPECIALIZATIONS
         </Badge>
       </Group>
 

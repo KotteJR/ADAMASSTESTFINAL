@@ -38,7 +38,7 @@ export function HeroBullets() {
 </List>
 
 
-          <Group mt={20}>
+          <Group mt={30}>
             <Button radius="xl" size="md" className={classes.control}>
               Contact Us
             </Button>

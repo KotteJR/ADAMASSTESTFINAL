@@ -3,19 +3,19 @@ $mantine-breakpoint-md: 768px;
 
 .heroSection {
   width: 100vw;
-  min-height: 100vh; /* Full viewport height */
+  min-height: 95vh; /* Full viewport height */
   display: flex;
   align-items: center;
   justify-content: center;
   padding-top: 80px !important;/* Push Hero below header */
-  padding-left: 5%;
-  padding-right: 5%;
+  padding-left: 7%;
+  padding-right: 7%;
   margin: 0 auto;
   position: relative;
 
   @media (max-width: 1024px) {
     flex-direction: column;
-    text-align: center;
+    text-align: left;
     padding-top: 120px !important; /* Extra space for mobile */
   }
 }
@@ -24,7 +24,7 @@ $mantine-breakpoint-md: 768px;
 .title {
   color: var(--mantine-color-black);
   font-family: Greycliff CF, var(--mantine-font-family);
-  font-size: 44px;
+  font-size: 40px;
   line-height: 1.2;
   font-weight: 900;
 
@@ -36,10 +36,14 @@ $mantine-breakpoint-md: 768px;
 .imageContainer {
   display: flex;
   justify-content: right;
+
+  @media (max-width: $mantine-breakpoint-xs) {
+    margin-top:20px;
+  }
 }
 
 .image {
   width: 100%;
-  max-width: 600px;
+  max-width: 500px;
   height: auto;
 }

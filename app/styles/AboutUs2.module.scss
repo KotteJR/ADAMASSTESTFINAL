@@ -1,0 +1,77 @@
+$mantine-breakpoint-xs: 576px;
+$mantine-breakpoint-sm: 768px;
+$mantine-breakpoint-md: 1024px;
+$mantine-breakpoint-lg: 1200px;
+
+/* About Section */
+.aboutSection {
+  width: 100%;
+  min-height: 0vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Ensures even spacing */
+  gap: 3rem;
+  padding: 20px 5%;
+  margin: 0 auto;
+  max-width: 1200px;
+
+  /* Only switch to column layout on **small screens** */
+  @media (max-width: $mantine-breakpoint-sm) {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 0px;
+    gap: 3rem;
+  }
+}
+
+/* Text Container */
+.textContainer {
+  flex: 1;
+  max-width: 55%;
+
+  @media (max-width: $mantine-breakpoint-md) {
+    max-width: 85%;
+    text-align: left;
+  }
+}
+
+/* Title */
+.title {
+  color: var(--mantine-color-black);
+  font-family: Greycliff CF, var(--mantine-font-family);
+  font-size: 44px;
+  line-height: 1.2;
+  font-weight: 900;
+  margin-bottom: 10px;
+
+  @media (max-width: $mantine-breakpoint-xs) {
+    font-size: 32px;
+  }
+}
+
+/* Image Container */
+.imageContainer {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start; /* Keeps image aligned properly */
+  align-items: center;
+  max-width: 45%;
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    justify-content: center;
+    margin-top: 40px;
+    max-width: 80%;
+  }
+}
+
+/* Image */
+.image {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  object-fit: contain;
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    max-width: 280px;
+  }
+}

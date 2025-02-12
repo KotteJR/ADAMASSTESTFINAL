@@ -4,9 +4,9 @@ import "./globals.scss"; // Make sure this path is correct
 import { HeaderSimple } from "./components/Header";
 import { HeroBullets } from "./components/HeroBullets";
 import { FeaturesCards } from "./components/FeaturesCards";
-import { ArticlesCardsGrid } from "./components/ArticlesCardsGrid";
+import { AboutUs } from "./components/AboutUs";
+import { AboutUs2 } from "./components/AboutUs2";
 import { ContactUs } from "./components/ContactUs";
-import { FeaturesGrid } from "./components/FeaturesGrid";
 import { FooterCentered } from "./components/FooterCentered";
 
 export default function HomePage() {
@@ -15,8 +15,8 @@ export default function HomePage() {
       <HeaderSimple />
       <HeroBullets /> 
       <FeaturesCards />
-      <FeaturesGrid />
-      <ArticlesCardsGrid />
+      <AboutUs />
+      <AboutUs2 />
       <ContactUs />
       <FooterCentered />
     </>
