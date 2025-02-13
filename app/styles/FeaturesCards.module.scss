@@ -2,46 +2,39 @@ $mantine-breakpoint-xs: 576px;
 $mantine-breakpoint-md: 768px;
 
 .featuresCards {
-  width: 100%; /* Make it take full width */
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* ✅ Ensures center alignment */
-  justify-content: center;
-  padding: 40px 7%; /* ✅ Maintain consistent padding */
+  padding: 40px 7%; /* ✅ Ensure consistent side padding */
+  text-align: center;
 }
 
 .container {
-  max-width: 1200px; /* ✅ Ensure it does not stretch too wide */
+  max-width: 1200px; /* ✅ This ensures the content doesn't stretch too wide */
   width: 100%;
-  margin: 0 auto; /* ✅ Center the container */
-  padding: 0 5vw; /* ✅ Keep spacing balanced */
+  margin: 0 auto; /* ✅ Centers the container */
+  padding: 0 7vw; /* ✅ Keeps spacing consistent */
 }
 
-
-.description {
-  max-width: 700px;
-  margin: 0 auto;
-  text-align: center; /* Ensure this stays centered */
+/* Title and description centering */
+.title, .description {
+  text-align: center;
+  max-width: 800px; /* ✅ Ensures text doesn't stretch */
+  margin: 0 auto; /* ✅ Centers the text */
 }
 
-
-/* Ensure cards don’t stretch */
-.grid {
-  max-width: 900px; /* ✅ Restrict width of the grid */
-  margin: auto;
+/* Cards layout */
+.SimpleGrid {
+  display: flex;
+  justify-content: center; /* ✅ Centers the grid */
+  align-items: center;
+  gap: 20px; /* ✅ Ensures spacing is uniform */
 }
 
-.featureItem {
-  max-width: 600px;
-  margin: auto;
-}
-
-@media (max-width: $mantine-breakpoint-md) {
-  .featuresContainer {
-    padding: 20px 7% !important;
+/* Adjust for mobile */
+@media (max-width: 768px) {
+  .featuresCards {
+    padding: 20px 5%;
   }
-
-  .title {
-    font-size: 24px;
+  
+  .container {
+    padding: 0 5vw;
   }
 }
