@@ -2,25 +2,21 @@ $mantine-breakpoint-xs: 576px;
 $mantine-breakpoint-md: 768px;
 
 .featuresCards {
-  text-align: center;
   padding: 40px 7%;
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* ✅ Ensures center alignment */
-  justify-content: center;
+  text-align: center;
 }
 
-.title {
-  font-size: 34px;
-  font-weight: 900;
-  text-align: center; /* ✅ Forces title to be centered */
-  margin: 0 auto; /* ✅ Ensures it’s not off to the side */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 7%;
+  text-align: center; /* Ensure everything aligns */
 }
 
 .description {
-  max-width: 800px; /* ✅ Adjust width if needed */
-  text-align: center;
-  margin: 0 auto; /* ✅ Centers horizontally */
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center; /* Ensure this stays centered */
 }
 
 

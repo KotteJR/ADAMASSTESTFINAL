@@ -12,24 +12,30 @@ $mantine-breakpoint-sm: 768px;
   border-radius: var(--mantine-radius-md);
   padding: calc(var(--mantine-spacing-xl) * 2.5);
   width: 100%;
-  max-width: 1200px; // Limit max-width to 1200px
-  margin: 0 auto; // Center the container horizontally
+  max-width: 1200px;
+  margin: 0 auto;
   background-position: center;
   margin-bottom: 60px;
   margin-top: 40px;
 
-  // Adjust padding for small screens
   @media (max-width: $mantine-breakpoint-sm) {
-    padding: calc(var(--mantine-spacing-xl) * 1); // Reduced padding for smaller screens
-    max-width: 90%; // Ensure no max-width on small screens
+    padding: calc(var(--mantine-spacing-xl) * 1);
+    max-width: 90%;
   }
 }
 
-// Ensure text is white
-.title, .description {
-  color: var(--mantine-color-white);
+// 🔹 Apply white text color **only outside the form**
+.wrapper > :not(.form) {
+  color: white !important;
 }
 
+// 🔹 Apply white color specifically to text elements
+.title,
+.description {
+  color: white !important; /* Force white text */
+}
+
+// 🔹 Leave the form styles untouched
 .form {
   background-color: var(--mantine-color-white);
   padding: var(--mantine-spacing-xl);
@@ -41,6 +47,7 @@ $mantine-breakpoint-sm: 768px;
   background-color: var(--mantine-color-white);
   border-color: var(--mantine-color-gray-4);
   color: var(--mantine-color-black);
+
   &::placeholder {
     color: var(--mantine-color-gray-5);
   }
