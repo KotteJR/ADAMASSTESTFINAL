@@ -1,40 +1,35 @@
-$mantine-breakpoint-xs: 576px;
-$mantine-breakpoint-md: 768px;
-
 .featuresCards {
-  padding: 40px 7%; /* ✅ Ensure consistent side padding */
-  text-align: center;
+  padding: 40px 7%; /* ✅ Ensures spacing is even */
+  text-align: center; /* ✅ Keeps text centered */
 }
 
 .container {
-  max-width: 1200px; /* ✅ This ensures the content doesn't stretch too wide */
-  width: 100%;
+  max-width: 1200px; /* ✅ Ensures consistent width */
   margin: 0 auto; /* ✅ Centers the container */
-  padding: 0 7vw; /* ✅ Keeps spacing consistent */
+  padding: 0 5vw; /* ✅ Keeps some spacing on the sides */
 }
 
-/* Title and description centering */
-.title, .description {
-  text-align: center;
-  max-width: 800px; /* ✅ Ensures text doesn't stretch */
-  margin: 0 auto; /* ✅ Centers the text */
+/* Title styling */
+.title {
+  font-size: 34px;
+  font-weight: 900;
+  text-align: center; /* ✅ Ensures title stays centered */
 }
 
-/* Cards layout */
-.SimpleGrid {
-  display: flex;
-  justify-content: center; /* ✅ Centers the grid */
-  align-items: center;
-  gap: 20px; /* ✅ Ensures spacing is uniform */
-}
-
-/* Adjust for mobile */
+/* Media query for smaller screens */
 @media (max-width: 768px) {
   .featuresCards {
-    padding: 20px 5%;
+    padding: 20px 7%; /* ✅ Ensures proper padding */
   }
-  
-  .container {
-    padding: 0 5vw;
+
+  .title {
+    font-size: 24px;
   }
+}
+
+/* Description styling */
+.description {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center; /* ✅ Ensures description is centered */
 }
