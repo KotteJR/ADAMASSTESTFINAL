@@ -16,7 +16,7 @@ $mantine-breakpoint-md: 768px;
   @media (max-width: 1024px) {
     flex-direction: column;
     text-align: left;
-    padding-top: 120px !important; /* Extra space for mobile */
+    padding-top: 100px !important; /* Extra space for mobile */
   }
 }
 
@@ -29,7 +29,7 @@ $mantine-breakpoint-md: 768px;
   font-weight: 900;
 
   @media (max-width: $mantine-breakpoint-xs) {
-    font-size: 28px;
+    font-size: 38px;
   }
 }
 

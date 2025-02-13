@@ -3,7 +3,7 @@ $mantine-breakpoint-sm: 768px;
 
 // Set up the container with a maximum width and ensure it doesn't stretch
 .wrapper {
-  min-height: 300px;
+  min-height: 200px;
   background-image: linear-gradient(
     -60deg,
     var(--mantine-color-blue-4) 0%,
@@ -15,13 +15,13 @@ $mantine-breakpoint-sm: 768px;
   max-width: 1200px; // Limit max-width to 1200px
   margin: 0 auto; // Center the container horizontally
   background-position: center;
-  margin-bottom: 50px;
+  margin-bottom: 60px;
   margin-top: 40px;
 
   // Adjust padding for small screens
   @media (max-width: $mantine-breakpoint-sm) {
-    padding: calc(var(--mantine-spacing-xl) * 1.5); // Reduced padding for smaller screens
-    max-width: 80%; // Ensure no max-width on small screens
+    padding: calc(var(--mantine-spacing-xl) * 1); // Reduced padding for smaller screens
+    max-width: 90%; // Ensure no max-width on small screens
   }
 }
 

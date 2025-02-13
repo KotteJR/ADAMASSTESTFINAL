@@ -1,18 +1,16 @@
 import { Container, Image, Text, Title } from "@mantine/core";
-import classes from "../styles/AboutUs.module.scss";
+import classes from "../styles/AboutUs.module.scss"; // ✅ Keep original path
 
-export function AboutUs() {
+export function AboutUs() {  // ✅ Named Export (Original)
   return (
     <Container className={classes.aboutSection}>
       <div className={classes.textContainer}>
         <Title className={classes.title}>Adamass AB</Title>
         <Text c="dimmed" size="lg">
-          Adamass AB is a consulting firm specializing in IT, finance, business
-          restructuring, due diligence, and strategic advisory. We help businesses
-          overcome challenges, streamline operations, and drive sustainable growth.
-          Our customized solutions enhance efficiency, reduce risks, and unlock new
-          opportunities. With a commitment to integrity, excellence, and long-term
-          partnerships, we deliver measurable results.
+          Adamass AB is a consulting firm specializing in IT, finance, business restructuring,
+          due diligence, and strategic advisory. We help businesses overcome challenges,
+          streamline operations, and drive sustainable growth. Our customized solutions
+          enhance efficiency, reduce risks, and unlock new opportunities.
         </Text>
       </div>
 

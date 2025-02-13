@@ -1,0 +1,37 @@
+$mantine-breakpoint-xs: 576px;
+$mantine-breakpoint-md: 768px;
+
+.featuresContainer {
+  width: 100vw;
+  max-width: 1100px; /* ✅ Match HeroBullets */
+  margin: 0 auto;
+  padding: 40px 7%;
+  text-align: center;
+}
+
+/* Match description width to HeroBullets */
+.description {
+  max-width: 600px; /* ✅ Same width as HeroBullets */
+  margin: auto;
+}
+
+/* Ensure cards don’t stretch */
+.grid {
+  max-width: 900px; /* ✅ Restrict width of the grid */
+  margin: auto;
+}
+
+.featureItem {
+  max-width: 600px;
+  margin: auto;
+}
+
+@media (max-width: $mantine-breakpoint-md) {
+  .featuresContainer {
+    padding: 20px 7% !important;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+}

@@ -11,7 +11,7 @@ import {
   Title,
   useMantineTheme,  // useMantineTheme can now be used safely
 } from '@mantine/core';
-import classes from '../styles/FeaturesCards.module.css';
+import classes from '../styles/FeaturesCards.module.scss';
 
 const mockdata = [
   {

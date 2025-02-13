@@ -9,6 +9,8 @@ import { AboutUs2 } from "./components/AboutUs2";
 import { ContactUs } from "./components/ContactUs";
 import { FooterCentered } from "./components/FooterCentered";
 
+
+
 export default function HomePage() {
   return (
     <>
