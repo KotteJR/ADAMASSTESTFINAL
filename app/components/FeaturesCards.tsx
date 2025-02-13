@@ -65,10 +65,11 @@ export function FeaturesCards() {
 
 
       </Text>
-
+      <Group justify="center" mt={50}>
       <SimpleGrid cols={{ base: 1, md: 3 }} spacing="xl" mt={50}>
         {features}
       </SimpleGrid>
+      </Group>
     </Container>
   );
 }

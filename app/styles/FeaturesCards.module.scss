@@ -27,9 +27,15 @@
   }
 }
 
-/* Description styling */
 .description {
   max-width: 600px;
   margin: 0 auto;
-  text-align: center; /* ✅ Ensures description is centered */
+  text-align: center;
 }
+
+.grid {
+  display: flex;
+  justify-content: center; /* ✅ Ensures items are centered */
+  align-items: center;
+}
+
