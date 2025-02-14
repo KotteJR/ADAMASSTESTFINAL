@@ -1,6 +1,4 @@
-import { IconBrandInstagram, IconBrandTwitter, IconBrandYoutube } from '@tabler/icons-react';
 import {
-  ActionIcon,
   Button,
   Group,
   SimpleGrid,
@@ -12,15 +10,7 @@ import {
 import { ContactIconsList } from './ContactIcons';
 import classes from '../styles/ContactUs.module.scss';
 
-const social = [IconBrandTwitter, IconBrandYoutube, IconBrandInstagram];
-
 export function ContactUs() {
-  const icons = social.map((Icon, index) => (
-    <ActionIcon key={index} size={28} className={classes.social} variant="transparent">
-      <Icon size={22} stroke={1.5} />
-    </ActionIcon>
-  ));
-
   return (
     <div className={classes.wrapper}>
       <div className={classes.contactWrapper} id="contact-us"> {/* Added id for scrolling */}
@@ -32,9 +22,8 @@ export function ContactUs() {
             </Text>
 
             <ContactIconsList />
-
-            <Group mt="xl">{icons}</Group>
           </div>
+
           <div className={classes.form}>
             <TextInput
               label="Email"
