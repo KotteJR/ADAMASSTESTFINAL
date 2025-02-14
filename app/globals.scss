@@ -1,57 +1,27 @@
-/* ✅ Global Scaling Fix for Large Screens */
-
-$mantine-breakpoint-xs: 576px;
-$mantine-breakpoint-sm: 768px;
-$mantine-breakpoint-md: 1024px;
-$mantine-breakpoint-lg: 1200px;
-$mantine-breakpoint-xl: 1600px;
-
-/* Hero Section Fix (Prevents Excess White Space on Large Screens) */
-.heroSection {
-  height: min(90vh, 900px); /* Limits max height to prevent too much empty space */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 5vh 5vw;
 }
 
-/* ✅ Dynamic Text Scaling (Fixes Small Fonts on 2K/4K Screens) */
-.title {
-  font-size: clamp(32px, 3vw, 60px); /* Responsive: Min 32px, Preferred 3% of viewport, Max 60px */
-  font-weight: 900;
-  text-align: center;
-}
-
-.description {
-  font-size: clamp(16px, 1.5vw, 24px); /* Min 16px, scales up */
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
-  line-height: 1.6;
-}
-
-/* ✅ Adaptive Image Scaling */
-.imageContainer img {
-  width: clamp(200px, 40vw, 600px); /* Prevents images from being too small */
-  height: auto;
-}
-
-/* ✅ Adds More Spacing for Large Screens */
-@media (min-width: $mantine-breakpoint-xl) {
-  .heroSection {
-    padding: 6vh 12vw; /* More padding on ultra-wide screens */
-  }
-}
-
-/* ✅ Fixes Alignment & Prevents Overflow */
-.container {
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 0 5vw;
-  text-align: center;
+.layout {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  min-height: 100vh; /* ✅ Ensures full viewport height */
 }
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding-bottom: var(--mantine-spacing-xl);
+  align-items: center; /* ✅ Ensures content inside <main> is centered */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
