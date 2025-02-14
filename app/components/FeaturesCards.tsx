@@ -35,7 +35,7 @@ const mockdata = [
 ];
 
 export function FeaturesCards() {
-  const theme = useMantineTheme();  // Now this is safe to use
+  const theme = useMantineTheme();
   const features = mockdata.map((feature) => (
     <Card key={feature.title} shadow="md" radius="md" className={classes.card} padding="xl">
       <feature.icon size={50} stroke={2} color={theme.colors.blue[6]} />
@@ -49,23 +49,23 @@ export function FeaturesCards() {
   ));
 
   return (
-    <Container size="lg" py="xl" id="features-cards"> {/* Added id for scrolling */}
+    <Container size="lg" py="xl" id="features-cards">
       <Group justify="center">
         <Badge variant="filled" size="xl">
           LEARN MORE ABOUT WHAT WE DO
         </Badge>
       </Group>
 
-      <Title order={2} className={classes.title} ta="center" mt="sm">
+      <Title order={2} className={classes.title} ta="center" mt="xs">
         Driving Growth, Reducing Risk, and Structuring Success
       </Title>
 
-      <Text c="dimmed" className={classes.description} ta="center" mt="md">
+      <Text c="dimmed" className={classes.description} ta="center" mt="xs">
         Our expertise in strategic advising, due diligence, and financial structuring ensures businesses and investors make informed, data-driven decisions.
       </Text>
-      
-      <Group justify="center" mt={50}>
-        <SimpleGrid cols={{ base: 1, md: 3 }} spacing="xl" mt={50}>
+
+      <Group justify="center" mt={30}>
+        <SimpleGrid cols={{ base: 1, md: 3 }} spacing="xl" mt={30}>
           {features}
         </SimpleGrid>
       </Group>
