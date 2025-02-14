@@ -56,19 +56,21 @@ export function FeaturesCards() {
         </Badge>
       </Group>
 
-      <Title order={2} className={classes.title} ta="center" mt="xs">
+      <Title order={2} className={classes.title} ta="center" mt="0">
         Driving Growth, Reducing Risk, and Structuring Success
       </Title>
+      
 
       <Text c="dimmed" className={classes.description} ta="center" mt="xs">
         Our expertise in strategic advising, due diligence, and financial structuring ensures businesses and investors make informed, data-driven decisions.
       </Text>
 
-      <Group justify="center" mt={30}>
+      <Group justify="center" mt={20}>
         <SimpleGrid cols={{ base: 1, md: 3 }} spacing="xl" mt={30}>
           {features}
         </SimpleGrid>
       </Group>
+      
     </Container>
   );
 }
