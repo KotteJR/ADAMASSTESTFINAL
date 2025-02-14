@@ -1,3 +1,10 @@
+// Breakpoints
+$mantine-breakpoint-xs: 576px;
+$mantine-breakpoint-sm: 768px;
+$mantine-breakpoint-md: 1024px;
+$mantine-breakpoint-lg: 1200px;
+$mantine-breakpoint-xl: 1600px; // Added for ultra-wide screens
+
 html, body {
   height: 100%;
   margin: 0;
@@ -21,7 +28,54 @@ main {
   align-items: center; /* ✅ Ensures content inside <main> is centered */
 }
 
-html {
-  scroll-behavior: smooth;
+// ✅ Center Content & Scale for Large Screens
+.container {
+  max-width: 1400px;
+  width: 85vw; /* ✅ Uses viewport width for better scaling */
+  margin: 0 auto;
+  padding: 0 5vw;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+/* Ensure proper scaling on large screens */
+@media (min-width: 1600px) {
+  .container {
+    max-width: 1600px;
+    width: 80vw; /* ✅ Makes content a bit wider on large screens */
+  }
+
+  .title {
+    font-size: 42px; /* ✅ Scales title text for readability */
+  }
+
+  main {
+    gap: 60px; /* ✅ Adjusts spacing between sections */
+  }
+}
+
+/* Improve hero section layout on ultra-wide screens */
+.heroSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 5vw;
+
+  @media (min-width: 1600px) {
+    padding: 100px 10vw; /* ✅ Adds padding for a more zoomed-in effect */
+  }
+}
+
+/* Grid adjustments for ultra-wide screens */
+.grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+
+  @media (min-width: 1600px) {
+    gap: 60px; /* ✅ Adjusts spacing for 2K screens */
+  }
+}
