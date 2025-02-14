@@ -22,8 +22,8 @@ $mantine-breakpoint-md: 768px;
   }
 
   @media (max-width: $mantine-breakpoint-xs) {
-    padding-left: 3%; /* Smaller padding for mobile */
-    padding-right: 3%; /* Smaller padding for mobile */
+    padding-left: 1%; /* Smaller padding for mobile */
+    padding-right: 1%; /* Smaller padding for mobile */
   }
 }
 
