@@ -51,7 +51,7 @@ export function FeaturesCards() {
   return (
     <Container size="lg" py="xl" id="features-cards">
       <Group justify="center">
-        <Badge variant="filled" size="xl">
+        <Badge variant="filled" size="lg">
           LEARN MORE ABOUT WHAT WE DO
         </Badge>
       </Group>
