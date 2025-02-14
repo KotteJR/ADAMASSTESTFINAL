@@ -29,8 +29,8 @@ export function HeaderSimple() {
   useEffect(() => {
     const observerOptions = {
       root: null,
-      rootMargin: "-30% 0px -50% 0px", // Switches when 30% of section is visible
-      threshold: 0.2, // Detects when at least 20% of the section is visible
+      rootMargin: "-30% 0px -50% 0px",
+      threshold: 0.2,
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -38,7 +38,7 @@ export function HeaderSimple() {
       entries.forEach((entry) => {
         if (entry.isIntersecting && !foundActive) {
           setActive(`#${entry.target.id}`);
-          foundActive = true; // Stops checking after first match
+          foundActive = true;
         }
       });
     }, observerOptions);
@@ -51,12 +51,13 @@ export function HeaderSimple() {
     return () => observer.disconnect();
   }, []);
 
-  const handleSmoothScroll = (event, target) => {
+  // ✅ Smooth Scrolling Function with TypeScript Fix
+  const handleSmoothScroll = (event: React.MouseEvent<HTMLAnchorElement>, target: string) => {
     event.preventDefault();
     setActive(target);
 
     const isMobileView = window.innerWidth < 768;
-    let headerOffset = isMobileView ? 50 : 80; // Default offsets
+    let headerOffset = isMobileView ? 50 : 80;
 
     if (target === "#about-us") {
       headerOffset = isMobileView ? 60 : 20;
@@ -81,7 +82,7 @@ export function HeaderSimple() {
       }, 300);
     }
 
-    if (isMobile) close();
+    if (isMobileView) close();
   };
 
   const items = links.map((link) => (
@@ -99,20 +100,20 @@ export function HeaderSimple() {
   return (
     <header className={classes.header}>
       <Container size="md" className={classes.inner}>
-        {/* Logo */}
+        {/* ✅ Logo - Ensures Proper Sizing */}
         <Image src="/LOGO.png" alt="Custom Logo" height={25} width={95} />
 
-        {/* Show links for desktop only */}
+        {/* ✅ Show Links for Desktop Only */}
         {!isMobile && (
-          <Group gap={5} className={classes.links}>
+          <Group gap="5" className={classes.links}>
             {items}
           </Group>
         )}
 
-        {/* Show hamburger menu for mobile only */}
+        {/* ✅ Show Hamburger Menu for Mobile Only */}
         {isMobile && <Burger opened={opened} onClick={toggle} size="sm" />}
 
-        {/* Full-screen Drawer for Mobile */}
+        {/* ✅ Full-screen Drawer for Mobile (Fixes `transitionDuration`) */}
         {isMobile && (
           <Drawer
             opened={opened}
@@ -121,10 +122,9 @@ export function HeaderSimple() {
             position="right"
             padding="md"
             title="Menu"
-            overlayOpacity={0.5}
-            transitionDuration={300}
+            transitionProps={{ duration: 300 }} // ✅ FIX: Use `transitionProps`
           >
-            <Group direction="column" spacing="lg" align="center" className={classes.mobileMenu}>
+            <Group style={{ flexDirection: "column" }} gap="lg" align="center" className={classes.mobileMenu}>
               {items}
             </Group>
           </Drawer>

@@ -1,7 +1,9 @@
+
+import "./globals.scss";
+
 import type { Metadata } from "next";
 import { MantineProvider, ColorSchemeScript, createTheme } from "@mantine/core";
 import "@mantine/core/styles.css";
-import "./globals.scss";
 import { HeaderSimple } from "./components/Header";
 
 export const metadata: Metadata = {

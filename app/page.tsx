@@ -1,5 +1,4 @@
-// page.tsx
-import "./globals.scss"; // Make sure this path is correct
+import "./globals.scss";
 
 import { HeaderSimple } from "./components/Header";
 import { HeroBullets } from "./components/HeroBullets";
