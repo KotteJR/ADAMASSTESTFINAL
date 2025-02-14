@@ -49,26 +49,25 @@ export function FeaturesCards() {
   ));
 
   return (
-    <Container size="lg" py="xl">
+    <Container size="lg" py="xl" id="features-cards"> {/* Added id for scrolling */}
       <Group justify="center">
-        <Badge variant="filled" size="lg">
-          OUR SPECIALIZATIONS
+        <Badge variant="filled" size="xl">
+          LEARN MORE ABOUT WHAT WE DO
         </Badge>
       </Group>
 
       <Title order={2} className={classes.title} ta="center" mt="sm">
-      Driving Growth, Reducing Risk, and Structuring Success
+        Driving Growth, Reducing Risk, and Structuring Success
       </Title>
 
       <Text c="dimmed" className={classes.description} ta="center" mt="md">
-      Our expertise in strategic advising, due diligence, and financial structuring ensures businesses and investors make informed, data-driven decisions.
-
-
+        Our expertise in strategic advising, due diligence, and financial structuring ensures businesses and investors make informed, data-driven decisions.
       </Text>
+      
       <Group justify="center" mt={50}>
-      <SimpleGrid cols={{ base: 1, md: 3 }} spacing="xl" mt={50}>
-        {features}
-      </SimpleGrid>
+        <SimpleGrid cols={{ base: 1, md: 3 }} spacing="xl" mt={50}>
+          {features}
+        </SimpleGrid>
       </Group>
     </Container>
   );

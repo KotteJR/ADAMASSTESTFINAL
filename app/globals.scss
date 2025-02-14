@@ -21,3 +21,7 @@ main {
   align-items: center; /* ✅ Ensures content inside <main> is centered */
 }
 
+html {
+  scroll-behavior: smooth;
+}
+

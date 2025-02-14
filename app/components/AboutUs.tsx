@@ -1,9 +1,9 @@
 import { Container, Image, Text, Title } from "@mantine/core";
 import classes from "../styles/AboutUs.module.scss"; // ✅ Keep original path
 
-export function AboutUs() {  // ✅ Named Export (Original)
+export function AboutUs() {
   return (
-    <Container className={classes.aboutSection}>
+    <Container className={classes.aboutSection} id="about-us"> {/* Added id for scrolling */}
       <div className={classes.textContainer}>
         <Title className={classes.title}>Adamass AB</Title>
         <Text c="dimmed" size="lg">

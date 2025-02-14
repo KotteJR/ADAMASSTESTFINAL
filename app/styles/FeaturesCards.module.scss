@@ -1,7 +1,15 @@
+$mantine-breakpoint-xs: 576px;
+$mantine-breakpoint-sm: 768px;
+$mantine-breakpoint-md: 1024px;
+$mantine-breakpoint-lg: 1200px;
+
 .featuresCards {
   padding: 40px 7%; /* ✅ Ensures spacing is even */
   text-align: center; /* ✅ Keeps text centered */
+
 }
+
+
 
 .container {
   max-width: 1200px; /* ✅ Make sure content is not too wide */
@@ -31,17 +39,26 @@
   .title {
     font-size: 24px;
   }
+
 }
 
 .description {
   max-width: 600px;
   margin: 0 auto;
   text-align: center;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  .description {
+    max-width: 90%;
+  }
 }
 
 .grid {
   display: flex;
   justify-content: center; /* ✅ Ensures items are centered */
   align-items: center;
+  padding-top: 20px;
 }
 

@@ -23,7 +23,7 @@ export function ContactUs() {
 
   return (
     <div className={classes.wrapper}>
-      <div className={classes.contactWrapper}> {/* Neat blue gradient section */}
+      <div className={classes.contactWrapper} id="contact-us"> {/* Added id for scrolling */}
         <SimpleGrid cols={{ base: 1, sm: 2 }} spacing={50}>
           <div>
             <Title className={classes.title}>Contact us</Title>

@@ -1,15 +1,13 @@
 "use client"; // ✅ This makes the component a Client Component
 
-import { IconBrandInstagram, IconBrandTwitter, IconBrandYoutube } from '@tabler/icons-react';
+import { IconBrandInstagram, IconBrandLinkedin, IconBrandTwitter, IconBrandYoutube } from '@tabler/icons-react';
 import { ActionIcon, Anchor, Group } from '@mantine/core';
-import { MantineLogo } from '@mantinex/mantine-logo';
+import Image from 'next/image';  // Import Image from Next.js
 import classes from '../styles/FooterCentered.module.scss';
 
 const links = [
   { link: '#', label: 'Contact' },
   { link: '#', label: 'Privacy' },
-  { link: '#', label: 'Blog' },
-  { link: '#', label: 'Store' },
   { link: '#', label: 'Careers' },
 ];
 
@@ -30,19 +28,14 @@ export function FooterCentered() {
   return (
     <div className={classes.footer}>
       <div className={classes.inner}>
-        <MantineLogo size={28} />
+        {/* Use direct path to public folder for logo */}
+        <Image src="/LOGO.png" alt="Custom Logo" height={25} width={120} />  {/* Path to public folder */}
 
         <Group className={classes.links}>{items}</Group>
 
         <Group gap="xs" justify="flex-end" wrap="nowrap">
           <ActionIcon size="lg" variant="default" radius="xl">
-            <IconBrandTwitter size={18} stroke={1.5} />
-          </ActionIcon>
-          <ActionIcon size="lg" variant="default" radius="xl">
-            <IconBrandYoutube size={18} stroke={1.5} />
-          </ActionIcon>
-          <ActionIcon size="lg" variant="default" radius="xl">
-            <IconBrandInstagram size={18} stroke={1.5} />
+            <IconBrandLinkedin size={25} stroke={1.5} />
           </ActionIcon>
         </Group>
       </div>

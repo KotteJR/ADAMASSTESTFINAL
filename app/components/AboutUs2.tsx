@@ -10,14 +10,14 @@ export function AboutUs2() {
       </div>
     
       <div className={classes.textContainer}>
-        <Title className={classes.title}>Anything</Title>
+        <Title className={classes.title}>AI-Powered Insights</Title>
         <Text c="dimmed" size="lg">
-          Adamass AB is a consulting firm specializing in IT, finance, business
-          restructuring, due diligence, and strategic advisory. We help businesses
-          overcome challenges, streamline operations, and drive sustainable growth.
-          Our customized solutions enhance efficiency, reduce risks, and unlock new
-          opportunities. With a commitment to integrity, excellence, and long-term
-          partnerships, we deliver measurable results.
+        We specialize in AI-driven analysis, 
+        machine learning solutions, automation, and data science. We help 
+        businesses leverage advanced AI technologies to enhance decision-making, 
+        optimize operations, and unlock valuable insights. Our tailored AI solutions 
+        improve efficiency, drive innovation, and enable data-informed strategies 
+        for growth.  
         </Text>
       </div>
 

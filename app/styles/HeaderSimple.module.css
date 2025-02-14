@@ -9,33 +9,58 @@
   background-color: white; /* Ensure visibility */
 }
 
-/* Ensure inner content of the header does not add spacing */
+/* Inner layout */
 .inner {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 70px; /* Keep a fixed height */
-  padding: 0 20px; /* Ensure spacing inside header */
+  padding: 0 5%; /* Ensure spacing inside header */
 }
 
-  
-  .link {
+/* Hide desktop links on mobile */
+@media (max-width: 768px) {
+  .links {
+    display: none;
+  }
+
+  /* Mobile menu styling */
+  .mobileMenu {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Ensures vertical centering */
+    align-items: center;
+    padding-top: 50px;
+  }
+}
+
+/* Ensure burger menu is only visible on mobile */
+@media (max-width: 768px) {
+  .burger {
     display: block;
-    line-height: 1;
-    padding: 8px 12px;
-    border-radius: var(--mantine-radius-sm);
-    text-decoration: none;
-    color: var(--mantine-color-gray-7);
-    font-size: var(--mantine-font-size-sm);
-    font-weight: 500;
   }
-  
-  .link:hover {
-    background-color: var(--mantine-color-gray-0);
-  }
-  
-  .link[data-active="true"] {
-    background-color: var(--mantine-color-blue-filled);
-    color: var(--mantine-color-white);
-  }
-  
+}
+
+/* Link styling */
+.link {
+  display: block;
+  line-height: 1;
+  padding: 8px 12px;
+  border-radius: var(--mantine-radius-sm);
+  text-decoration: none;
+  color: var(--mantine-color-gray-7);
+  font-size: var(--mantine-font-size-sm);
+  font-weight: 500;
+}
+
+.link:hover {
+  background-color: var(--mantine-color-gray-0);
+}
+
+.link[data-active="true"] {
+  background-color: var(--mantine-color-blue-filled);
+  color: var(--mantine-color-white);
+}
