@@ -6,13 +6,12 @@ $mantine-breakpoint-lg: 1200px;
 .featuresCards {
   padding: 30px 7%; /* ✅ Ensures spacing is even */
   text-align: center; /* ✅ Keeps text centered */
-
+  display: flex;
 }
 
 
 
 .container {
-  max-width: 1200px; /* ✅ Make sure content is not too wide */
   width: 100%;
   margin: 0 auto;
   padding: 0 5vw; /* ✅ More balanced spacing */
