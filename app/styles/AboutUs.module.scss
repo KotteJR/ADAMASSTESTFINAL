@@ -13,8 +13,6 @@ $mantine-breakpoint-lg: 1200px;
   padding-left: 10%;
   padding-right: 10%;
   min-height: 50vh;
-  padding-left: 10%;
-  padding-right: 10%;
 
   /* Only switch to column layout on **small screens** */
   @media (max-width: $mantine-breakpoint-sm) {
@@ -32,7 +30,7 @@ $mantine-breakpoint-lg: 1200px;
   max-width: 55%;
 
   @media (max-width: $mantine-breakpoint-md) {
-    max-width: 95%;
+    max-width: 100%;
     text-align: left;
   }
 }
@@ -62,7 +60,7 @@ $mantine-breakpoint-lg: 1200px;
   @media (max-width: $mantine-breakpoint-sm) {
     justify-content: center;
     margin-top: 10px;
-    max-width: 80%;
+    max-width: 100%;
   }
 }
 
@@ -74,6 +72,6 @@ $mantine-breakpoint-lg: 1200px;
   object-fit: contain;
 
   @media (max-width: $mantine-breakpoint-sm) {
-    max-width: 280px;
+    max-width: 100%;
   }
 }
