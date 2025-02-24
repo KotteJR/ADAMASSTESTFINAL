@@ -5,21 +5,23 @@ $mantine-breakpoint-lg: 1200px;
 
 /* About2 Section */
 .aboutSection {
-  min-width: 80vw;
-  min-height: 20vh;
+  width: 100vw;
+  min-height: 50vh;
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Ensures even spacing */
+  justify-content: space-between;
   padding-left: 10%;
   padding-right: 10%;
-  min-height: 50vh;
+  max-width: 100vw;
 
-  /* Only switch to column layout on **small screens** */
   @media (max-width: $mantine-breakpoint-sm) {
-    flex-direction: column-reverse;
+    flex-direction: column;
     text-align: center;
     padding-top: 10px;
     gap: 3rem;
+    margin-bottom: 0;
+    padding-left: 5%; // ✅ Add this to keep consistency
+    padding-right: 5%; // ✅ Add this
   }
 }
 

@@ -1,29 +1,62 @@
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-}
+// styles/global.scss
 
-.layout {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh; /* ✅ Ensures full viewport height */
-}
+// Define breakpoints
+$breakpoint-xs: 576px;
+$breakpoint-sm: 768px;
+$breakpoint-md: 1024px;
+$breakpoint-lg: 1200px;
 
-main {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  padding-bottom: var(--mantine-spacing-xl);
-  align-items: stretch; /* Change from 'center' to 'stretch' */
+// Global container settings
+.container {
   width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 10%;
+  padding-right: 10%;
+
+  @media (max-width: $breakpoint-lg) {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding-left: 2%;
+    padding-right: 2%;
+  }
 }
 
-
-html {
-  scroll-behavior: smooth;
+// Typography
+.title {
+  font-family: 'Greycliff CF', sans-serif;
+  font-weight: 900;
+  line-height: 1.2;
+  color: var(--mantine-color-black);
+  font-size: clamp(28px, 6vw, 45px);
 }
 
+.text {
+  color: var(--mantine-color-gray-7);
+  line-height: 1.6;
+  font-size: clamp(16px, 1.2vw, 20px);
+}
+
+// Button styles
+.button {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+
+  &.primary {
+    background: var(--mantine-color-blue-6);
+    color: #fff;
+  }
+
+  &.secondary {
+    background: transparent;
+    border: 2px solid var(--mantine-color-gray-7);
+    color: var(--mantine-color-gray-7);
+  }
+}

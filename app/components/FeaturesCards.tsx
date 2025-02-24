@@ -37,7 +37,7 @@ const mockdata = [
 export function FeaturesCards() {
   const theme = useMantineTheme();
   const features = mockdata.map((feature) => (
-    <Card key={feature.title} shadow="md" mt ="lg" radius="md" className={classes.card} padding="xl">
+    <Card key={feature.title} shadow="lg" mt ="lg" radius="md" className={classes.card} padding="xl">
       <feature.icon size={50} stroke={2} color={theme.colors.blue[6]} />
       <Text fz="lg" fw={500} className={classes.cardTitle} mt="md">
         {feature.title}
@@ -49,15 +49,11 @@ export function FeaturesCards() {
   ));
 
   return (
-    <Container size="lg" py="xl" id="features-cards">
-      <Group justify="center">
-        <Badge variant="filled" size="lg">
-          LEARN MORE ABOUT WHAT WE DO
-        </Badge>
-      </Group>
+    <Container size="xl" py="xl" id="features-cards">
+      
 
       <Title order={2} className={classes.title} ta="center" mt="lg">
-        Driving Growth, Reducing Risk, and Structuring Success
+        Reducing Risk, and Structuring Success
       </Title>
       
 
@@ -66,7 +62,7 @@ export function FeaturesCards() {
       </Text>
 
       <Group justify="center" mt={20}>
-        <SimpleGrid cols={{ base: 1, md: 3 }} spacing="lg" mt={30}>
+        <SimpleGrid cols={{ base: 1, md: 3 }} spacing="lg" mt="lg">
           {features}
         </SimpleGrid>
       </Group>
