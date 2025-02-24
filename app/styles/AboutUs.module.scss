@@ -5,14 +5,15 @@ $mantine-breakpoint-lg: 1200px;
 
 /* About Section */
 .aboutSection {
-  width: 95vw;
-  min-height: 50vh;
+  min-width: 95vw;
+  min-height: 20vh;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding-left: 12%;
-  padding-right: 12%;
-  max-width: 95vw;
+  justify-content: space-between; /* Ensures even spacing */
+  padding-left: 10%;
+  padding-right: 10%;
+  min-height: 50vh;
+
 
   @media (max-width: $mantine-breakpoint-sm) {
     flex-direction: column;
@@ -20,8 +21,8 @@ $mantine-breakpoint-lg: 1200px;
     padding-top: 10px;
     gap: 2rem;
     margin-bottom: 0;
-    padding-left: 0%; // ✅ Add this to keep consistency
-    padding-right: 0%; // ✅ Add this
+    padding-left: 7.5%; // ✅ Add this to keep consistency
+    padding-right: 7.5%; // ✅ Add this
   }
 }
 
@@ -32,7 +33,7 @@ $mantine-breakpoint-lg: 1200px;
   max-width: 55%;
 
   @media (max-width: $mantine-breakpoint-md) {
-    max-width: 100%;
+    max-width: 95%;
     text-align: left;
   }
 }
@@ -58,7 +59,6 @@ $mantine-breakpoint-lg: 1200px;
   justify-content: flex-end; /* Keeps image aligned properly */
   align-items: center;
   max-width: 50%;
-  margin-left: 5px;
 
   @media (max-width: $mantine-breakpoint-sm) {
     justify-content: center;
