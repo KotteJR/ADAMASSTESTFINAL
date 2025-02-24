@@ -1,9 +1,11 @@
 .inner {
+  overflow: hidden;
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: calc(var(--mantine-spacing-xl) * 5);
-  padding-bottom: calc(var(--mantine-spacing-xl) * 5);
+  padding-top: calc(var(--mantine-spacing-xl) * 3);
+  padding-bottom: calc(var(--mantine-spacing-xl) * 3);
   width: 100%;
   max-width: 100vw;
   min-height: 100vh;
@@ -101,6 +103,7 @@
 
 .image {
   flex: 1;
+  max-width: 35vw;
   width: clamp(200px, 35vw, 500px); /* Adjusts dynamically */
   height: auto;
   flex-shrink: 0;
