@@ -13,6 +13,8 @@ $mantine-breakpoint-lg: 1200px;
   padding-left: 10%;
   padding-right: 10%;
   min-height: 50vh;
+  padding-left: 10%;
+  padding-right: 10%;
 
   /* Only switch to column layout on **small screens** */
   @media (max-width: $mantine-breakpoint-sm) {
