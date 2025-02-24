@@ -1,5 +1,4 @@
 .inner {
-  overflow: hidden;
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -12,8 +11,8 @@
   margin: 0 auto;
   padding-left: 10%;
   padding-right: 10%;
-  position: relative;
 }
+
 
 .content {
   flex: 1;
