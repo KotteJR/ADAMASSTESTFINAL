@@ -6,7 +6,7 @@ export function AboutUs() {
     <Container className={classes.aboutSection} id="about-us"> {/* Added id for scrolling */}
       <div className={classes.textContainer}>
         <Title className={classes.title}>Adamass AB</Title>
-        <Text c="dimmed" size="lg">
+        <Text c="dimmed" mt="lg" size="lg">
           Adamass AB is a consulting firm specializing in IT, finance, business restructuring,
           due diligence, and strategic advisory. We help businesses overcome challenges,
           streamline operations, and drive sustainable growth. Our customized solutions

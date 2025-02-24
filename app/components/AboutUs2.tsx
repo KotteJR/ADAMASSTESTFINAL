@@ -11,7 +11,7 @@ export function AboutUs2() {
     
       <div className={classes.textContainer}>
         <Title className={classes.title}>AI-Powered Insights</Title>
-        <Text c="dimmed" size="lg">
+        <Text c="dimmed" mt="lg" size="lg">
         We specialize in AI-driven analysis, 
         machine learning solutions, automation, and data science. We help 
         businesses leverage advanced AI technologies to enhance decision-making, 

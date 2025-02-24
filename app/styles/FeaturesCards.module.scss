@@ -7,13 +7,12 @@ $mantine-breakpoint-lg: 1200px;
   padding: 50px 7%; /* ✅ Ensures spacing is even */
   text-align: center; /* ✅ Keeps text centered */
   display: flex;
-  min-height: 100vh;
 }
 
 
 
 .container {
-  width: 100%;
+  width: 100vw;
   margin: 0 auto;
   padding: 0 5vw; /* ✅ More balanced spacing */
   text-align: center;
@@ -25,7 +24,7 @@ $mantine-breakpoint-lg: 1200px;
 
 /* Title styling */
 .title {
-  font-size: 34px;
+  font-size: 40px;
   font-weight: 900;
   text-align: center; /* ✅ Ensures title stays centered */
 }
