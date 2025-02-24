@@ -1,25 +1,27 @@
 "use client";
 
-import { Container, Grid, Title, Text, List, ThemeIcon, Button, Group } from '@mantine/core';
-import { IconCheck } from '@tabler/icons-react';
-import classes from '../styles/HeroBullets.module.scss';
+import { IconCheck } from "@tabler/icons-react";
+import { Button, Container, Group, Image, List, Text, ThemeIcon, Title } from "@mantine/core";
+import classes from "../styles/HeroBullets.module.scss";
 
 export function HeroBullets() {
   return (
-    <Container size="xl" className={classes.heroSection} id="home">
-      <Grid gutter={20} align="center">
-        <Grid.Col span={{ base: 12, sm: 6, md: 6 }} className={classes.textSection}>
+    <Container fluid className={classes.heroSection} id="home">
+      <div className={classes.inner}>
+        <div className={classes.content}>
           <Title className={classes.title}>
-            <span className={classes.highlight}>Strategic Advisory & AI-Powered Due Diligence</span><br />
+            <span className={classes.highlight}>AI-Powered Due Diligence</span>
           </Title>
-          <Text c="dimmed" mt="md">
-            Unlock smarter decision-making with expert-driven analysis and advanced AI insights. Adamass empowers investors, businesses, and startups with in-depth technology assessments, risk evaluations, and strategic growth solutions tailored to maximize value and minimize uncertainty.
+          <Text c="grey" mt="lg" size="lg">
+            Unlock smarter decision-making with expert-driven analysis and advanced AI insights.
+            Adamass empowers investors, businesses, and startups with in-depth technology assessments,
+            risk evaluations, and strategic growth solutions tailored to maximize value and minimize uncertainty.
           </Text>
 
           <List
-            mt={20} // Reduce spacing
-            spacing="md" // Use "md" or "lg" for larger spacing
-            size="sm"
+            mt={30}
+            spacing="sm"
+            size="lg"
             icon={
               <ThemeIcon size={20} radius="xl">
                 <IconCheck size={12} stroke={1.5} />
@@ -37,7 +39,7 @@ export function HeroBullets() {
             </List.Item>
           </List>
 
-          <Group mt={30}>
+          <Group mt={35}>
             <a href="#contact-us">
               <Button radius="xl" size="md" className={classes.control}>
                 Contact Us
@@ -47,12 +49,11 @@ export function HeroBullets() {
               Learn More
             </Button>
           </Group>
-        </Grid.Col>
-
-        <Grid.Col span={{ base: 12, sm: 6, md: 6 }} className={classes.imageContainer}>
-          <img src="/7922058.jpg" alt="Hero Image" className={classes.image} />
-        </Grid.Col>
-      </Grid>
+        </div>
+        <div className={classes.imageContainer}>
+          <Image src="/7922058.jpg" alt="Hero Image" className={classes.image} />
+        </div>
+      </div>
     </Container>
   );
 }

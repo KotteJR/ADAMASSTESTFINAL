@@ -4,9 +4,10 @@ $mantine-breakpoint-md: 1024px;
 $mantine-breakpoint-lg: 1200px;
 
 .featuresCards {
-  padding: 30px 7%; /* ✅ Ensures spacing is even */
+  padding: 50px 7%; /* ✅ Ensures spacing is even */
   text-align: center; /* ✅ Keeps text centered */
   display: flex;
+  min-height: 100vh;
 }
 
 

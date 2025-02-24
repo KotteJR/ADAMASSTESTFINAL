@@ -18,8 +18,10 @@ main {
   flex-direction: column;
   gap: 40px;
   padding-bottom: var(--mantine-spacing-xl);
-  align-items: center; /* ✅ Ensures content inside <main> is centered */
+  align-items: stretch; /* Change from 'center' to 'stretch' */
+  width: 100%;
 }
+
 
 html {
   scroll-behavior: smooth;

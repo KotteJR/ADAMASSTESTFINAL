@@ -1,7 +1,7 @@
 .section {
   width: 100%;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 80px 20px;
+  align-items: flex-start; /* Change from center to flex-start */
+  justify-content: space-between; /* Allows content to spread */
+  padding: 80px 5%;
 }
