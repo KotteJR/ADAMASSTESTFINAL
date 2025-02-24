@@ -6,7 +6,7 @@ export function AboutUs2() {
     <Container className={classes.aboutSection}>
       <div className={classes.imageContainer}>
         {/* Use the correct public image path */}
-        <Image src="6195368.jpg" className={classes.image} alt="Adamass Image" />
+        <Image src="6195369.jpg" className={classes.image} alt="Adamass Image" />
       </div>
     
       <div className={classes.textContainer}>
