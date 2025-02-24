@@ -128,11 +128,11 @@
 
   @media (max-width: 768px) {
     position: absolute;
-    min-width: 100vw;
+    min-width: 130vw;
     top: 50%;
     left: 47%;
     transform: translate(-50%, -50%);
-    width: clamp(750px, 100vw, 750px); /* Adjust for background effect */
+    width: clamp(750px, 130vw, 750px); /* Adjust for background effect */
     opacity: 0.2;
     z-index: 1;
 
