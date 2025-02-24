@@ -16,8 +16,8 @@ export default function HomePage() {
       <HeaderSimple />
       <HeroBullets /> 
       <FeaturesCards />
-      <AboutUs />
       <AboutUs2 />
+      <AboutUs />
       <ContactUs />
       <FooterCentered />
     </>

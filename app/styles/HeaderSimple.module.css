@@ -7,12 +7,12 @@
 
 /* Inner layout */
 .inner {
-  width: 100%;
+  min-width: 100vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 70px; /* Keep a fixed height */
-  padding: 0 5%; /* Ensure spacing inside header */
+  padding: 0 0; /* Ensure spacing inside header */
   padding-left: 10%;
   padding-right: 10%;
 }
