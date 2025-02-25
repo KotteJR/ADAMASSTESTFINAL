@@ -72,9 +72,8 @@ $mantine-breakpoint-lg: 1200px;
   max-width: 350px;
   height: auto;
   object-fit: contain;
-  margin-left: 5px;
 
   @media (max-width: $mantine-breakpoint-sm) {
-    max-width: 280px;
+    max-width: 100%;
   }
 }
