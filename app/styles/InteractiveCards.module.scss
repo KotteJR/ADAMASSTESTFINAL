@@ -4,7 +4,7 @@
     align-items: center;
     text-align: center;
     padding: 50px 0;
-    margin-top: 120px;
+    margin-top: 110px;
     width: 100%;
 }
 
@@ -17,17 +17,15 @@
 .cardsGrid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
-    width: 85vw;
-    max-width: 1200px;
-    margin: 0 auto;
+    gap: 80px;
+    max-width: 85vw;
     justify-content: center;
 }
 
 .card {
     position: relative;
     width: 100%;
-    max-width: 300px;
+    max-width: 375px;
     height: 600px;
     border-radius: 16px;
     overflow: hidden;

@@ -12,19 +12,19 @@ interface CardData {
 const cardsData: CardData[] = [
   {
     title: "Due Diligence",
-    image: "/123.png",
+    image: "/abc.png",
     modalImage: "/images/mac-intelligence-large.jpg",
     description: "Comprehensive risk assessments, financial analysis, and operational evaluations for informed decision-making.",
   },
   {
     title: "Strategic Advisory",
-    image: "/456.png",
+    image: "/def.png",
     modalImage: "/images/mac-performance-large.jpg",
     description: "Helping businesses navigate challenges, optimize performance, and achieve long-term growth.",
   },
   {
     title: "Capital Advisory",
-    image: "/789.png",
+    image: "/ghi.png",
     modalImage: "/images/mac-iphone-large.jpg",
     description: "Optimizing capital allocation, securing financing, and managing liquidity for sustainable business success.",
   },
