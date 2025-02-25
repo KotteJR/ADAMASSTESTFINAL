@@ -3,7 +3,7 @@ import classes from "../styles/AboutUs.module.scss"; // ✅ Keep original path
 
 export function AboutUs() {
   return (
-    <Container className={classes.aboutSection} id="about-us"> {/* Added id for scrolling */}
+    <Container className={classes.aboutSection}> {/* Added id for scrolling */}
       <div className={classes.textContainer}>
         <Title className={classes.title}>Adamass AB</Title>
         <Text c="dimmed" mt="lg" size="lg">

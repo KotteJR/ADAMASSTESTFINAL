@@ -3,7 +3,7 @@ import classes from "../styles/AboutUs2.module.scss"; // ✅ Keep original path
 
 export function AboutUs2() {
   return (
-    <Container className={classes.aboutSection}> {/* Added id for scrolling */}
+    <Container className={classes.aboutSection} id="about-us"> {/* Added id for scrolling */}
       <div className={classes.imageContainer}>
         {/* Use the correct public image path */}
         <Image src="6195369.jpg" className={classes.image} alt="Adamass Image" />
