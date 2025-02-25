@@ -24,19 +24,34 @@ html, body {
   z-index: -1; /* Keeps it behind text */
 }
 
+:root {
+  --progress-top: 0%;
+  --progress-bottom: 0%;
+  --progress-left: 0%;
+  --progress-right: 0%;
+}
+
 .progress-square {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  border: 5px solid var(--mantine-color-gray-7); /* ✅ Square outline */
-  box-sizing: border-box;
-  pointer-events: none; /* ✅ Ensure it doesn’t interfere with interactions */
-  z-index: -1; /* ✅ Behind content */
-  opacity: 0.5;
-  transform: scale(0); /* Start hidden */
+  pointer-events: none;
+  z-index: -9999;
+
+  
+
+.bottom {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%); /* Centers it */
+  width: var(--progress-bottom-width, 0%);
+  height: 10px;
+  background: rgba(0, 110, 255, 1);
+  transition: width 0.1s linear;
+  z-index: -9999;
+
 }
-
-
-
+}

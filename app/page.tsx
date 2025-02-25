@@ -13,8 +13,15 @@ import { FooterCentered } from "./components/FooterCentered";
 
 export default function HomePage() {
   useEffect(() => {
-    // Scroll progress bar animation
-    scroll(animate(".progress", { scaleX: [0, 1] }, { easing: "ease-in-out" }));
+    console.log("✅ Progress Square Animation Loaded");
+
+    scroll(({ y }) => {
+      const scrollProgress = y.progress * 100;
+      
+      
+      document.documentElement.style.setProperty("--progress-bottom-width", `${scrollProgress}%`);
+      
+    });
 
     // Section title animations
     document.querySelectorAll(".section-title").forEach((title) => {
@@ -23,12 +30,20 @@ export default function HomePage() {
         { target: title }
       );
     });
+
   }, []);
 
   return (
     <>
       <HeaderSimple />
-      <div className="progress"></div>
+      
+      {/* Progress Square */}
+      <div className="progress-square">
+        <div className="top"></div>
+        <div className="bottom"></div>
+        <div className="left"></div>
+        <div className="right"></div>
+      </div>
 
       <section className="section">
         <h2 className="section-title"></h2>
