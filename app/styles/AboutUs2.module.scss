@@ -7,23 +7,22 @@ $mantine-breakpoint-lg: 1200px;
 .aboutSection {
   max-width: 100vw;
   min-width: 80vw;
-  min-height: 100vh;
+  min-height: 50vh;
   display: flex;
   align-items: center;
   justify-content: space-between; /* Ensures even spacing */
   padding-left: 10%;
   padding-right: 10%;
-  min-height: 50vh;
-
+  margin-top: 10vh;
 
   @media (max-width: $mantine-breakpoint-sm) {
     flex-direction: column-reverse;
     text-align: center;
-    padding-top: 10px;
     gap: 2rem;
-    margin-bottom: 0;
     padding-left: 7.5%; // 
     padding-right: 7.5%; // 
+    margin-bottom: 8vh;
+
   }
 }
 
