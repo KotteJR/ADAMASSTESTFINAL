@@ -24,13 +24,17 @@ html, body {
   z-index: -1; /* Keeps it behind text */
 }
 
-.progress {
+.progress-square {
   position: fixed;
-  transform: translateX(50%); // Center it
-  width: 100vw; // Make it less wide
-  height: 1px;
-  background: rgba(0, 0, 0, 0.2); // Lower opacity
-  bottom: 50px;
-  z-index: -2; // Send it behind content
+  top: 5%;
+  left: 5%;
+  width: 90vw;  /* Takes up most of the viewport */
+  height: 90vh;
+  border: 4px solid var(--mantine-color-gray-7);  /* Light gray border */
+  opacity: 0.3;  /* Less intrusive */
+  transform: scaleX(0) scaleY(0); /* Initially hidden */
+  z-index: -2; /* Ensures it's behind content */
+  pointer-events: none; /* Prevents interference */
 }
+
 

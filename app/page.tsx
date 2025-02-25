@@ -14,7 +14,7 @@ import { FooterCentered } from "./components/FooterCentered";
 export default function HomePage() {
   useEffect(() => {
     // Scroll progress bar animation
-    scroll(animate(".progress", { scaleX: [0, 1] }, { ease: "linear" }));
+    scroll(animate(".progress", { scaleX: [0, 1] }, { easing: "ease-in-out" }));
 
     // Section title animations
     document.querySelectorAll(".section-title").forEach((title) => {
