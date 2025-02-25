@@ -103,7 +103,7 @@
 .image {
   flex: 1;
   max-width: 35vw;
-  width: clamp(300px, 40vw, 600px); /* Adjusts dynamically */
+  width: clamp(700px, 40vw, 600px); /* Adjusts dynamically */
   height: auto;
   flex-shrink: 0;
   margin-left: 4%;
