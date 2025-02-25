@@ -18,10 +18,8 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 80px;
-    min-width: 85vw;
+    max-width: 90vw;
     justify-content: center;
-    padding-left: 10%;
-    padding-right: 10%;
 }
 
 .card {
