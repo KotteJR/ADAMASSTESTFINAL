@@ -14,7 +14,7 @@ import { FooterCentered } from "./components/FooterCentered";
 export default function HomePage() {
   useEffect(() => {
     // Scroll progress bar animation
-    scroll(animate(".progress", { scaleX: [0, 1] }, { easing: "ease-in-out" }));
+    scroll(animate(".progress", { scaleX: [0, 1] }, { ease: "linear" }));
 
     // Section title animations
     document.querySelectorAll(".section-title").forEach((title) => {
@@ -51,7 +51,7 @@ export default function HomePage() {
       </section>
 
       <section className="section">
-        <h2 className="section-title">Contact</h2>
+        <h2 className="section-title">Get In Touch</h2>
         <ContactUs />
       </section>
 
