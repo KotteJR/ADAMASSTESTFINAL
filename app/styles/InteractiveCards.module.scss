@@ -20,7 +20,7 @@
     align-items: center;
     flex-wrap: nowrap;
     gap: 5vw;
-    width: 85vw;
+    width: 100vw;
     max-width: 85vw;
     margin: 0 auto;
     position: relative;
@@ -31,7 +31,7 @@
 .card {
     position: relative;
     width: 30vw;
-    max-width: 350px;
+    max-width: 400px;
     height: 600px;
     border-radius: 16px;
     overflow: hidden;
@@ -39,9 +39,7 @@
     display: flex;
     align-items: flex-end;
     transition: transform 0.3s ease-in-out;
-    flex-grow: 1;
-    flex-shrink: 0;
-    margin: 0;
+    flex: 1;
 
     &:hover {
         transform: scale(1.05);
