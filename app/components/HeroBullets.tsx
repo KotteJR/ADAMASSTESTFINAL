@@ -3,16 +3,15 @@
 import { IconCheck } from "@tabler/icons-react";
 import { Button, Container, Group, Image, List, Text, ThemeIcon, Title } from "@mantine/core";
 import classes from "../styles/HeroBullets.module.scss";
+import { TypingTitle } from "./TypingTitle";
 
 export function HeroBullets() {
   return (
     <Container fluid className={classes.heroSection} id="home">
       <div className={classes.inner}>
         <div className={classes.content}>
-          <Title className={classes.title}>
-            <span className={classes.highlight}>AI-Powered Due Diligence</span>
-          </Title>
-          <Text c="grey" mt="lg" size="lg">
+        <TypingTitle text="AI-Powered Due Diligence" />
+          <Text c="grey" mt="0" size="lg">
             Unlock smarter decision-making with expert-driven analysis and advanced AI insights.
             Adamass empowers investors, businesses, and startups with in-depth technology assessments,
             risk evaluations, and strategic growth solutions tailored to maximize value and minimize uncertainty.
@@ -45,7 +44,7 @@ export function HeroBullets() {
                 Contact Us
               </Button>
             </a>
-            <Button variant="default" radius="xl" size="md" className={classes.control}>
+            <Button variant="default" radius="xl" size="md" className={classes.control1}>
               Learn More
             </Button>
           </Group>

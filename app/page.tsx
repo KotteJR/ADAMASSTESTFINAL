@@ -35,7 +35,7 @@ export default function HomePage() {
     // Restore Section Title Animation
     document.querySelectorAll(".section-title").forEach((title) => {
       scroll(
-        animate(title, { y: [-50, 50], opacity: [0, 1] }, { easing: "ease-in-out" }),
+        animate(title, { y: [-50, 50], opacity: [0.6, 1, 0.2,] }, { easing: "ease-in-out" }),
         { target: title }
       );
     });

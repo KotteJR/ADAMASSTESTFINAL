@@ -12,7 +12,7 @@ $mantine-breakpoint-sm: 768px;
   padding: calc(var(--mantine-spacing-xl) * 2.5);
   width: 100%;
   max-width: 78vw;
-  margin: 10rem auto 0 auto; // 🔹 Added top margin for spacing
+  margin: 8rem auto 0 auto; // 🔹 Added top margin for spacing
   background-position: center;
 
   @media (max-width: $mantine-breakpoint-sm) {
@@ -57,5 +57,5 @@ $mantine-breakpoint-sm: 768px;
 }
 
 .control {
-  background-color: var(--mantine-color-blue-6);
+  background-color: rgba(0, 110, 255, 1);
 }

@@ -41,9 +41,10 @@
   font-family:
     Greycliff CF,
     var(--mantine-font-family);
-  font-size: clamp(28px, 6vw, 45px); /* Increased scaling */
-  line-height: 1.2;
+  font-size: clamp(32px, 6vw, 55px); /* Increased scaling */
+  line-height: 0.2;
   font-weight: 900;
+  text-align: left;
 
   @media (max-width: 576px) {
     font-size: clamp(32px, 8vw, 60px); /* Bigger on smaller screens */
@@ -72,7 +73,8 @@
   font-size: clamp(16px, 1.3vw, 18px); /* ✅ Scales proportionally */
   font-weight: 500;
   line-height: 1.5;
-  color: var(--mantine-color-dark-9);
+  color: rgba(0, 110, 255, 1);
+  
 
   @media (max-width: 1100px) {
     font-size: clamp(15px, 1.4vw, 17px);
@@ -92,7 +94,7 @@
   max-width: 180px;
   min-width: auto;
   flex-grow: 0;
-
+  background-color: rgba(0, 110, 255, 1);
 
   @media (max-width: 576px) {
     max-width: 160px;

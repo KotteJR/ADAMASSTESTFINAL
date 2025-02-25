@@ -19,7 +19,7 @@ $mantine-breakpoint-lg: 1200px;
     padding-left: 7.5%; 
     padding-right: 7.5%; 
   }
-  
+
   @media (max-width: $mantine-breakpoint-sm) {
     flex-direction: column-reverse;
     text-align: center;
@@ -62,8 +62,8 @@ $mantine-breakpoint-lg: 1200px;
   display: flex;
   justify-content: flex-start; 
   align-items: center;
-  max-width: 50%;
-  min-width: 50%;
+  max-width: 55%;
+  min-width: 55%;
 
   @media (max-width: $mantine-breakpoint-sm) {
     justify-content: center;
