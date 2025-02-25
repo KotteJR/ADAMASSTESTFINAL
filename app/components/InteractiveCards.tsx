@@ -57,7 +57,9 @@ export function InteractiveCards() {
         ))}
       </SimpleGrid>
 
-      <Modal opened={opened} onClose={() => setOpened(false)} centered className={classes.modal} overlayBlur={5}>
+      <Modal opened={opened} onClose={() => setOpened(false)} centered className={classes.modal} 
+  overlayProps={{ blur: 5 }}>
+
         {selectedCard?.modalImage && <Image src={selectedCard.modalImage} className={classes.modalImage} alt={selectedCard.title} />}
         <Title order={3}>{selectedCard?.title}</Title>
         <Text>{selectedCard?.description}</Text>

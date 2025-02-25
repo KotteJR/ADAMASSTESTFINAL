@@ -13,12 +13,12 @@
   .cardsGrid {
     display: flex;
     justify-content: center;
-    gap: 50px;
+    gap: 80px;
   }
   
   .card {
     position: relative;
-    width: 350px; /* Ensures the cards are large */
+    width: 400px; /* Ensures the cards are large */
     height: 600px; /* Makes cards taller */
     border-radius: 16px;
     overflow: hidden;
