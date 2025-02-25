@@ -60,6 +60,6 @@
 }
 
 .link[data-active="true"] {
-  background-color: var(--mantine-color-blue-filled);
+  background-color: rgba(0, 110, 255, 1);
   color: var(--mantine-color-white);
 }

@@ -11,7 +11,7 @@ export function HeroBullets() {
       <div className={classes.inner}>
         <div className={classes.content}>
         <TypingTitle text="AI-Powered Due Diligence" />
-          <Text c="grey" mt="0" size="lg">
+          <Text c="grey" mt="0" size="xl">
             Unlock smarter decision-making with expert-driven analysis and advanced AI insights.
             Adamass empowers investors, businesses, and startups with in-depth technology assessments,
             risk evaluations, and strategic growth solutions tailored to maximize value and minimize uncertainty.

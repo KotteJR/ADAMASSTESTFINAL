@@ -37,13 +37,13 @@ const mockdata = [
 export function FeaturesCards() {
   const theme = useMantineTheme();
   const features = mockdata.map((feature) => (
-    <Card key={feature.title} shadow="lg" mt ="lg" radius="md" className={classes.card} padding="xl">
+    <Card key={feature.title} fz="xl" shadow="lg" mt ="lg" radius="md" className={classes.card} padding="xl">
       <feature.icon size={50} stroke={2} 
         color={theme.colors.blue[6]} />
       <Text fz="lg" fw={500} className={classes.cardTitle} mt="md">
         {feature.title}
       </Text>
-      <Text fz="sm" c="dimmed" mt="sm">
+      <Text fz="lg" c="dimmed" mt="sm">
         {feature.description}
       </Text>
     </Card>
