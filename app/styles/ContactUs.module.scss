@@ -12,11 +12,11 @@ $mantine-breakpoint-sm: 768px;
   border-radius: var(--mantine-radius-md);
   padding: calc(var(--mantine-spacing-xl) * 2.5);
   width: 100%;
-  max-width: 1200px;
+  max-width: 78vw;
   margin: 0 auto;
   background-position: center;
-  margin-bottom: 60px;
-  margin-top: 40px;
+  margin-bottom: 100px;
+  margin-top: 10px;
 
   @media (max-width: $mantine-breakpoint-sm) {
     padding: calc(var(--mantine-spacing-xl) * 1);
