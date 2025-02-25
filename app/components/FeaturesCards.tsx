@@ -53,7 +53,7 @@ export function FeaturesCards() {
     <Container size="xl" py="xl" id="features-cards">
       
 
-      <Title order={2} className={classes.title} ta="center" mt="lg">
+      <Title order={1} className={classes.title} ta="center" mt="lg">
         Reducing Risk, and Structuring Success
       </Title>
       

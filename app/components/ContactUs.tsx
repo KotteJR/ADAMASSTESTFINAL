@@ -40,7 +40,7 @@ export function ContactUs() {
             <Textarea
               required
               label="Your message"
-              placeholder="I want to order your goods"
+              placeholder="Anything and Everything"
               minRows={4}
               mt="md"
               classNames={{ input: classes.input, label: classes.inputLabel }}

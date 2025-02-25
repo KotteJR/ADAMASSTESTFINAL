@@ -34,7 +34,7 @@ $mantine-breakpoint-lg: 1200px;
 .title {
   color: light-dark(var(--mantine-color-black), var(--mantine-color-white));
   font-family: Greycliff CF, var(--mantine-font-family);
-  font-size: clamp(28px, 6vw, 45px); /* Matches HeroBullets */
+  font-size: clamp(lg, 6vw, xl); /* Matches HeroBullets */
   line-height: 1.6;
   font-weight: 900;
   text-align: center;
@@ -47,7 +47,7 @@ $mantine-breakpoint-lg: 1200px;
 
 /* Description */
 .description {
-  font-size: clamp(20px, 1.2vw, 20px);
+  font-size: clamp(20px, 1.2vw, 30px);
   line-height: 1.6;
   color: var(--mantine-color-gray-7);
   max-width: 900px;
@@ -57,7 +57,7 @@ $mantine-breakpoint-lg: 1200px;
   
 
   @media (max-width: $mantine-breakpoint-xs) {
-    font-size: clamp(15px, 4.5vw, 18px);
+    font-size: clamp(20px, 4.5vw, 25px);
   }
 }
 
