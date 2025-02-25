@@ -54,10 +54,7 @@ $mantine-breakpoint-lg: 1200px;
   margin: 5px auto 10px !important;
   text-align: center;
 
-  @media (max-width: $mantine-breakpoint-md) {
-    max-width: 80%;
-    font-size: clamp(15px, 1.5vw, 18px);
-  }
+  
 
   @media (max-width: $mantine-breakpoint-xs) {
     font-size: clamp(15px, 4.5vw, 18px);
