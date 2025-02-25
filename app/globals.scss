@@ -20,7 +20,7 @@ html, body {
   font-size: 5rem;
   font-weight: bold;
   color: rgba(0, 110, 255, 1);
-  opacity: 0.3; 
+  opacity: 0.2; 
   z-index: -1; 
 }
 
@@ -110,5 +110,18 @@ p {
   font-size: clamp(1rem, 2vw, 1.25rem);
   line-height: 1.8;
   color: #666;
+}
+
+
+:root {
+  --mantine-font-family: "Inter", sans-serif !important;
+  --mantine-font-family-headings: "Inter", sans-serif !important;
+  --mantine-font-size-xs: 12px !important;
+  --mantine-font-size-sm: 14px !important;
+  --mantine-font-size-md: 16px !important;
+  --mantine-font-size-lg: 20px !important;
+  --mantine-font-size-xl: 24px !important;
+  --mantine-h1-font-size: 34px !important;
+  --mantine-h2-font-size: 30px !important;
 }
 

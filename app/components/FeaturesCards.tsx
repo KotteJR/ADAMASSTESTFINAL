@@ -1,16 +1,7 @@
-"use client";  // Marking this as a client component
+"use client";
 
 import { IconCookie, IconGauge, IconUser } from '@tabler/icons-react';
-import {
-  Badge,
-  Card,
-  Container,
-  Group,
-  SimpleGrid,
-  Text,
-  Title,
-  useMantineTheme,  // useMantineTheme can now be used safely
-} from '@mantine/core';
+import { Badge, Card, Container, Group, SimpleGrid, Text, Title, useMantineTheme } from '@mantine/core';
 import classes from '../styles/FeaturesCards.module.scss';
 
 const mockdata = [
@@ -37,37 +28,36 @@ const mockdata = [
 export function FeaturesCards() {
   const theme = useMantineTheme();
   const features = mockdata.map((feature) => (
-    <Card key={feature.title} fz="xl" shadow="lg" mt ="lg" radius="md" className={classes.card} padding="xl">
-      <feature.icon size={50} stroke={2} 
-        color={theme.colors.blue[6]} />
+    <Card key={feature.title} shadow="md" radius="md" className={classes.card} padding="xl">
+      <feature.icon size={50} stroke={2} color={theme.colors.blue[6]} />
       <Text fz="lg" fw={500} className={classes.cardTitle} mt="md">
         {feature.title}
       </Text>
-      <Text fz="lg" c="dimmed" mt="sm">
+      <Text fz="sm" c="dimmed" mt="sm">
         {feature.description}
       </Text>
     </Card>
   ));
 
   return (
-    <Container size="xl" py="xl" id="features-cards">
-      
+    <Container size="lg" py="xl">
+      <Group justify="center">
+        <Badge variant="filled" size="lg">
+          Best company ever
+        </Badge>
+      </Group>
 
-      <Title order={1} className={classes.title} ta="center" mt="lg">
+      <Title order={2} className={classes.title} ta="center" mt="sm">
         Reducing Risk, and Structuring Success
       </Title>
-      
 
-      <Text c="dimmed" className={classes.description} ta="center" mt="lg">
+      <Text c="dimmed" className={classes.description} ta="center" mt="md">
         Our expertise in strategic advising, due diligence, and financial structuring ensures businesses and investors make informed, data-driven decisions.
       </Text>
 
-      <Group justify="center" mt={20}>
-        <SimpleGrid cols={{ base: 1, md: 3 }} spacing="lg" mt="lg">
-          {features}
-        </SimpleGrid>
-      </Group>
-      
+      <SimpleGrid cols={{ base: 1, md: 3 }} spacing="xl" mt={50}>
+        {features}
+      </SimpleGrid>
     </Container>
   );
 }

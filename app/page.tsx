@@ -5,7 +5,7 @@ import "./globals.scss";
 
 import { HeaderSimple } from "./components/Header";
 import { HeroBullets } from "./components/HeroBullets";
-import { FeaturesCards } from "./components/FeaturesCards";
+import { InteractiveCards } from "./components/InteractiveCards";
 import { AboutUs } from "./components/AboutUs";
 import { AboutUs2 } from "./components/AboutUs2";
 import { ContactUs } from "./components/ContactUs";
@@ -35,7 +35,7 @@ export default function HomePage() {
     // Restore Section Title Animation
     document.querySelectorAll(".section-title").forEach((title) => {
       scroll(
-        animate(title, { y: [-50, 50], opacity: [0.6, 1, 0.2,] }, { easing: "ease-in-out" }),
+        animate(title, { y: [-50, 50], opacity: [0.2, 1, 0.2,] }, { easing: "ease-in-out" }),
         { target: title }
       );
     });
@@ -64,7 +64,7 @@ export default function HomePage() {
 
       <section className="section">
         <h2 className="section-title">What We Do</h2>
-        <FeaturesCards />
+        <InteractiveCards />
       </section>
 
       <section className="section">

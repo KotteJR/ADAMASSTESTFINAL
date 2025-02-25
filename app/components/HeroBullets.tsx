@@ -10,7 +10,7 @@ export function HeroBullets() {
     <Container fluid className={classes.heroSection} id="home">
       <div className={classes.inner}>
         <div className={classes.content}>
-        <TypingTitle text="AI-Powered Due Diligence" />
+        <TypingTitle text="Bla Bla Bla..." />
           <Text c="grey" mt="0" size="xl">
             Unlock smarter decision-making with expert-driven analysis and advanced AI insights.
             Adamass empowers investors, businesses, and startups with in-depth technology assessments,
