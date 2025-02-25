@@ -4,7 +4,7 @@
     align-items: center;
     text-align: center;
     padding: 50px 0;
-    margin-top: 110px;
+    margin-top: 120px;
     width: 100%;
 }
 
@@ -15,19 +15,19 @@
 }
 
 .cardsGrid {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2vw;
-    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    width: 85vw;
     max-width: 1200px;
     margin: 0 auto;
+    justify-content: center;
 }
 
 .card {
     position: relative;
-    width: 30%;  /* Ensures even distribution */
-    max-width: 400px;
+    width: 100%;
+    max-width: 300px;
     height: 600px;
     border-radius: 16px;
     overflow: hidden;
@@ -35,8 +35,7 @@
     display: flex;
     align-items: flex-end;
     transition: transform 0.3s ease-in-out;
-    flex-grow: 1;
-
+    
     &:hover {
         transform: scale(1.05);
     }
@@ -59,7 +58,7 @@
 }
 
 .overlayText {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 700;
     color: white;
     margin-bottom: 10px;
@@ -74,27 +73,4 @@
     font-size: 16px;
     background-color: rgba(0, 110, 255, 1);
     color: white;
-}
-
-@media (max-width: 1200px) {
-    .cardsGrid {
-        width: 90vw;
-        padding: 0 20px;
-    }
-
-    .card {
-        width: 28%;
-    }
-}
-
-@media (max-width: 768px) {
-    .cardsGrid {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .card {
-        width: 90%;
-        max-width: 90vw;
-    }
 }
