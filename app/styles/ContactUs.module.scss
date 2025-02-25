@@ -12,13 +12,13 @@ $mantine-breakpoint-sm: 768px;
   padding: calc(var(--mantine-spacing-xl) * 2.5);
   width: 100%;
   max-width: 78vw;
-  margin: 8rem auto 0 auto; // 🔹 Added top margin for spacing
+  margin: 6rem auto 0 auto; // 🔹 Added top margin for spacing
   background-position: center;
 
   @media (max-width: $mantine-breakpoint-sm) {
     padding: calc(var(--mantine-spacing-xl) * 1);
     max-width: 90%;
-    margin-top: 3rem; // 🔹 Adjust for mobile
+    margin-top: 2rem; // 🔹 Adjust for mobile
   }
 }
 
