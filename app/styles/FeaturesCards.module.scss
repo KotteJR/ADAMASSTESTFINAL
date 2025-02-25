@@ -1,6 +1,6 @@
 $mantine-breakpoint-xs: 576px;
 $mantine-breakpoint-sm: 768px;
-$mantine-breakpoint-md: 1024px;
+$mantine-breakpoint-md: 1100px;
 $mantine-breakpoint-lg: 1200px;
 
 .featuresCards {
@@ -39,8 +39,16 @@ $mantine-breakpoint-lg: 1200px;
   font-weight: 900;
   text-align: center;
 
+  @media (max-width: $mantine-breakpoint-md) {
+    max-width: 90%;
+    align-content: center;
+    margin-left: 7.5%;
+    margin-right: 7.5%;
+  }
+  
   @media (max-width: $mantine-breakpoint-xs) {
     font-size: clamp(32px, 8vw, 60px); /* Bigger on smaller screens */
+    margin-bottom: 3%;
   }
 }
 
@@ -54,7 +62,7 @@ $mantine-breakpoint-lg: 1200px;
   text-align: center;
 
   @media (max-width: $mantine-breakpoint-md) {
-    max-width: 90%;
+    max-width: 80%;
     font-size: clamp(15px, 1.5vw, 18px);
   }
 
