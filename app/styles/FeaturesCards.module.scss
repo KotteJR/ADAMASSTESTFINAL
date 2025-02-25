@@ -34,7 +34,7 @@ $mantine-breakpoint-lg: 1200px;
 .title {
   color: light-dark(var(--mantine-color-black), var(--mantine-color-white));
   font-family: Greycliff CF, var(--mantine-font-family);
-  font-size: clamp(lg, 6vw, xl); /* Matches HeroBullets */
+  font-size: clamp(70px, 6vw, 70px); /* Matches HeroBullets */
   line-height: 1.6;
   font-weight: 900;
   text-align: center;
@@ -47,7 +47,7 @@ $mantine-breakpoint-lg: 1200px;
 
 /* Description */
 .description {
-  font-size: clamp(20px, 1.2vw, 30px);
+  font-size: clamp(40px, 1.2vw, 40px);
   line-height: 1.6;
   color: var(--mantine-color-gray-7);
   max-width: 900px;
