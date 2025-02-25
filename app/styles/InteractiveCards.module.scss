@@ -19,15 +19,14 @@
     justify-content: center;
     align-items: center;
     gap: 2vw;
-    width: 90vw;
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    position: relative;
 }
 
 .card {
     position: relative;
-    width: 30%;
+    width: 30%;  /* Ensures even distribution */
     max-width: 400px;
     height: 600px;
     border-radius: 16px;
@@ -36,7 +35,7 @@
     display: flex;
     align-items: flex-end;
     transition: transform 0.3s ease-in-out;
-    flex: 1;
+    flex-grow: 1;
 
     &:hover {
         transform: scale(1.05);
@@ -79,8 +78,12 @@
 
 @media (max-width: 1200px) {
     .cardsGrid {
-        width: 100vw;
+        width: 90vw;
         padding: 0 20px;
+    }
+
+    .card {
+        width: 28%;
     }
 }
 
