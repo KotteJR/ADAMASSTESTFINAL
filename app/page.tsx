@@ -13,25 +13,37 @@ import { FooterCentered } from "./components/FooterCentered";
 
 export default function HomePage() {
   useEffect(() => {
-    console.log("✅ Progress Square Animation Loaded");
-
-    scroll(({ y }) => {
-      const scrollProgress = y.progress * 100;
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
       
-      
-      document.documentElement.style.setProperty("--progress-bottom-width", `${scrollProgress}%`);
-      
-    });
-
-    // Section title animations
+      // Get the footer's position
+      const footer = document.querySelector("footer");
+      const footerOffset = footer ? footer.offsetTop : documentHeight;
+  
+      // Calculate scroll progress stopping before the footer
+      const maxScrollableHeight = footerOffset - windowHeight;
+      const progress = Math.min(scrollTop / maxScrollableHeight, 1) * 100;
+  
+      // Apply progress to the CSS variable
+      document.documentElement.style.setProperty("--progress-bottom-width", `${progress}%`);
+    };
+  
+    window.addEventListener("scroll", handleScroll);
+  
+    // Restore Section Title Animation
     document.querySelectorAll(".section-title").forEach((title) => {
       scroll(
         animate(title, { y: [-50, 50], opacity: [0, 1] }, { easing: "ease-in-out" }),
         { target: title }
       );
     });
-
+  
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+  
+  
 
   return (
     <>

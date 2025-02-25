@@ -38,7 +38,7 @@ html, body {
   width: 100vw;
   height: 100vh;
   pointer-events: none;
-  z-index: -9999;
+  z-index: 9999;
 
   
 
@@ -51,7 +51,7 @@ html, body {
   height: 10px;
   background: rgba(0, 110, 255, 1);
   transition: width 0.1s linear;
-  z-index: -9999;
+  z-index: 9999;
 
 }
 }
