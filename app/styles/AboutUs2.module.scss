@@ -8,21 +8,24 @@ $mantine-breakpoint-lg: 1200px;
   max-width: 100vw;
   width: 95vw;
   min-width: 80vw;
-  min-height: 50vh;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding-left: 10%;
   padding-right: 10%;
-  margin-top: 10vh;
 
+
+  @media (max-width: $mantine-breakpoint-md) {
+    padding-left: 7.5%; 
+    padding-right: 7.5%; 
+  }
+  
   @media (max-width: $mantine-breakpoint-sm) {
     flex-direction: column-reverse;
     text-align: center;
     gap: 2rem;
     padding-left: 7.5%; // 
     padding-right: 7.5%; // 
-    margin-bottom: 8vh;
 
   }
 }

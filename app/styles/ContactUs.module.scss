@@ -3,7 +3,6 @@ $mantine-breakpoint-sm: 768px;
 
 // Set up the container with a maximum width and ensure it doesn't stretch
 .wrapper {
-  min-height: 200px;
   background-image: linear-gradient(
     -60deg,
     var(--mantine-color-blue-4) 0%,
@@ -15,8 +14,6 @@ $mantine-breakpoint-sm: 768px;
   max-width: 78vw;
   margin: 0 auto;
   background-position: center;
-  margin-bottom: 100px;
-  margin-top: 10px;
 
   @media (max-width: $mantine-breakpoint-sm) {
     padding: calc(var(--mantine-spacing-xl) * 1);

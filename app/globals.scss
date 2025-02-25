@@ -1,8 +1,36 @@
-// styles/global.scss
+html, body {
+  scroll-snap-type: y mandatory;
+  overflow-x: hidden;
+}
 
-// Define breakpoints
-$breakpoint-xs: 576px;
-$breakpoint-sm: 768px;
-$breakpoint-md: 1024px;
-$breakpoint-lg: 1200px;
+.section {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  scroll-snap-align: start;
+  position: relative;
+}
+
+.section-title {
+  position: absolute; /* Relative to the nearest positioned ancestor */
+  width: 100vw; /* Makes sure it spans full width */
+  text-align: center; /* Ensures text stays centered */
+  top: 5vh; /* Adjust this value to position vertically */
+  font-size: 5rem;
+  font-weight: bold;
+  color: var(--mantine-color-gray-7);
+  opacity: 0.2; /* Less intrusive */
+  z-index: -1; /* Keeps it behind text */
+}
+
+.progress {
+  position: fixed;
+  transform: translateX(50%); // Center it
+  width: 100vw; // Make it less wide
+  height: 1px;
+  background: rgba(0, 0, 0, 0.2); // Lower opacity
+  bottom: 50px;
+  z-index: -2; // Send it behind content
+}
 
