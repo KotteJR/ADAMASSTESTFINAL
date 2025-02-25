@@ -118,11 +118,11 @@
     min-width:70vw;
     transform: translate(-50%, -50%);
     width: clamp(300px, 70vw, 100%); /* Scales dynamically */
-    opacity: 0.20;
+    opacity: 0.35;
     z-index: 1;
 
-    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 1));
-  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 1));
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.01), rgba(0, 0, 0, 1));
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.01), rgba(0, 0, 0, 1));
   }
 
   @media (max-width: 768px) {
