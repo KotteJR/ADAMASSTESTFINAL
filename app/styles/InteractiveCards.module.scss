@@ -19,16 +19,15 @@
     justify-content: center;
     align-items: center;
     gap: 2vw;
-    max-width: 80vw; /* Instead of a fixed 60vw */
-    width: 100%; /* Ensures full responsiveness */
+    width: 90vw;
+    max-width: 1200px;
     margin: 0 auto;
+    position: relative;
 }
-
-
 
 .card {
     position: relative;
-    width: 30vw;
+    width: 30%;
     max-width: 400px;
     height: 600px;
     border-radius: 16px;
@@ -76,4 +75,23 @@
     font-size: 16px;
     background-color: rgba(0, 110, 255, 1);
     color: white;
+}
+
+@media (max-width: 1200px) {
+    .cardsGrid {
+        width: 100vw;
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .cardsGrid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 90%;
+        max-width: 90vw;
+    }
 }
