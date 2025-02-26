@@ -10,7 +10,7 @@ export function HeroBullets() {
     <Container fluid className={classes.heroSection} id="home">
       <div className={classes.inner}>
         <div className={classes.content}>
-        <TypingTitle text="Bla Bla Bla..." />
+        <TypingTitle text="Welcome to Adamass." />
           <Text c="grey" mt="0" size="xl">
             Unlock smarter decision-making with expert-driven analysis and advanced AI insights.
             Adamass empowers investors, businesses, and startups with in-depth technology assessments,
@@ -28,7 +28,7 @@ export function HeroBullets() {
             }
           >
             <List.Item>
-              <b>Strategic solutions</b> – Optimizing business growth with data-backed strategies.
+              <b>Strategic solutions</b> – Optimizing  growth with data-backed strategies.
             </List.Item>
             <List.Item>
               <b>Technology due diligence</b> – AI-driven insights for smarter investments.

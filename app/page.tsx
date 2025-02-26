@@ -73,7 +73,7 @@ export default function HomePage() {
       </section>
 
       <section className="section">
-        <h2 className="section-title">Our Expertise</h2>
+        <h2 className="section-title">Expertise</h2>
         <AboutUs />
       </section>
 

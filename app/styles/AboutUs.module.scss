@@ -24,7 +24,8 @@ $mantine-breakpoint-lg: 1200px;
     text-align: center;
     gap: 2rem;
     padding-left: 7.5%; 
-    padding-right: 7.5%; 
+    padding-right: 7.5%;
+    margin-top: 180px;
   }
 }
 
@@ -62,8 +63,8 @@ $mantine-breakpoint-lg: 1200px;
   display: flex;
   justify-content: flex-end; 
   align-items: center;
-  max-width: 55%;
-  min-width: 55%;
+  max-width: 60%;
+  min-width: 60%;
 
   @media (max-width: $mantine-breakpoint-sm) {
     justify-content: center;
