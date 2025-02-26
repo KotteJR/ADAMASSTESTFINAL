@@ -1,0 +1,91 @@
+.container {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin-top: 140px;
+}
+
+.cardWrapper {
+  width: 350px;
+  height: 580px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease-in-out;
+  cursor: pointer;
+}
+
+.cardWrapper.flipped {
+  transform: rotateY(180deg);
+}
+
+.cardFront,
+.cardBack {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.cardFront {
+  background-size: cover;
+  background-position: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.textContainer {
+  margin-top: auto;
+}
+
+.title {
+  font-size: 14px;
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+.subtitle {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.plusButton {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+.plusButton:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.cardBack {
+  background-color: white;
+  color: black;
+  transform: rotateY(180deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.description {
+  font-size: 16px;
+  text-align: center;
+  line-height: 1.5;
+}

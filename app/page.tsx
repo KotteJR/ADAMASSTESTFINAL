@@ -5,7 +5,7 @@ import "./globals.scss";
 
 import { HeaderSimple } from "./components/Header";
 import { HeroBullets } from "./components/HeroBullets";
-import { InteractiveCards } from "./components/InteractiveCards";
+import { FlippableCards } from "./components/FlippableCards";
 import { AboutUs } from "./components/AboutUs";
 import { AboutUs2 } from "./components/AboutUs2";
 import { ContactUs } from "./components/ContactUs";
@@ -64,7 +64,7 @@ export default function HomePage() {
 
       <section className="section">
         <h2 className="section-title">What We Do</h2>
-        <InteractiveCards />
+        <FlippableCards />
       </section>
 
       <section className="section">
