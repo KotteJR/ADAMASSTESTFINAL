@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   gap: 60px;
-  margin-top: 100px;
+  width: 90vw;
 }
 
 .cardWrapper {
@@ -13,6 +13,9 @@
   transform-style: preserve-3d;
   transition: transform 0.4s ease-in-out;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .cardWrapper.flipped {
@@ -31,8 +34,10 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 20px;
+  border: 0.01px solid black;
 }
 
+/* Front side of the card */
 .cardFront {
   background-size: cover;
   background-position: center;
@@ -40,17 +45,38 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  position: relative;
+}
+
+/* Gradient overlay to darken the bottom half */
+.cardFront::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  pointer-events: none;
+  z-index: 1;
+  backface-visibility: hidden; /* Ensures the gradient only appears on the front */
+}
+
+/* Subtitle remains unaffected by the gradient */
+.subtitle {
+  font-size: 25px;
+  font-weight: 700;
+  position: relative;
+  z-index: 2; /* Keeps text above gradient */
+  text-align: left; /* Align text to the left */
 }
 
 .textContainer {
   margin-top: auto;
+  text-align: left; /* Align text to the left */
+  z-index: 2; /* Keeps text above gradient */
 }
 
-.subtitle {
-  font-size: 25px;
-  font-weight: 700;
-}
-
+/* Fix button alignment */
 .plusButton {
   background: rgba(255, 255, 255, 0.2);
   border: none;
@@ -62,24 +88,34 @@
   justify-content: center;
   cursor: pointer;
   transition: background 0.2s ease-in-out;
+  position: relative;
+  z-index: 2; /* Ensures it stays above gradient */
+  align-self: flex-start; /* Align button to the left */
 }
 
 .plusButton:hover {
   background: rgba(255, 255, 255, 0.4);
 }
 
+/* Back side of the card */
 .cardBack {
   background-color: white;
   color: black;
   transform: rotateY(180deg);
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   padding: 20px;
+  backface-visibility: hidden; /* Prevents unwanted flipping effects */
+}
+
+/* Fix subtitle flipping on the back side */
+.cardBack .subtitle {
+  transform: rotateY(180deg); /* Reverses the flipped text */
 }
 
 .description {
   font-size: 25px;
-  text-align: center;
+  text-align: left; /* Align text to the left */
   line-height: 1.5;
 }
