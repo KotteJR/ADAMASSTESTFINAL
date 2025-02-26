@@ -7,19 +7,16 @@ import styles from "../styles/FlippableCards.module.scss";
 
 const cards = [
   {
-    title: "Due Diligence",
     subtitle: "AI Powered - Due Diligence",
     image: "/abc.png",
     description: "Explore groundbreaking AI features designed to enhance your iPhone experience like never before.",
   },
   {
-    title: "Cutting-Edge Cameras",
     subtitle: "Strategic Advisory",
     image: "/def.png",
     description: "Experience next-level photography with improved sensors and AI-driven enhancements for stunning visuals.",
   },
   {
-    title: "Capital Advisory",
     subtitle: "Capital Advisory",
     image: "/ghi.png",
     description: "Unleash the full potential of the latest iPhone with unparalleled speed and energy efficiency.",
@@ -43,7 +40,6 @@ export function FlippableCards() {
         >
           <div className={styles.cardFront} style={{ backgroundImage: `url(${card.image})` }}>
             <div className={styles.textContainer}>
-              <p className={styles.title}>{card.title}</p>
               <h2 className={styles.subtitle}>{card.subtitle}</h2>
             </div>
             <button className={styles.plusButton}>
