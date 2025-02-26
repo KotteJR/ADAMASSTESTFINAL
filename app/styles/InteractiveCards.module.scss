@@ -25,7 +25,7 @@
 }
 
 /* Enable horizontal scrolling ONLY when needed */
-@media (max-width: 1600px) {
+@media (max-width: 1200px) {
     .cardsGrid {
         overflow-x: auto;
         padding-left: 3vw; /* Prevents first card from being cut */
@@ -45,7 +45,6 @@
 }
 
 .cardsGrid::-webkit-scrollbar-thumb {
-    background: rgba(0, 110, 255, 1);
     border-radius: 2px;
 }
 
@@ -53,7 +52,7 @@
 .card {
     position: relative;
     flex: 0 0 auto; 
-    width: 22%; 
+    width: 20%; 
     min-width: 375px; 
     max-width: 400px; 
     height: 600px;
@@ -65,7 +64,7 @@
     transition: transform 0.2s ease-in-out;
 
     &:hover {
-        transform: scale(1.03);
+        transform: scale(1.02);
     }
 }
 

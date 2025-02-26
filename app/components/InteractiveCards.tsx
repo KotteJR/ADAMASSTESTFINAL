@@ -28,12 +28,7 @@ const cardsData: CardData[] = [
     modalImage: "/images/mac-iphone-large.jpg",
     description: "Optimizing capital allocation, securing financing, and managing liquidity for sustainable business success.",
   },
-  {
-    title: "Capital Advisory",
-    image: "/def.png",
-    modalImage: "/images/mac-iphone-large.jpg",
-    description: "Optimizing capital allocation, securing financing, and managing liquidity for sustainable business success.",
-  },
+  
 ];
 
 export function InteractiveCards() {
