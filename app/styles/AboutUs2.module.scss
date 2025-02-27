@@ -5,27 +5,20 @@ $mantine-breakpoint-lg: 1200px;
 
 /* About Section */
 .aboutSection {
-  max-width: 100vw;
-  min-width: 80vw;
-  width: 95vw;
+  max-width: 85vw;
+  min-width: 85vw;
+  width: 85vw;
   display: flex;
   align-items: center;
   text-align: justify;
   justify-content: space-between;
-  padding-left: 10%;
-  padding-right: 10%;
 
 
-  @media (max-width: $mantine-breakpoint-md) {
-    padding-left: 7.5%; 
-    padding-right: 7.5%; 
-  }
+
 
   @media (max-width: $mantine-breakpoint-sm) {
     flex-direction: column-reverse;
     gap: 2rem;
-    padding-left: 7.5%; // 
-    padding-right: 7.5%; // 
     margin-top: 180px;
   }
 }
@@ -37,7 +30,7 @@ $mantine-breakpoint-lg: 1200px;
   max-width: 55%;
 
   @media (max-width: $mantine-breakpoint-md) {
-    max-width: 95%;
+    max-width: 100%;
     text-align: justify;
   }
 }
@@ -53,8 +46,8 @@ $mantine-breakpoint-lg: 1200px;
 
   @media (max-width: $mantine-breakpoint-sm) {
     justify-content: center;
-    margin-top: 10px;
-    max-width: 80%;
+    margin-top: 20px;
+    max-width: 100%;
   }
 }
 

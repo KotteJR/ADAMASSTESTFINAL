@@ -10,11 +10,13 @@ html, body {
   justify-content: center;
   scroll-snap-align: start;
   position: relative;
+  
+ 
 }
 
 .section-title {
   position: absolute; 
-  width: 90vw; 
+  width: 93vw; 
   text-align: center; 
   top: 1vh;
   font-size: 7rem; /* Larger for desktop */
