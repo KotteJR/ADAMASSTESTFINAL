@@ -7,7 +7,7 @@ import classes from "../styles/HeaderSimple.module.css";
 
 const links = [
   { link: "#home", label: "Home" },
-  { link: "#features-cards", label: "What We Do" },
+  { link: "#features", label: "Offerings" },
   { link: "#about-us", label: "About Us" },
   { link: "#contact-us", label: "Contact Us" },
 ];
@@ -17,7 +17,6 @@ export function HeaderSimple() {
   const [opened, { toggle, close }] = useDisclosure(false);
   const [isMobile, setIsMobile] = useState(false);
 
-  // ✅ Detect Mobile on Initial Load & Resize
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
     checkMobile();
@@ -25,7 +24,6 @@ export function HeaderSimple() {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  // ✅ Smooth Scroll + Active Section Detection
   useEffect(() => {
     const observerOptions = {
       root: null,
@@ -51,7 +49,6 @@ export function HeaderSimple() {
     return () => observer.disconnect();
   }, []);
 
-  // ✅ Smooth Scrolling Function with TypeScript Fix
   const handleSmoothScroll = (event: React.MouseEvent<HTMLAnchorElement>, target: string) => {
     event.preventDefault();
     setActive(target);
@@ -60,11 +57,11 @@ export function HeaderSimple() {
     let headerOffset = isMobileView ? 50 : 80;
 
     if (target === "#about-us") {
-      headerOffset = isMobileView ? 60 : 20;
-    } else if (target === "#features-cards") {
-      headerOffset = isMobileView ? 80 : 130;
+      headerOffset = isMobileView ? 230 : 250;
+    } else if (target === "#features") {
+      headerOffset = isMobileView ? 120 : 250;
     } else if (target === "#contact-us") {
-      headerOffset = isMobileView ? 120 : 200;
+      headerOffset = isMobileView ? 300 : 300;
     }
 
     const section = document.querySelector(target);

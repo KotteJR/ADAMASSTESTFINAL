@@ -12,10 +12,10 @@ html, body {
   position: relative;
   
   @media (max-width: 768px) {
-    min-height: 150vh; // Force full screen height on mobile
+    min-height: 100vh; // Force full screen height on mobile
   }
 
-  @media (max-width: 400px) {
+  @media (max-width: 390px) {
     min-height: 100vh; // Force full screen height on mobile
     height: 100vh; 
   }
@@ -24,9 +24,9 @@ html, body {
 
 .section-title {
   position: absolute; 
-  width: 93vw; 
+  width: 80vw; 
   text-align: center; 
-  top: 1vh;
+  top: 3vh;
   font-size: 5rem; /* Larger for desktop */
   font-weight: bold;
   color: rgba(0, 110, 255, 1);
@@ -35,13 +35,13 @@ html, body {
   
 
   @media (max-width: 1024px) {
-    font-size: 6rem; /* Smaller for tablets */
+    font-size: 5rem; /* Smaller for tablets */
+    max-width: 80vw;
   }
 
   @media (max-width: 768px) {
-    font-size: 4rem; 
+    font-size: 3rem; 
     text-align: left; 
-    padding-left: 6%;
     top: 6vh;
   }
 

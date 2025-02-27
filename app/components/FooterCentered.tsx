@@ -6,7 +6,7 @@ import Image from 'next/image';  // Import Image from Next.js
 import classes from '../styles/FooterCentered.module.scss';
 
 const links = [
-  { link: '#', label: 'Contact' },
+  { link: '#', label: 'Terms' },
   { link: '#', label: 'Privacy' },
   { link: '#', label: 'Careers' },
 ];

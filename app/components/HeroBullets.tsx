@@ -10,7 +10,7 @@ export function HeroBullets() {
       <div className={classes.inner}>
         <div className={classes.content}>
         <Title order={1} className={classes.title}>
-            Welcome to Adamass.
+            Welcome.
           </Title>
 
           <Text c="grey" mt="0" size="lg">
@@ -46,9 +46,11 @@ export function HeroBullets() {
                 Contact Us
               </Button>
             </a>
+            <a href="#features">
             <Button variant="default" radius="xl" size="md" className={classes.control1}>
               Learn More
             </Button>
+            </a>
           </Group>
         </div>
         <div className={classes.imageContainer}>

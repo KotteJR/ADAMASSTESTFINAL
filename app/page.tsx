@@ -63,22 +63,22 @@ export default function HomePage() {
       </section>
 
       <section className="section">
-        <h2 className="section-title">What We Do</h2>
+        <h2 className="section-title">Offerings.</h2>
         <FeatureSection />
       </section>
 
       <section className="section">
-        <h2 className="section-title">About Us</h2>
+        <h2 className="section-title">About Us.</h2>
         <AboutUs2 />
       </section>
 
       <section className="section">
-        <h2 className="section-title">Expertise</h2>
+        <h2 className="section-title">Expertise.</h2>
         <AboutUs />
       </section>
 
       <section className="section">
-        <h2 className="section-title">Get In Touch</h2>
+        <h2 className="section-title">Contact.</h2>
         <ContactUs />
       </section>
 

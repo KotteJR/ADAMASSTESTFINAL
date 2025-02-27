@@ -1,5 +1,6 @@
 .footer {
   width: 100%;
+  min-width: 90vw;
   margin-top: auto; /* Ensures footer is at the bottom */
   border-top: 1px solid var(--mantine-color-gray-2);
   padding: var(--mantine-spacing-lg);
@@ -11,7 +12,7 @@
 
 .inner {
   width: 100%;
-  max-width: 1200px; /* Ensures proper layout on larger screens */
+  max-width: 85vw; /* Ensures proper layout on larger screens */
   display: flex;
   justify-content: space-between;
   align-items: center;

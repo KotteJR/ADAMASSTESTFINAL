@@ -5,22 +5,19 @@ $mantine-breakpoint-lg: 1200px;
 
 /* About Section */
 .aboutSection {
-  max-width: 85vw;
-  min-width: 85vw;
-  width: 85vw;
-  
+  max-width: 80vw;
+  min-width: 80vw;
+  width: 80vw;
   display: flex;
   align-items: center;
   text-align: justify;
   justify-content: space-between;
 
-
-
-
   @media (max-width: $mantine-breakpoint-sm) {
     flex-direction: column-reverse;
-    gap: 2rem;
-    margin-top: 180px;
+    gap: 1rem;
+    margin-top: 200px;
+    min-width: 85vw;
   }
 }
 
@@ -28,7 +25,7 @@ $mantine-breakpoint-lg: 1200px;
 /* Text Container */
 .textContainer {
   flex: 1;
-  max-width: 55%;
+  max-width: 45%;
 
   @media (max-width: $mantine-breakpoint-md) {
     max-width: 100%;
@@ -62,5 +59,6 @@ $mantine-breakpoint-lg: 1200px;
 
   @media (max-width: $mantine-breakpoint-sm) {
     max-width: 100%;
+    min-width: 70vw;
   }
 }
