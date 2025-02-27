@@ -16,13 +16,13 @@ html, body {
   position: absolute; 
   width: 100vw; 
   text-align: center; 
-  top: 5vh; 
-  font-size: 5rem;
+  top: 7vh; 
+  font-size: 4rem;
   font-weight: bold;
   color: rgba(0, 110, 255, 1);
   opacity: 0.2; 
   z-index: -1; 
-}
+  }
 
 :root {
   --progress-top: 0%;
