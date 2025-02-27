@@ -11,7 +11,11 @@ html, body {
   scroll-snap-align: start;
   position: relative;
   
- 
+  @media (max-width: 768px) {
+    min-height: 100vh; // Force full screen height on mobile
+    height: 100vh; 
+  }
+
 }
 
 .section-title {
