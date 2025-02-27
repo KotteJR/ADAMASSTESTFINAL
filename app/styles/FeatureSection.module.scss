@@ -1,18 +1,19 @@
 .featureSection {
     text-align: center;
-    margin-top: 150px;
-    width: 90vw;
+    margin-top: 200px;
+    width: 85vw;
     display: flex;
     justify-content: center; /* Ensures it's fully centered */
   }
   
   .grid {
     grid-template-columns: repeat(3, minmax(400px, 1fr)); /* Ensures cards have a proper width */
-max-width: 1600px; /* Increases available space */ /* Keeps the section centered */
+    max-width: 1600px; /* Increases available space */ /* Keeps the section centered */
     display: grid; /* Make sure it stays a grid */
     justify-content: center;
     gap: 2rem;
-  
+
+    
     @media (max-width: 1300px) {
         display: flex;
         overflow-x: auto; /* Enables horizontal scrolling */

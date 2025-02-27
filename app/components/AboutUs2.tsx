@@ -10,7 +10,6 @@ export function AboutUs2() {
       </div>
       
       <div className={classes.textContainer}>
-        <Title className={classes.title}>Adamass AB</Title>
         <Text c="dimmed" mt="lg" size="xl">
           Adamass AB is a consulting firm specializing in IT, finance, business restructuring,
           due diligence, and strategic advisory. We help businesses overcome challenges,

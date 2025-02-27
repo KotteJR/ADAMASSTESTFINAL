@@ -14,15 +14,32 @@ html, body {
 
 .section-title {
   position: absolute; 
-  width: 100vw; 
+  width: 90vw; 
   text-align: center; 
-  top: 7vh; 
-  font-size: 4rem;
+  top: 1vh;
+  font-size: 7rem; /* Larger for desktop */
   font-weight: bold;
   color: rgba(0, 110, 255, 1);
   opacity: 0.2; 
   z-index: -1; 
+  
+
+  @media (max-width: 1024px) {
+    font-size: 6rem; /* Smaller for tablets */
   }
+
+  @media (max-width: 768px) {
+    font-size: 4rem; 
+    text-align: left; 
+    padding-left: 6%;
+    top: 6vh;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 4rem; /* Smallest for very small screens */
+    top: 6vh;
+  }
+}
 
 :root {
   --progress-top: 0%;
@@ -94,7 +111,7 @@ p {
   --mantine-font-size-sm: 14px !important;
   --mantine-font-size-md: 16px !important;
   --mantine-font-size-lg: 20px !important;
-  --mantine-font-size-xl: 24px !important;
+  --mantine-font-size-xl: 28px !important;
   --mantine-h1-font-size: 34px !important;
   --mantine-h2-font-size: 30px !important;
 }

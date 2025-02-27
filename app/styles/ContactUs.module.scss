@@ -12,13 +12,13 @@ $mantine-breakpoint-sm: 768px;
   padding: calc(var(--mantine-spacing-xl) * 2.5);
   width: 100%;
   max-width: 78vw;
-  margin: 5rem auto 0 auto; // 🔹 Added top margin for spacing
+  margin-top: 5rem;
   background-position: center;
 
   @media (max-width: $mantine-breakpoint-sm) {
     padding: calc(var(--mantine-spacing-xl) * 1);
-    max-width: 90%;
-    margin-top: 2rem; // 🔹 Adjust for mobile
+    max-width: 85vw;
+    margin-top: 11rem; // 🔹 Adjust for mobile
   }
 }
 
@@ -32,6 +32,7 @@ $mantine-breakpoint-sm: 768px;
 .title,
 .description {
   color: white !important; /* Force white text */
+  font-size: large;
 }
 
 // 🔹 Leave the form styles untouched

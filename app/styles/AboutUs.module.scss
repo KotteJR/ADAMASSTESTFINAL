@@ -10,7 +10,8 @@ $mantine-breakpoint-lg: 1200px;
   width: 95vw;
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Ensures even spacing */
+  text-align: justify;
+  justify-content: space-between;
   padding-left: 10%;
   padding-right: 10%;
 
@@ -21,7 +22,6 @@ $mantine-breakpoint-lg: 1200px;
 
   @media (max-width: $mantine-breakpoint-sm) {
     flex-direction: column;
-    text-align: center;
     gap: 2rem;
     padding-left: 7.5%; 
     padding-right: 7.5%;
@@ -37,23 +37,7 @@ $mantine-breakpoint-lg: 1200px;
 
   @media (max-width: $mantine-breakpoint-md) {
     max-width: 95%;
-    text-align: left;
-  }
-}
-
-/* Title */
-.title {
-  color: var(--mantine-color-black);
-  font-family: Greycliff CF, var(--mantine-font-family);
-  font-size: 44px;
-  line-height: 1.2;
-  font-weight: 900;
-  margin-bottom: 10px;
-
-
-
-  @media (max-width: $mantine-breakpoint-xs) {
-    font-size: 32px;
+    text-align: justify;
   }
 }
 
@@ -63,8 +47,8 @@ $mantine-breakpoint-lg: 1200px;
   display: flex;
   justify-content: flex-end; 
   align-items: center;
-  max-width: 60%;
-  min-width: 60%;
+  max-width: 55%;
+  min-width: 55%;
 
   @media (max-width: $mantine-breakpoint-sm) {
     justify-content: center;
