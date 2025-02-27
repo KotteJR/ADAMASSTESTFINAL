@@ -1,5 +1,5 @@
 .container {
-  margin-top: 100px;
+  margin-top: 120px;
   display: flex;
   justify-content: center;
   gap: 60px;
@@ -8,11 +8,12 @@
 
 .cardWrapper {
   width: 400px;
-  height: 560px;
+  height: 650px;
   position: relative;
   transform-style: preserve-3d;
   transition: transform 0.4s ease-in-out;
   cursor: pointer;
+  
 }
 
 .cardWrapper.flipped {

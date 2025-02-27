@@ -34,10 +34,12 @@ export function FlippableCards() {
     <div className={styles.container}>
       {cards.map((card, index) => (
         <motion.div
-          key={index}
-          className={`${styles.cardWrapper} ${flipped[index] ? styles.flipped : ""}`}
-          onClick={() => handleFlip(index)}
-        >
+        key={index}
+        className={`${styles.cardWrapper} ${flipped[index] ? styles.flipped : ""}`}
+        onClick={() => handleFlip(index)}
+        animate={{ opacity: 1, scale: 1 }} // Keeps the scale fixed
+        transition={{ duration: 0 }} // Ensures no unwanted entrance animation
+      >
           <div className={styles.cardFront} style={{ backgroundImage: `url(${card.image})` }}>
             <div className={styles.textContainer}>
               <h2 className={styles.subtitle}>{card.subtitle}</h2>
