@@ -13,7 +13,7 @@ export function HeroBullets() {
             Welcome to Adamass.
           </Title>
 
-          <Text c="grey" mt="0" size="xl">
+          <Text c="grey" mt="0" size="lg">
             Unlock smarter decision-making with expert-driven analysis and advanced AI insights.
             Adamass empowers investors, businesses, and startups with in-depth technology assessments,
             risk evaluations, and strategic growth solutions tailored to maximize value and minimize uncertainty.
@@ -22,7 +22,7 @@ export function HeroBullets() {
           <List
             mt={30}
             spacing="sm"
-            size="lg"
+            size="md"
             icon={
               <ThemeIcon size={20} radius="xl">
                 <IconCheck size={12} stroke={1.5} />
