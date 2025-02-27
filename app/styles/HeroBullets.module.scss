@@ -41,11 +41,11 @@
   font-family:
     Greycliff CF,
     var(--mantine-font-family);
-  font-size: clamp(32px, 6vw, 55px); /* Increased scaling */
+  font-size: clamp(40px, 6vw, 60px); /* Increased scaling */
   line-height: 1.8;
   font-weight: 900;
   text-align: left;
-  min-width: 60%;
+  margin-bottom: 10px;
 
   @media (max-width: 576px) {
     font-size: clamp(32px, 8vw, 60px); /* Bigger on smaller screens */
