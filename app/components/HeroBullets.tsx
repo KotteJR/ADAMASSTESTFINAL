@@ -3,14 +3,16 @@
 import { IconCheck } from "@tabler/icons-react";
 import { Button, Container, Group, Image, List, Text, ThemeIcon, Title } from "@mantine/core";
 import classes from "../styles/HeroBullets.module.scss";
-import { TypingTitle } from "./TypingTitle";
 
 export function HeroBullets() {
   return (
     <Container fluid className={classes.heroSection} id="home">
       <div className={classes.inner}>
         <div className={classes.content}>
-        <TypingTitle text="Welcome to Adamass." />
+        <Title order={1} className={classes.title}>
+            Welcome to Adamass.
+          </Title>
+
           <Text c="grey" mt="0" size="xl">
             Unlock smarter decision-making with expert-driven analysis and advanced AI insights.
             Adamass empowers investors, businesses, and startups with in-depth technology assessments,
@@ -50,7 +52,7 @@ export function HeroBullets() {
           </Group>
         </div>
         <div className={classes.imageContainer}>
-          <Image src="/7922058.jpg" alt="Hero Image" className={classes.image} />
+          <Image src="/7922058.png" alt="Hero Image" className={classes.image} />
         </div>
       </div>
     </Container>

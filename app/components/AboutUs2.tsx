@@ -6,7 +6,7 @@ export function AboutUs2() {
     <Container className={classes.aboutSection} id="about-us"> {/* Added id for scrolling */}
       <div className={classes.imageContainer}>
         {/* Use the correct public image path */}
-        <Image src="6195369.jpg" className={classes.image} alt="Adamass Image" />
+        <Image src="6195369.png" className={classes.image} alt="Adamass Image" />
       </div>
       
       <div className={classes.textContainer}>

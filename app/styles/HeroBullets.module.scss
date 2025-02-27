@@ -16,8 +16,8 @@
 
 .content {
   flex: 1;
-  width: 50%;
-  max-width: 50%;
+  width: 55%;
+  max-width: 55%;
   position: relative;
   z-index: 1;
 
@@ -42,9 +42,10 @@
     Greycliff CF,
     var(--mantine-font-family);
   font-size: clamp(32px, 6vw, 55px); /* Increased scaling */
-  line-height: 0.2;
+  line-height: 1.8;
   font-weight: 900;
   text-align: left;
+  min-width: 60%;
 
   @media (max-width: 576px) {
     font-size: clamp(32px, 8vw, 60px); /* Bigger on smaller screens */

@@ -17,7 +17,7 @@ const cards = [
     description: "Experience next-level photography with improved sensors and AI-driven enhancements for stunning visuals.",
   },
   {
-    subtitle: "Capital Advisory",
+    subtitle: "Capital Raising Advisory",
     image: "/ghi.png",
     description: "Unleash the full potential of the latest iPhone with unparalleled speed and energy efficiency.",
   },

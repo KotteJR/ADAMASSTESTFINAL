@@ -16,7 +16,7 @@ export function AboutUs() {
 
       <div className={classes.imageContainer}>
         {/* Use the correct public image path */}
-        <Image src="6502435.jpg" className={classes.image} alt="Adamass Image" />
+        <Image src="6502435.png" className={classes.image} alt="Adamass Image" />
       </div>
     </Container>
   );
