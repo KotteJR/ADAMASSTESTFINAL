@@ -1,6 +1,6 @@
 .heroCard {
     position: absolute;
-    bottom: -20vh;;
+    bottom: -25vh;;
     left: 50%;
     transform: translateX(-50%);
     width: 60vw; /* Starts narrower */
@@ -15,8 +15,18 @@
     justify-content: flex-start; /* Ensure content stays at the top */
     padding-top: 40px;
 
-    @media (max-width: 768px) {
+    @media (max-width: 2200px) {
         bottom: -25vh;
+        min-width: 70vw;
+    }
+
+    @media (max-width: 1300px) {
+        bottom: -35vh;
+        min-width: 70vw;
+    }
+
+    @media (max-width: 768px) {
+        bottom: -33vh;
         min-width: 80vw;
     }
 }
@@ -35,7 +45,6 @@
     width: 100vw;
     bottom:0;
     background: rgba(255, 255, 255, 1);
-
 }
 
 .title {
