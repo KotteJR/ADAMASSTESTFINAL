@@ -13,6 +13,7 @@ html, body {
   
   @media (max-width: 768px) {
     min-height: 100vh; // Force full screen height on mobile
+    margin-bottom: 5vh;
   }
 
   @media (max-width: 390px) {
@@ -39,10 +40,11 @@ html, body {
     max-width: 80vw;
   }
 
+  
   @media (max-width: 768px) {
     font-size: 3rem; 
     text-align: left; 
-    top: 6vh;
+    top: 5vh;
   }
 
   @media (max-width: 480px) {
