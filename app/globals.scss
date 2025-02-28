@@ -92,45 +92,61 @@ html, body {
 }
 
 :root {
-  --mantine-font-family: "Inter", sans-serif !important;
-  --mantine-font-family-headings: "Inter", sans-serif !important;
+  --font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('/fonts/SF-Pro-Display-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('/fonts/SF-Pro-Display-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('/fonts/SF-Pro-Display-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('/fonts/SF-Pro-Display-Heavy.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
 }
 
 html, body {
-  font-family: "Inter", sans-serif !important;
-  font-size: 16px;
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 20px;
   font-weight: 400;
-  line-height: 1.6;
+  line-height: 0.2;
   color: #333;
 }
 
+/* Headings */
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Inter", sans-serif !important;
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
   font-weight: 700 !important;
 }
 
-h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 700; }
-h2 { font-size: clamp(1.75rem, 4vw, 3rem); font-weight: 700; }
-h3 { font-size: clamp(1.5rem, 3.5vw, 2.5rem); font-weight: 700; }
-h4 { font-size: clamp(1.25rem, 3vw, 2rem); font-weight: 700; }
-h5 { font-size: clamp(1.1rem, 2.5vw, 1.75rem); font-weight: 700; }
-h6 { font-size: clamp(1rem, 2vw, 1.5rem); font-weight: 700; }
+h1 { font-size: clamp(3rem, 8vw, 6rem); font-weight: 900; }
+h2 { font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 800; }
+h3 { font-size: clamp(2rem, 5vw, 4rem); font-weight: 700; }
+h4 { font-size: clamp(1.5rem, 4vw, 3rem); font-weight: 600; }
+h5 { font-size: clamp(1.25rem, 3vw, 2rem); font-weight: 500; }
+h6 { font-size: clamp(1rem, 2.5vw, 1.5rem); font-weight: 500; }
+
+/* Paragraphs */
 p {
   font-size: clamp(1rem, 2vw, 1.25rem);
   line-height: 1.8;
   color: #666;
 }
-
-
-:root {
-  --mantine-font-family: "Inter", sans-serif !important;
-  --mantine-font-family-headings: "Inter", sans-serif !important;
-  --mantine-font-size-xs: 12px !important;
-  --mantine-font-size-sm: 14px !important;
-  --mantine-font-size-md: 16px !important;
-  --mantine-font-size-lg: 20px !important;
-  --mantine-font-size-xl: 28px !important;
-  --mantine-h1-font-size: 34px !important;
-  --mantine-h2-font-size: 30px !important;
-}
-
