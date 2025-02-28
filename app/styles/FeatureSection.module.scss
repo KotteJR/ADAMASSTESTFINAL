@@ -1,7 +1,7 @@
 .featureSection {
     text-align: center;
     margin-top: 130px;
-    width: 90vw;
+    width: 85vw;
     display: flex;
     justify-content: center;
   }
@@ -15,11 +15,12 @@
   
     @media (max-width: 1300px) {
       display: flex;
-      margin-top: 5vh;
+      width: 70vw;
+      margin-top: 10vh;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch;
-      padding-bottom: 1rem;
+      padding-bottom: 1rem; 
       gap: 1rem;
       justify-content: flex-start;
   
@@ -27,10 +28,12 @@
         flex: 0 0 50%;
         max-width: 50%;
         scroll-snap-align: center;
+        border-radius: 1rem !important;
       }
     }
   
     @media (max-width: 768px) {
+      width: 90vw;
       display: flex;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
@@ -44,7 +47,15 @@
         min-height: 80vh;
         scroll-snap-align: center;
       }
-    }
+
+      .featureCard:hover {
+        transform: none !important;
+
+       .image {
+         filter: brightness(0.8) !important;
+       } 
+        
+      }
 
   }
 
@@ -85,8 +96,8 @@
       bottom: 0;
       background-size: cover;
       background-position: center;
-      filter: brightness(0.7);
-      transition: filter 0.3s ease-in-out;
+      filter: brightness(0.8);
+      transition: filter 0.2s ease-in-out;
     }
   
     &:hover .image {
@@ -151,7 +162,7 @@
     justify-content: center;
     height: 40vh; // Adjusts based on available space
   
-    @media (max-width: 1024px) {
+    @media (max-width: 1300px) {
       flex-direction: column;
       height: auto;
     }
@@ -191,3 +202,5 @@
     font-weight: 500;
     color: #1a1a1a;
   }
+
+}
