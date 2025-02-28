@@ -5,9 +5,9 @@ $mantine-breakpoint-lg: 1200px;
 
 /* About Section */
 .aboutSection {
+  height: 35vh;
   max-width: 80vw;
   min-width: 80vw;
-  margin-top: 80px;
   width: 80vw;
   display: flex;
   align-items: center;
@@ -15,10 +15,9 @@ $mantine-breakpoint-lg: 1200px;
   justify-content: space-between;
   
 
-  @media (max-width: $mantine-breakpoint-sm) {
+  @media (max-width: 768px) {
     flex-direction: column;
     gap: 1rem;
-    margin-top: 160px;
     min-width: 85vw;
   }
 }
