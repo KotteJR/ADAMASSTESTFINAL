@@ -29,7 +29,6 @@ const MOCKDATA = [
   { title: 'Email', description: 'hello@adamass.se', icon: IconAt },
   { title: 'Phone', description: '+46 70 917 94 98', icon: IconPhone },
   { title: 'Malmö, Sweden, 21774', description: 'Nordmannagatan 35B', icon: IconMapPin },
-  { title: 'Working hours', description: '07:00 – 18:00', icon: IconSun },
 ];
 
 export function ContactIconsList() {
