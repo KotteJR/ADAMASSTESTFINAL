@@ -7,17 +7,18 @@ $mantine-breakpoint-lg: 1200px;
 .aboutSection {
   max-width: 80vw;
   min-width: 80vw;
-  width: 80vw;
   margin-top: 80px;
+  width: 80vw;
   display: flex;
   align-items: center;
   text-align: justify;
   justify-content: space-between;
 
+
   @media (max-width: $mantine-breakpoint-sm) {
     flex-direction: column-reverse;
     gap: 1rem;
-    margin-top: 200px;
+    margin-top: 160px;
     min-width: 85vw;
   }
 }
@@ -26,7 +27,7 @@ $mantine-breakpoint-lg: 1200px;
 /* Text Container */
 .textContainer {
   flex: 1;
-  max-width: 45%;
+  max-width: 50%;
 
   @media (max-width: $mantine-breakpoint-md) {
     max-width: 100%;
@@ -40,26 +41,25 @@ $mantine-breakpoint-lg: 1200px;
   display: flex;
   justify-content: flex-start; 
   align-items: center;
-  max-width: 55%;
-  min-width: 55%;
+  max-width: 50%;
+  min-width: 50%;
 
   @media (max-width: $mantine-breakpoint-sm) {
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 15px;
     max-width: 100%;
   }
 }
 
 /* Image */
 .image {
-  width: 100%;
-  max-width: 55%;
-  min-width: 55%;
+  max-width: 50%;
+  min-width: 50%;
   height: auto;
   object-fit: contain;
 
   @media (max-width: $mantine-breakpoint-sm) {
-    max-width: 100%;
-    min-width: 70vw;
+    max-width: 50%;
+    min-width: 50vw;
   }
 }

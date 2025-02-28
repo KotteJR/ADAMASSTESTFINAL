@@ -36,8 +36,8 @@ html, body {
   
 
   @media (max-width: 2200px) {
-    font-size: 4rem; /* Smaller for large desktops */
-    top: tvh;
+    font-size: 4.5rem; /* Smaller for large desktops */
+    top: 2vh;
   }
   
 
@@ -50,12 +50,12 @@ html, body {
   @media (max-width: 768px) {
     font-size: 3rem; 
     text-align: left; 
-    top: 5vh;
+    top: 7vh;
   }
 
   @media (max-width: 480px) {
     font-size: 3rem; /* Smallest for very small screens */
-    top: 6vh;
+    top: 7vh;
   }
 }
 
