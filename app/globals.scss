@@ -27,7 +27,7 @@ html, body {
   position: absolute; 
   width: 80vw; 
   text-align: center; 
-  top: 3vh;
+  top: 5vh;
   font-size: 8rem; /* Larger for desktop */
   font-weight: bold;
   color: rgba(0, 110, 255, 1);
@@ -37,7 +37,7 @@ html, body {
 
   @media (max-width: 2200px) {
     font-size: 6rem; /* Smaller for large desktops */
-    top: 10vh;
+    top: 7vh;
   }
   
 
