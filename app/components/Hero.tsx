@@ -28,10 +28,10 @@ export function Hero() {
       <div className={`${styles.heroCard} ${isExpanded ? styles.expanded : ""}`}>
         <h1 className={styles.title}>Adamass</h1>
         <div className={styles.buttons}>
-          <Button radius="xl" size="md" className={styles.primaryButton}>
+          <Button radius="xl" size="sm" className={styles.primaryButton}>
             Learn More
           </Button>
-          <Button variant="default" radius="xl" size="md" className={styles.secondaryButton}>
+          <Button variant="default" radius="xl" size="sm" className={styles.secondaryButton}>
             Contact Us
           </Button>
         </div>
@@ -40,7 +40,7 @@ export function Hero() {
     <text className={styles.text}>
       Unlock smarter decision-making with expert-driven analysis and advanced AI insights. 
       Adamass empowers investors, businesses, and startups with in-depth technology assessments, 
-      risk evaluations, and strategic growth solutions tailored to maximize value and minimize uncertainty.
+      risk evaluations, and strategic growth solutions tailored to maximize value.
     </text>
   </div>
 </div>
