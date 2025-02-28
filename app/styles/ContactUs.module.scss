@@ -11,8 +11,8 @@ $mantine-breakpoint-sm: 768px;
   border-radius: var(--mantine-radius-md);
   padding: calc(var(--mantine-spacing-xl) * 2.5);
   width: 100%;
-  max-width: 78vw;
-  margin-top: 360px;
+  max-width: 80vw;
+  margin-top: 320px;
   background-position: center;
 
   @media (max-width: $mantine-breakpoint-sm) {
