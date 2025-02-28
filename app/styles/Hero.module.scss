@@ -1,0 +1,56 @@
+.heroCard {
+    position: absolute;
+    bottom: -20vh;;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60vw; /* Starts narrower */
+    min-height: 250px; /* Keep space for title & buttons */
+    background: rgba(255, 255, 255, 1);
+    border-radius: 40px 40px 0 0;
+    text-align: center;
+    transition: width 0.4s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Ensure content stays at the top */
+    padding-top: 40px;
+}
+
+.backgroundVideo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.expanded {
+    width: 100vw;
+    bottom:0;
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.hiddenContent {
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    margin-top: 30px; /* Keeps hidden content below the buttons */
+    max-width: 50vw;
+}
+
+.show {
+    opacity: 1; /* Reveals text gradually */
+}

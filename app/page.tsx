@@ -4,7 +4,7 @@ import { animate, scroll } from "@motionone/dom";
 import "./globals.scss";
 
 import { HeaderSimple } from "./components/Header";
-import { HeroBullets } from "./components/HeroBullets";
+import { Hero } from "./components/Hero";
 import { FeatureSection } from "./components/FeatureSection";
 import { AboutUs } from "./components/AboutUs";
 import { AboutUs2 } from "./components/AboutUs2";
@@ -59,7 +59,7 @@ export default function HomePage() {
 
       <section className="section">
         <h2 className="section-title"></h2>
-        <HeroBullets />
+        <Hero />
       </section>
 
       <section className="section">
