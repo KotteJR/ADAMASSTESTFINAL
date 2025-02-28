@@ -14,7 +14,7 @@ export function AboutUs2() {
           Adamass AB is a consulting firm specializing in IT, finance, business restructuring,
           due diligence, and strategic advisory. We help businesses overcome challenges,
           streamline operations, and drive sustainable growth. Our customized solutions
-          enhance efficiency, reduce risks, and unlock new opportunities.
+          enhance efficiency, reduce risks, and unlock new.
         </Text>
       </div>
 

@@ -16,7 +16,7 @@ export function ContactUs() {
       <div className={classes.contactWrapper} id="contact-us"> {/* Added id for scrolling */}
         <SimpleGrid cols={{ base: 1, sm: 2 }} spacing={50}>
           <div>
-            <Text className={classes.description} mt="sm" mb={30}>
+            <Text className={classes.description} mt="xs" mb={20}>
               Please contact us using the form or the contact details below.
             </Text>
 
