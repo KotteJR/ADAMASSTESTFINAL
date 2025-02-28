@@ -33,7 +33,7 @@ export function HeroBullets() {
               <b>Strategic solutions</b> – Optimizing  growth with data-backed strategies.
             </List.Item>
             <List.Item>
-              <b>Technology due diligence</b> – AI-driven insights for smarter investments.
+              <b>AI Driven DD</b> – AI-driven insights for smarter investments.
             </List.Item>
             <List.Item>
               <b>Financial advisory</b> – Structuring capital for sustainable success.
