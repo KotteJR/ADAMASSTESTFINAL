@@ -4,13 +4,15 @@
 
 .heroCard {
     position: absolute;
-    bottom: -40px;
+    bottom: -10vh;
     left: 50%;
     transform: translateX(-50%);
     width: 60vw; /* Starts narrower */
-    height: 60vh; /* Keep space for title & buttons */
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 40px 40px 0 0;
+    height: 70vh; /* Keep space for title & buttons */
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px); /* Adds blur effect */
+    -webkit-backdrop-filter: blur(5px); 
+    border-radius: 50px 50px 0 0;
     text-align: center;
     transition: width 0.4s ease-in-out;
     display: flex;
@@ -27,10 +29,11 @@
     }
 
     @media (max-width: 768px) {
-        height: 35vh;
-        width: 85vw; /* Expands to full width */
+        width: 95vw; /* Expands to full width */
+        height: 50vh;
         border-radius: 0;
         border-radius: 40px 40px 0 0;
+        bottom:5vh;
 
     }
 }
@@ -53,13 +56,12 @@
 }
 
 .title {
-    font-size: clamp(2rem, 4vw, 4rem); /* Keeps size dynamic */
-    font-weight: 600;
+    margin-top: 5vh;
+    font-size: 5rem;
+    font-weight: 800;
     text-align: center;
-    line-height: 1; /* Reduces extra space */
-    margin-bottom: 0px; /* Prevents big gaps */
-    padding-bottom: 5px;
-}
+    margin-bottom: 25px; 
+    color: rgba(0, 110, 255, 1);}
   
   .pressStart {
     font-family: "Press Start 2P", cursive;
@@ -77,11 +79,26 @@
     font-family: "Cinzel Variable", serif;
   }
 
+  .dseg7 {
+    font-family: "DSEG7 Classic", sans-serif;
+  }
+
+  .audiowide {
+    font-family: "Audiowide", cursive;
+  }
+
+  
 .buttons {
     display: flex;
     justify-content: center;
     gap: 20px;
-    margin-top: 30px;
+    margin-top: 2g0px;
+
+    @media (max-width: 768px) {
+        margin-bottom: 15px;
+
+    }
+    
 }
 
 .hiddenContent {
