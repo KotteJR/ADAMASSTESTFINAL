@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Button } from "@mantine/core";
+import { Button, Text } from "@mantine/core";
 import styles from "../styles/Hero.module.scss";
 
 // FONTS
@@ -58,13 +58,11 @@ export function Hero() {
           </Button>
         </div>
         <div className={`${styles.hiddenContent} ${isExpanded ? styles.show : ""}`}>
-          <div className={styles.textContainer}>
-            <p className={styles.text}>
-              Unlock smarter decision-making with expert-driven analysis and advanced AI insights. 
-              Adamass empowers investors, businesses, and startups with in-depth technology assessments, 
-              risk evaluations, and strategic growth solutions tailored to maximize value.
-            </p>
-          </div>
+        <div className={styles.textContainer}>
+            <Text className={styles.text} size="lg" c="dimmed">
+              Unlock smarter decision-making with expert-driven analysis and advanced AI insights. Adamass empowers investors, businesses, and startups with in-depth technology assessments, risk evaluations, and strategic growth solutions tailored to maximize value.
+            </Text>
+            </div>
         </div>
       </div>
     </section>

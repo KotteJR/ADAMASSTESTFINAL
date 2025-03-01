@@ -208,3 +208,28 @@
   }
 
 }
+
+.navigation {
+  display: none;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+  
+  @media (max-width: 1300px) {
+    display: flex;
+  }
+}
+
+.navArrow {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+}
