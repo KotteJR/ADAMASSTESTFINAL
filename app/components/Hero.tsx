@@ -42,7 +42,7 @@ export function Hero() {
   }, []);
 
   return (
-    <section className={styles.hero}>
+    <section className={styles.hero} id="hero">
       <video autoPlay loop muted className={styles.backgroundVideo}>
         <source src="/hero.mp4" type="video/mp4" />
       </video>

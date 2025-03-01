@@ -3,10 +3,10 @@
 import { useState, useEffect } from "react";
 import { Burger, Container, Group, Image, Drawer } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import classes from "../styles/HeaderSimple.module.css";
+import styles from "../styles/HeaderSimple.module.scss";
 
 const links = [
-  { link: "#home", label: "Home" },
+  { link: "#hero", label: "Home" },
   { link: "#features", label: "Offerings" },
   { link: "#about-us", label: "About Us" },
   { link: "#contact-us", label: "Contact Us" },
@@ -16,6 +16,8 @@ export function HeaderSimple() {
   const [active, setActive] = useState(links[0].link);
   const [opened, { toggle, close }] = useDisclosure(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [scrollDirection, setScrollDirection] = useState<"up" | "down" | null>(null);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
@@ -25,21 +27,37 @@ export function HeaderSimple() {
   }, []);
 
   useEffect(() => {
-    const observerOptions = {
-      root: null,
-      rootMargin: "-30% 0px -50% 0px",
-      threshold: 0.2,
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY <= 10) {
+        setScrollDirection(null);
+      } else if (currentScrollY > lastScrollY) {
+        setScrollDirection("down");
+      } else {
+        setScrollDirection("up");
+      }
+
+      setLastScrollY(currentScrollY);
     };
 
-    const observer = new IntersectionObserver((entries) => {
-      let foundActive = false;
-      entries.forEach((entry) => {
-        if (entry.isIntersecting && !foundActive) {
-          setActive(`#${entry.target.id}`);
-          foundActive = true;
-        }
-      });
-    }, observerOptions);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        let foundActive = false;
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !foundActive) {
+            setActive(`#${entry.target.id}`);
+            foundActive = true;
+          }
+        });
+      },
+      { root: null, rootMargin: "-30% 0px -50% 0px", threshold: 0.2 }
+    );
 
     links.forEach((link) => {
       const section = document.querySelector(link.link);
@@ -53,76 +71,56 @@ export function HeaderSimple() {
     event.preventDefault();
     setActive(target);
 
-    const isMobileView = window.innerWidth < 768;
-    let headerOffset = isMobileView ? 50 : 80;
-
-    if (target === "#about-us") {
-      headerOffset = isMobileView ? 230 : 250;
-    } else if (target === "#features") {
-      headerOffset = isMobileView ? 120 : 250;
-    } else if (target === "#contact-us") {
-      headerOffset = isMobileView ? 300 : 300;
-    }
-
     const section = document.querySelector(target);
     if (section) {
-      const elementPosition = section.getBoundingClientRect().top + window.scrollY;
-      const offsetPosition = elementPosition - headerOffset;
+      const offsetPosition = section.getBoundingClientRect().top + window.scrollY - (isMobile ? 50 : 80);
+      window.scrollTo({ top: offsetPosition, behavior: "smooth" });
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
-
-      setTimeout(() => {
-        setActive(target);
-      }, 300);
+      setTimeout(() => setActive(target), 300);
     }
 
-    if (isMobileView) close();
+    if (isMobile) close();
   };
 
-  const items = links.map((link) => (
-    <a
-      key={link.label}
-      href={link.link}
-      className={classes.link}
-      data-active={active === link.link || undefined}
-      onClick={(event) => handleSmoothScroll(event, link.link)}
-    >
-      {link.label}
-    </a>
-  ));
-
   return (
-    <header className={classes.header}>
-      <Container size="md" className={classes.inner}>
-        {/* ✅ Logo - Ensures Proper Sizing */}
+    <header
+      className={`${styles.header} ${
+        scrollDirection === "down" ? styles.hidden : scrollDirection === "up" ? styles.visible : ""
+      }`}
+    >
+      <Container size="md" className={styles.inner}>
         <Image src="/LOGO.png" alt="Custom Logo" height={25} width={95} />
 
-        {/* ✅ Show Links for Desktop Only */}
         {!isMobile && (
-          <Group gap="5" className={classes.links}>
-            {items}
+          <Group gap="5" className={styles.links}>
+            {links.map((link) => (
+              <a
+                key={link.label}
+                href={link.link}
+                className={`${styles.link} ${active === link.link ? styles.active : ""}`}
+                onClick={(event) => handleSmoothScroll(event, link.link)}
+              >
+                {link.label}
+              </a>
+            ))}
           </Group>
         )}
 
-        {/* ✅ Show Hamburger Menu for Mobile Only */}
         {isMobile && <Burger opened={opened} onClick={toggle} size="sm" />}
 
-        {/* ✅ Full-screen Drawer for Mobile (Fixes `transitionDuration`) */}
         {isMobile && (
-          <Drawer
-            opened={opened}
-            onClose={close}
-            size="100%"
-            position="right"
-            padding="md"
-            title="Menu"
-            transitionProps={{ duration: 300 }} // ✅ FIX: Use `transitionProps`
-          >
-            <Group style={{ flexDirection: "column" }} gap="lg" align="center" className={classes.mobileMenu}>
-              {items}
+          <Drawer opened={opened} onClose={close} size="100%" position="right" padding="md" title="Menu">
+            <Group style={{ flexDirection: "column" }} gap="lg" align="center" className={styles.mobileMenu}>
+              {links.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.link}
+                  className={`${styles.link} ${active === link.link ? styles.active : ""}`}
+                  onClick={(event) => handleSmoothScroll(event, link.link)}
+                >
+                  {link.label}
+                </a>
+              ))}
             </Group>
           </Drawer>
         )}
