@@ -4,8 +4,18 @@ import { useState, useEffect } from "react";
 import { Button } from "@mantine/core";
 import styles from "../styles/Hero.module.scss";
 
+// FONTS
+import "@fontsource/press-start-2p";
+import "@fontsource-variable/orbitron";
+import "@fontsource/krona-one";
+import "@fontsource-variable/cinzel";
+
 export function Hero() {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [fontIndex, setFontIndex] = useState(0);
+
+  // Define an array of font class names
+  const fonts = [styles.pressStart, styles.orbitron, styles.krona, styles.cinzel];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,13 +30,23 @@ export function Hero() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Change font every 2 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFontIndex((prevIndex) => (prevIndex + 1) % fonts.length);
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className={styles.hero}>
       <video autoPlay loop muted className={styles.backgroundVideo}>
         <source src="/hello.mp4" type="video/mp4" />
       </video>
       <div className={`${styles.heroCard} ${isExpanded ? styles.expanded : ""}`}>
-        <h1 className={styles.title}>Adamass</h1>
+        {/* Apply dynamic font class to title */}
+        <h1 className={`${styles.title} ${fonts[fontIndex]}`}>Adamass</h1>
         <div className={styles.buttons}>
           <Button radius="xl" size="sm" className={styles.primaryButton}>
             Learn More
@@ -36,14 +56,14 @@ export function Hero() {
           </Button>
         </div>
         <div className={`${styles.hiddenContent} ${isExpanded ? styles.show : ""}`}>
-  <div className={styles.textContainer}>
-    <text className={styles.text}>
-      Unlock smarter decision-making with expert-driven analysis and advanced AI insights. 
-      Adamass empowers investors, businesses, and startups with in-depth technology assessments, 
-      risk evaluations, and strategic growth solutions tailored to maximize value.
-    </text>
-  </div>
-</div>
+          <div className={styles.textContainer}>
+            <p className={styles.text}>
+              Unlock smarter decision-making with expert-driven analysis and advanced AI insights. 
+              Adamass empowers investors, businesses, and startups with in-depth technology assessments, 
+              risk evaluations, and strategic growth solutions tailored to maximize value.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -16,7 +16,7 @@ $mantine-breakpoint-lg: 1200px;
   margin-top: -5vh;
 
 
-  @media (max-width: $mantine-breakpoint-sm) {
+  @media (max-width: 768px) {
     flex-direction: column-reverse;
     gap: 1rem;
     min-width: 85vw;
