@@ -5,7 +5,7 @@ $mantine-breakpoint-lg: 1200px;
 
 /* About Section */
 .aboutSection {
-  height: 35vh;
+  height: 40vh;
   max-width: 80vw;
   min-width: 80vw;
   width: 80vw;
@@ -13,6 +13,7 @@ $mantine-breakpoint-lg: 1200px;
   align-items: center;
   text-align: justify;
   justify-content: space-between;
+  margin-top: -5vh;
 
 
   @media (max-width: $mantine-breakpoint-sm) {

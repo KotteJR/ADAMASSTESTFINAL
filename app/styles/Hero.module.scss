@@ -4,12 +4,11 @@
 
 .heroCard {
     position: absolute;
-    bottom: -1px;;
+    bottom: 80px;
     left: 50%;
     transform: translateX(-50%);
     width: 60vw; /* Starts narrower */
-    min-height: 400px; /* Keep space for title & buttons */
-    max-height: 400px;
+    height: 40vh; /* Keep space for title & buttons */
     background: rgba(255, 255, 255, 0.8);
     border-radius: 40px 40px 0 0;
     text-align: center;
@@ -22,15 +21,14 @@
 
     @media (max-width: 1300px) {
         width: 80vw; /* Expands to full width */
-        bottom: -20vh;
         border-radius: 0;
         border-radius: 40px 40px 0 0;
 
     }
 
     @media (max-width: 768px) {
+        height: 35vh;
         width: 85vw; /* Expands to full width */
-        bottom: -17vh;
         border-radius: 0;
         border-radius: 40px 40px 0 0;
 

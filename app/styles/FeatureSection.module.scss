@@ -1,10 +1,10 @@
 .featureSection {
     text-align: center;
-    margin-top: 10px;
     width: 85vw;
     display: flex;
     justify-content: center;
-    height: 60vh;
+    height: 80vh;
+    margin-top: -5vh;
   }
   
   .grid {
@@ -61,7 +61,7 @@
     position: relative;
     border-radius: 1rem;
     overflow: hidden;
-    height: 500px;
+    height: 600px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
