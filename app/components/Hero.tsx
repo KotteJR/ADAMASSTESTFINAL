@@ -50,12 +50,17 @@ export function Hero() {
         {/* Apply dynamic font class to title */}
         <h1 className={`${styles.title} ${fonts[fontIndex]}`}>Adamass</h1>
         <div className={styles.buttons}>
-          <Button radius="xl" size="sm" className={styles.primaryButton}>
-            Learn More
-          </Button>
-          <Button variant="default" radius="xl" size="sm" className={styles.secondaryButton}>
+        <a href="#contact-us">
+        <Button radius="xl" size="md" className={styles.control}>
             Contact Us
           </Button>
+            </a>
+
+        <a href="#features">
+        <Button variant="default" radius="xl" size="md" className={styles.control1}>
+            Learn More
+          </Button>
+          </a>
         </div>
         <div className={`${styles.hiddenContent} ${isExpanded ? styles.show : ""}`}>
         <div className={styles.textContainer}>

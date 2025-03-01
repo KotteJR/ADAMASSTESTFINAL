@@ -4,6 +4,11 @@
   align-items: center; /* Centers content vertically */
   justify-content: center; /* Centers content horizontally */
   margin-top: -15vh;
+
+  @media (max-width: 768px) {
+    height: 100vh;
+    margin-top: -5vh;
+    }
 }
 
 .wrapper {

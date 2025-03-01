@@ -47,13 +47,13 @@ html, body {
 
   
   @media (max-width: 768px) {
-    font-size: 3rem; 
+    font-size: 3rem !important; 
     text-align: left; 
     top: 7vh;
   }
 
   @media (max-width: 480px) {
-    font-size: 3rem; /* Smallest for very small screens */
+    font-size: 1rem !important; /* Smallest for very small screens */
     top: 7vh;
   }
 }
@@ -128,7 +128,7 @@ html, body {
   color: #333;
 
   @media (max-width: 768px) {
-    font-size: 16px; /* Smaller on phones */
+    font-size: 20px; /* Smaller on phones */
     line-height: 1.5;
   }
 }
@@ -158,6 +158,6 @@ p {
   color: #666;
 
   @media (max-width: 768px) {
-    font-size: 0.95rem;
+    font-size: 1.5rem;
   }
 }
