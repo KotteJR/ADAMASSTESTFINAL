@@ -74,6 +74,10 @@
         font-size: 3rem;
     }
 
+    @media (max-width: 480px) {
+        font-size: 2rem;
+    }
+
 }
 
     
@@ -147,19 +151,3 @@
     word-wrap: break-word;
     overflow-wrap: break-word;
 }
-
-.control {
-    max-width: 180px;
-    min-width: auto;
-    flex-grow: 0;
-    background-color: rgba(0, 110, 255, 1);
-
-    &:hover {
-        background-color: rgba(0, 110, 255, 0.8);
-    }
-  
-    @media (max-width: 576px) {
-      max-width: 160px;
-      width: auto;
-    }
-  }

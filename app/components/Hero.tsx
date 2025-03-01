@@ -51,13 +51,13 @@ export function Hero() {
         <h1 className={`${styles.title} ${fonts[fontIndex]}`}>Adamass</h1>
         <div className={styles.buttons}>
         <a href="#contact-us">
-        <Button radius="xl" size="md" className={styles.control}>
+          <Button radius="xl" size="sm" className={styles.primaryButton}>
             Contact Us
           </Button>
             </a>
 
         <a href="#features">
-        <Button variant="default" radius="xl" size="md" className={styles.control1}>
+          <Button variant="default" radius="xl" size="sm" className={styles.secondaryButton}>
             Learn More
           </Button>
           </a>
