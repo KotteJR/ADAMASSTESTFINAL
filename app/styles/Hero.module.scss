@@ -112,6 +112,7 @@
     justify-content: center;
     gap: 20px;
     margin-top: 0px;
+    margin-bottom: 20px;
     
 
     @media (max-width: 768px) {
@@ -145,7 +146,6 @@
 
 .text {
     text-align: center; /* Centers text */
-    margin-top: 25px;
     width: 100%; /* Takes full width to properly center */
     max-width: 70vw; /* Prevents text from becoming too wide */
     word-wrap: break-word;
