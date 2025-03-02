@@ -2,6 +2,10 @@
     display: flex;
     align-items: center;
     color: var(--mantine-color-white);
+
+    @media (max-width: 768px) {
+      padding-left: 5px;
+    }
   }
   
   .icon {

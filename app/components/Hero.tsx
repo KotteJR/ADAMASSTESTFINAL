@@ -8,7 +8,6 @@ import styles from "../styles/Hero.module.scss";
 import "@fontsource/press-start-2p";
 import "@fontsource-variable/orbitron";
 import "@fontsource/krona-one";
-import "@fontsource-variable/cinzel";
 import '@fontsource/dseg7-classic';
 import '@fontsource/audiowide';
 
@@ -18,7 +17,7 @@ export function Hero() {
   const [fontIndex, setFontIndex] = useState(0);
 
   // Define an array of font class names
-  const fonts = [styles.pressStart, styles.orbitron, styles.krona, styles.cinzel, styles.audiowide, styles.dseg7];
+  const fonts = [styles.pressStart, styles.orbitron, styles.krona, styles.audiowide, styles.dseg7];
 
   useEffect(() => {
     const handleScroll = () => {

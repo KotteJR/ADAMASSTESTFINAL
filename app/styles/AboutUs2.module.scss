@@ -17,12 +17,20 @@ $mantine-breakpoint-lg: 1200px;
 
 
   @media (max-width: 768px) {
-    height: 30vh;
+    height: 70vh;
     flex-direction: column;
     gap: 20px;
     min-width: 85vw;
-    margin-top: 2vh !important; /* Adjust for mobile */
-    margin-bottom: -5vh;
+    padding-top: 4vh;
+
+  }
+
+  @media (max-width: 400px) {
+    height: 80vh;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 85vw;
+    padding-top: 4vh;
 
   }
 }

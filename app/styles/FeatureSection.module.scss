@@ -26,7 +26,9 @@
   }
 
   @media (max-width: 768px) {
-    margin-bottom: -15vh;
+    margin-bottom: 0vh;
+    height:60vh;
+    margin-top: -2vh;
   }
 }
 
@@ -58,19 +60,24 @@
     }
   }
 
+
   @media (max-width: 768px) {
     width: 90vw;
     display: flex;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     justify-content: flex-start;
-    height: 85vh;
+    height: 60vh;
 
     .featureCard {
       flex: 0 0 100%;
       max-width: 100%;
-      min-height: 85vh;
+      min-height: 60vh;
       scroll-snap-align: center;
+
+      @media (max-width: 768px) {
+        height: 60vh;
+      }
     }
 
     .featureCard:hover {
@@ -197,7 +204,7 @@
   width: 90%;
   height: auto;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1300px) {
     width: 100%;
   }
 }

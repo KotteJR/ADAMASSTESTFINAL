@@ -1,6 +1,6 @@
 import { IconAt, IconMapPin, IconPhone, IconSun } from '@tabler/icons-react';
 import { Box, Stack, Text } from '@mantine/core';
-import classes from '../styles/ContactIcons.module.css';
+import classes from '../styles/ContactIcons.module.scss';
 
 interface ContactIconProps extends Omit<React.ComponentPropsWithoutRef<'div'>, 'title'> {
   icon: typeof IconSun;
