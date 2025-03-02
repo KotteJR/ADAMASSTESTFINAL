@@ -21,13 +21,13 @@
   }
 
   @media (max-width: 1300px) {
-    width: 85vw;
+    width: 90vw;
     max-height: 75vh;
   }
 
   @media (max-width: 768px) {
     margin-bottom: 0vh;
-    height:60vh;
+    height:80vh;
     margin-top: -2vh;
   }
 }
@@ -42,7 +42,7 @@
 
   @media (max-width: 1300px) {
     margin-top: 0px !important;
-    height: 75vh;
+    height: 80vh;
     display: flex;
     width: 60vw;
     overflow-x: auto;
@@ -58,26 +58,26 @@
       scroll-snap-align: center;
       border-radius: 1rem !important;
     }
-  }
+      }
 
-
-  @media (max-width: 768px) {
-    width: 90vw;
-    display: flex;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    justify-content: flex-start;
-    height: 60vh;
-
-    .featureCard {
-      flex: 0 0 100%;
-      max-width: 100%;
-      min-height: 60vh;
-      scroll-snap-align: center;
 
       @media (max-width: 768px) {
-        height: 60vh;
-      }
+        width: 95vw !important;
+        display: flex;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        justify-content: flex-start;
+        height: 70vh;
+
+        .featureCard {
+          flex: 0 0 100%;
+          max-width: 100%;
+          min-height: 70vh;
+          scroll-snap-align: center;
+
+          @media (max-width: 768px) {
+            height: 70vh;
+          }
     }
 
     .featureCard:hover {
