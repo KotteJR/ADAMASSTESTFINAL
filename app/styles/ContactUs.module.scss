@@ -3,11 +3,12 @@
   display: flex;
   align-items: center; /* Centers content vertically */
   justify-content: center; /* Centers content horizontally */
-  margin-top: -15vh;
+  margin-top: -13vh;
 
   @media (max-width: 768px) {
     height: 110vh;
-    margin-top: -10vh;
+    margin-top: -6vh;
+    margin-bottom: 10vh;
     }
 }
 
