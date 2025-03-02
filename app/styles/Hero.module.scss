@@ -4,11 +4,11 @@
 
 .heroCard {
     position: absolute;
-    bottom: 0;
+    bottom: -8vh;
     left: 50%;
     transform: translateX(-50%);
-    width: 65vw; /* Starts narrower */
-    height: 50vh; /* Keep space for title & buttons */
+    width: 50vw; /* Starts narrower */
+    height: 60vh; /* Keep space for title & buttons */
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(5px); /* Adds blur effect */
     -webkit-backdrop-filter: blur(5px); 
@@ -19,11 +19,11 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start; /* Ensure content stays at the top */
+    
 
 
-
-    @media (min-width: 1600px) {
-
+    @media (max-width: 1600px) {
+        bottom: 0vh;
     }
 
     @media (max-width: 1300px) {

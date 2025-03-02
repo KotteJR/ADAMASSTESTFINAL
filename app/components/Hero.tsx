@@ -44,7 +44,7 @@ export function Hero() {
   return (
     <section className={styles.hero} id="hero">
       <video autoPlay loop muted className={styles.backgroundVideo}>
-        <source src="/hero.mp4" type="video/mp4" />
+        <source src="/hello.mp4" type="video/mp4" />
       </video>
       <div className={`${styles.heroCard} ${isExpanded ? styles.expanded : ""}`}>
         {/* Apply dynamic font class to title */}
