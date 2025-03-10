@@ -9,9 +9,9 @@
     transform: translateX(-50%);
     width: 50vw; /* Starts narrower */
     height: 64vh; /* Keep space for title & buttons */
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(5px); /* Adds blur effect */
-    -webkit-backdrop-filter: blur(5px); 
+    background: rgba(255, 255, 255, 0);
+    backdrop-filter: blur(3px); /* Adds blur effect */
+    -webkit-backdrop-filter: blur(3px); 
     border-radius: 50px 50px 0 0;
     text-align: center;
     transition: width 0.4s ease-in-out;
@@ -21,14 +21,17 @@
     justify-content: flex-start; /* Ensure content stays at the top */
     
 
-    @media (min-width: 1600px) {
-        height: 64vh;
+    @media (min-width: 1601px) {
+        height: 50vh;
+        bottom: 0vh;
     }
 
 
     @media (max-width: 1600px) {
-        bottom: 0vh;
+        height: 68vh;
     }
+
+
 
     @media (max-width: 1300px) {
         width: 80vw; /* Expands to full width */
@@ -39,10 +42,9 @@
 
     @media (max-width: 768px) {
         width: 85vw; /* Expands to full width */
-        height: 68vh !important;
+        height: 58vh !important;
         border-radius: 0;
         border-radius: 40px 40px 0 0;
-        bottom: -5vh;
         padding-bottom: 0 !important;
     }
 
@@ -127,7 +129,7 @@
     display: flex;
     justify-content: center;
     gap: 20px;
-    margin-top: 0px;
+    margin-top: 5px;
     margin-bottom: 30px;
     
 
@@ -153,7 +155,6 @@
 
 
 .textContainer {
-    display: flex; /* Enables flexbox */
     justify-content: center; /* Centers content horizontally */
     align-items: center; /* Centers content vertically */
     text-align: center; /* Ensures inline text aligns properly */
@@ -163,12 +164,8 @@
 .text {
     text-align: center; /* Centers text */
     width: 100%; /* Takes full width to properly center */
-    max-width: 85vw; /* Prevents text from becoming too wide */
+    max-width: 100vw; /* Prevents text from becoming too wide */
     word-wrap: break-word;
     overflow-wrap: break-word;
 
-    @media (max-width: 768px) {
-        margin-top: 5px;
-        min-width: 85vw;
-    }
 }

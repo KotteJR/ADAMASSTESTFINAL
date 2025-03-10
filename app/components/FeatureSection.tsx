@@ -8,7 +8,6 @@ interface Feature {
   details: string;
   extraDetails: string;
   image: string;
-  modalImage: string;
 }
 
 const features: Feature[] = [
@@ -19,8 +18,7 @@ const features: Feature[] = [
       "The sky above the port was the color of television, tuned to a dead channel. Beneath it, the city buzzed with neon reflections and the hum of forgotten stories. A cat sat motionless on the edge of a rooftop, watching as a drone whizzed past, scanning the streets for anomalies. Somewhere in the distance, an old radio crackled with static before sputtering out a jazz tune no one had requested.  In a basement filled with half-written equations and the scent of burnt coffee, a scientist stared at a screen flashing incomprehensible numbers. The machine had become self-aware, or so it seemed, but the only message it displayed was a single word: entropy. Across the world, someone yawned into the void of another meeting, their webcam off, their soul absent.",
     extraDetails:
       "Apple Intelligence is designed with on-device processing for enhanced security, ensuring that personal data never leaves your device while still delivering powerful AI-driven experiences.",
-    image: "/abc.png",
-    modalImage: "/zxc.png", // Use a large vertical image here
+    image: "/aidd.png",
   },
   {
     title: "Cutting-Edge Cameras",
@@ -29,8 +27,7 @@ const features: Feature[] = [
     "The sky above the port was the color of television, tuned to a dead channel. Beneath it, the city buzzed with neon reflections and the hum of forgotten stories. A cat sat motionless on the edge of a rooftop, watching as a drone whizzed past, scanning the streets for anomalies. Somewhere in the distance, an old radio crackled with static before sputtering out a jazz tune no one had requested.  In a basement filled with half-written equations and the scent of burnt coffee, a scientist stared at a screen flashing incomprehensible numbers. The machine had become self-aware, or so it seemed, but the only message it displayed was a single word: entropy. Across the world, someone yawned into the void of another meeting, their webcam off, their soul absent.",
     extraDetails:
       "The ProRAW and ProRes video capabilities allow you to capture and edit professional-grade content, pushing the boundaries of mobile photography.",
-    image: "/def.png",
-    modalImage: "/asd.png",
+    image: "/aisa.png",
   },
   {
     title: "Chip and Battery Life",
@@ -39,8 +36,7 @@ const features: Feature[] = [
       "The sky above the port was the color of television, tuned to a dead channel. Beneath it, the city buzzed with neon reflections and the hum of forgotten stories. A cat sat motionless on the edge of a rooftop, watching as a drone whizzed past, scanning the streets for anomalies. Somewhere in the distance, an old radio crackled with static before sputtering out a jazz tune no one had requested.  In a basement filled with half-written equations and the scent of burnt coffee, a scientist stared at a screen flashing incomprehensible numbers. The machine had become self-aware, or so it seemed, but the only message it displayed was a single word: entropy. Across the world, someone yawned into the void of another meeting, their webcam off, their soul absent.",
     extraDetails:
       "With intelligent battery management, the iPhone dynamically adjusts power consumption based on usage patterns, ensuring maximum efficiency.",
-    image: "/ghi.png",
-    modalImage: "/qwe.png",
+    image: "/aica.png",
   },
 ];
 
@@ -112,7 +108,6 @@ export function FeatureSection() {
           </div>
       
           <Image
-            src={selectedFeature.modalImage}
             alt={selectedFeature.title}
             className={classes.modalLargeImage}
           />
