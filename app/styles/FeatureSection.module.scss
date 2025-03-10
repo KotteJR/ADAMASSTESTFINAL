@@ -3,7 +3,7 @@
   width: 100vw;
   display: flex;
   justify-content: center;
-  height: 100vh;
+  height: 80vh;
   position: relative; /* Ensure it acts as a positioning reference */
 
   @media (max-width: 1300px) {
@@ -26,7 +26,7 @@
   }
 
   @media (max-width: 768px) {
-    height:100vh;
+    max-height:100vh;
   }
 }
 
@@ -62,7 +62,7 @@
         display: flex;
         overflow-x: auto;
         justify-content: flex-start;
-        height: 100vh;
+        height: 85vh;
 
         .featureCard {
           flex: 0 0 100%;
