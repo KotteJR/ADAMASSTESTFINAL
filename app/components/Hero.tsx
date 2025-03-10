@@ -43,7 +43,7 @@ export function Hero() {
   return (
     <section className={styles.hero} id="hero">
       <video autoPlay loop muted className={styles.backgroundVideo}>
-        <source src="/hello.mp4" type="video/mp4" />
+        <source src="/video.mp4" type="video/mp4" />
       </video>
       <div className={`${styles.heroCard} ${isExpanded ? styles.expanded : ""}`}>
         {/* Apply dynamic font class to title */}
@@ -64,8 +64,7 @@ export function Hero() {
         <div className={`${styles.hiddenContent} ${isExpanded ? styles.show : ""}`}>
         <div className={styles.textContainer}>
             <Text className={styles.text} size="lg" c="dimmed">
-              Unlock smarter decision-making with expert-driven analysis and advanced AI insights. Adamass empowers investors, businesses, and startups with in-depth technology assessments, risk evaluations, and strategic growth solutions tailored to maximize value.
-            </Text>
+            Unlock smarter decision-making with expert-driven analysis and advanced AI insights. Adamass empowers investors, businesses, and startups with in-depth technology assessments, risk evaluations, and strategic growth solutions — enabling informed decisions that accelerate growth, strengthen operations, and deliver sustainable success.            </Text>
             </div>
         </div>
       </div>

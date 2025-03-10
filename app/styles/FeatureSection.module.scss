@@ -1,9 +1,9 @@
 .featureSection {
   text-align: center;
-  width: 85vw;
+  width: 100vw;
   display: flex;
   justify-content: center;
-  height: 75vh;
+  height: 100vh;
   position: relative; /* Ensure it acts as a positioning reference */
 
   @media (max-width: 1300px) {
@@ -14,38 +14,34 @@
       right: 0;
       width: 60px;
       height: 100%;
-      background: linear-gradient(to left, rgba(255, 255, 255, 0.9), transparent);
       pointer-events: none;
       z-index: 5;
     }
   }
 
   @media (max-width: 1300px) {
+
     width: 90vw;
-    max-height: 75vh;
+    max-height: 85vh;
   }
 
   @media (max-width: 768px) {
-    margin-bottom: 0vh;
-    height:80vh;
-    margin-top: -2vh;
+    height:100vh;
   }
 }
 
 .grid {
   grid-template-columns: repeat(3, minmax(400px, 1fr));
-  max-width: 1600px;
+  max-width: 100vw;
   display: grid;
   justify-content: center;
   gap: 2rem;
   position: relative;
 
   @media (max-width: 1300px) {
-    margin-top: 0px !important;
     height: 80vh;
     display: flex;
-    width: 60vw;
-    overflow-x: auto;
+    width: 100vw;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     gap: 1rem;
@@ -53,30 +49,29 @@
 
     .featureCard {
       height: 75vh;
-      flex: 0 0 50%;
-      max-width: 50%;
-      scroll-snap-align: center;
+      flex: 0 0 40%;
+      max-width: 40%;
+      scroll-snap-align: start;
       border-radius: 1rem !important;
     }
       }
 
 
       @media (max-width: 768px) {
-        width: 95vw !important;
+        width: 80vw !important;
         display: flex;
         overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
         justify-content: flex-start;
-        height: 70vh;
+        height: 100vh;
 
         .featureCard {
           flex: 0 0 100%;
           max-width: 100%;
-          min-height: 70vh;
+          min-height: 80vh;
           scroll-snap-align: center;
 
           @media (max-width: 768px) {
-            height: 70vh;
+            height: 80vh;
           }
     }
 
@@ -84,7 +79,7 @@
       transform: none !important;
 
       .image {
-        filter: brightness(0.8) !important;
+        filter: brightness(0.4) !important;
       }
     }
   }
@@ -102,7 +97,6 @@
   color: white;
   cursor: pointer;
   transition: transform 0.3s ease-in-out, border-radius 0.3s ease-in-out;
-  background-color: #2c3e50;
 
   &:hover {
     transform: scale(1.02);
@@ -131,9 +125,7 @@
     transition: filter 0.2s ease-in-out;
   }
 
-  &:hover .image {
-    filter: brightness(1);
-  }
+
 
   .content {
     position: relative;
@@ -166,7 +158,7 @@
   max-height: 80vh;
   display: flex;
   flex-direction: column;
-  margin-top: 2vh;
+  margin-top: 1vh;
 
   @media (max-width: 1300px) {
     width: 80vw !important;
@@ -180,7 +172,7 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  height: 80%;
+  height: 90%;
   overflow: hidden;
 }
 
@@ -188,10 +180,10 @@
 .modalTop {
   display: flex;
   flex-direction: row;
-  gap: 2rem;
+  gap: 1rem;
   align-items: center;
   justify-content: center;
-  height: 40vh;
+  height: 85vh;
 
   @media (max-width: 1300px) {
     flex-direction: column;
@@ -207,13 +199,4 @@
   @media (max-width: 1300px) {
     width: 100%;
   }
-}
-
-// Large Modal Image (Bigger & More Centered)
-.modalLargeImage {
-  width: 100%;
-  max-height: 30vh;
-  border-radius: 1rem;
-  object-fit: cover;
-  align-items: center;
 }

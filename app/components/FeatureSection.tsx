@@ -6,36 +6,29 @@ interface Feature {
   title: string;
   description: string;
   details: string;
-  extraDetails: string;
   image: string;
 }
 
 const features: Feature[] = [
   {
     title: "Due Diligence",
-    description: "Industry-leading AI...",
+    description: "Rapid & accurate critical insights  with AI-driven assessments.",
     details:
-      "The sky above the port was the color of television, tuned to a dead channel. Beneath it, the city buzzed with neon reflections and the hum of forgotten stories. A cat sat motionless on the edge of a rooftop, watching as a drone whizzed past, scanning the streets for anomalies. Somewhere in the distance, an old radio crackled with static before sputtering out a jazz tune no one had requested.  In a basement filled with half-written equations and the scent of burnt coffee, a scientist stared at a screen flashing incomprehensible numbers. The machine had become self-aware, or so it seemed, but the only message it displayed was a single word: entropy. Across the world, someone yawned into the void of another meeting, their webcam off, their soul absent.",
-    extraDetails:
-      "Apple Intelligence is designed with on-device processing for enhanced security, ensuring that personal data never leaves your device while still delivering powerful AI-driven experiences.",
+      "Our rigorous due diligence services go far beyond traditional methods, leveraging our proprietary AI-driven platform to provide unparalleled speed, depth, and accuracy in assessments. We meticulously analyze financial performance, operational efficiency, technological maturity, and potential risks associated with investment targets or strategic initiatives. This comprehensive approach uncovers hidden insights, validates growth assumptions, and flags potential pitfalls before they become critical issues. Unlike traditional due diligence, which can be resource-intensive and time-consuming, Adamass's AI-enhanced process drastically reduces evaluation timelines while simultaneously enhancing accuracy, ensuring our clients remain agile and informed in critical decision-making moments. By prioritizing clarity, precision, and thoroughness, our due diligence delivers actionable intelligence essential to successful investments and strategic partnerships.",
     image: "/aidd.png",
   },
   {
-    title: "Cutting-Edge Cameras",
-    description: "Picture your best photos and videos.",
+    title: "Capital Advisory",
+    description: "Secure the optimal capital structure to fuel your growth.",
     details:
-    "The sky above the port was the color of television, tuned to a dead channel. Beneath it, the city buzzed with neon reflections and the hum of forgotten stories. A cat sat motionless on the edge of a rooftop, watching as a drone whizzed past, scanning the streets for anomalies. Somewhere in the distance, an old radio crackled with static before sputtering out a jazz tune no one had requested.  In a basement filled with half-written equations and the scent of burnt coffee, a scientist stared at a screen flashing incomprehensible numbers. The machine had become self-aware, or so it seemed, but the only message it displayed was a single word: entropy. Across the world, someone yawned into the void of another meeting, their webcam off, their soul absent.",
-    extraDetails:
-      "The ProRAW and ProRes video capabilities allow you to capture and edit professional-grade content, pushing the boundaries of mobile photography.",
+    "Our capital advisory services are specifically designed to support startups and established businesses in securing optimal financing structures, fueling sustainable growth, and enhancing financial stability. We leverage extensive networks, market knowledge, and analytical rigor to match businesses with ideal investors, structuring financing deals that align precisely with strategic goals. Our approach includes detailed assessments of capital needs, evaluation of funding alternatives, and guidance throughout the investment negotiation process. Additionally, we advise on capital restructuring and refinancing solutions, enabling businesses to optimize their capital mix, reduce financial risks, and enhance long-term profitability. With Adamass’s capital advisory expertise, our clients are confidently positioned to secure investments that drive measurable growth, competitive advantage, and financial health.",
     image: "/aisa.png",
   },
   {
-    title: "Chip and Battery Life",
-    description: "Fast that lasts.",
+    title: "Strategic Advisory",
+    description: "Position your business strategically to achieve sustainable growth.",
     details:
-      "The sky above the port was the color of television, tuned to a dead channel. Beneath it, the city buzzed with neon reflections and the hum of forgotten stories. A cat sat motionless on the edge of a rooftop, watching as a drone whizzed past, scanning the streets for anomalies. Somewhere in the distance, an old radio crackled with static before sputtering out a jazz tune no one had requested.  In a basement filled with half-written equations and the scent of burnt coffee, a scientist stared at a screen flashing incomprehensible numbers. The machine had become self-aware, or so it seemed, but the only message it displayed was a single word: entropy. Across the world, someone yawned into the void of another meeting, their webcam off, their soul absent.",
-    extraDetails:
-      "With intelligent battery management, the iPhone dynamically adjusts power consumption based on usage patterns, ensuring maximum efficiency.",
+      "At Adamass, we understand that businesses today face unprecedented complexity, volatility, and disruption. Our strategic advisory services help clients define clear objectives, identify high-potential market opportunities, and execute winning strategies tailored to their unique strengths and competitive landscape. Through comprehensive market analysis, competitor benchmarking, and rigorous scenario planning, we help our clients anticipate market shifts and prepare effective strategic responses. Whether it involves growth acceleration, organizational transformation, product innovation, or optimizing operational efficiency, our seasoned experts partner closely with clients, ensuring strategies are not only insightful but practically executable. Our strategic advisory practice ultimately empowers businesses to pursue resilient, value-creating pathways that drive lasting success.",
     image: "/aica.png",
   },
 ];
@@ -106,11 +99,6 @@ export function FeatureSection() {
 
             </div>
           </div>
-      
-          <Image
-            alt={selectedFeature.title}
-            className={classes.modalLargeImage}
-          />
                 
         </div>
       </Modal>

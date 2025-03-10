@@ -6,10 +6,7 @@ export function AboutUs() {
     <Container className={classes.aboutSection}> {/* Added id for scrolling */}
       <div className={classes.textContainer}>
         <Text c="dimmed" mt="lg" size="lg">
-          Adamass AB is a consulting firm specializing in IT, finance, business restructuring,
-          due diligence, and strategic advisory. We help businesses overcome challenges,
-          streamline operations, and drive sustainable growth. Our customized solutions
-          enhance efficiency, reduce risks, and unlock new.
+        At Adamass, we blend human expertise with advanced technology to create a unique consulting experience. Our approach integrates proprietary AI-driven tools with deep market knowledge and hands-on collaboration, allowing us to rapidly understand client challenges, deliver precise analyses, and ensure practical, effective solutions. By combining innovative technology with proven advisory methodologies, we ensure clients achieve strategic clarity, operational excellence, and measurable financial success.
         </Text>
       </div>
 

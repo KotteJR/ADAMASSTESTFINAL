@@ -4,7 +4,7 @@
 
 .heroCard {
     position: absolute;
-    bottom: -9vh;
+    bottom: -8vh;
     left: 50%;
     transform: translateX(-50%);
     width: 50vw; /* Starts narrower */
@@ -42,15 +42,15 @@
 
     @media (max-width: 768px) {
         width: 85vw; /* Expands to full width */
-        height: 58vh !important;
+        height: 60vh !important;
         border-radius: 0;
         border-radius: 40px 40px 0 0;
-        padding-bottom: 0 !important;
+        padding-bottom: 20vh !important;
     }
 
     @media (max-width: 400px) {
         width: 90vw; /* Expands to full width */
-        height: 63vh !important;
+        height: 100vh !important;
         border-radius: 0;
         border-radius: 40px 40px 0 0;
         bottom: 0vh;
@@ -145,7 +145,12 @@
     opacity: 0;
     transition: opacity 0.8s ease-in-out;
     margin-top: 10px; /* Keeps hidden content below the buttons */
-    max-width: 50vw;
+    max-width: 70vw;
+
+    @media (max-width: 768px) {
+        max-width: 85vw;
+
+    }
 
 }
 
@@ -159,13 +164,19 @@
     align-items: center; /* Centers content vertically */
     text-align: center; /* Ensures inline text aligns properly */
     width: 100%; /* Ensures full width */
+    margin-top: 5px;
 }
 
 .text {
     text-align: center; /* Centers text */
-    width: 100%; /* Takes full width to properly center */
-    max-width: 100vw; /* Prevents text from becoming too wide */
+    min-width: 60vw; /* Prevents text from becoming too wide */
+    max-width: 100vw;
     word-wrap: break-word;
     overflow-wrap: break-word;
+
+    @media (max-width: 768px) {
+        max-width: 80vw;
+
+    }
 
 }
