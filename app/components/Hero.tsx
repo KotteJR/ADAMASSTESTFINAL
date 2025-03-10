@@ -4,14 +4,6 @@ import { useState, useEffect } from "react";
 import { Button, Text } from "@mantine/core";
 import styles from "../styles/Hero.module.scss";
 
-// FONTS
-import "@fontsource/press-start-2p";
-import "@fontsource-variable/orbitron";
-import "@fontsource/krona-one";
-import '@fontsource/dseg7-classic';
-import '@fontsource/audiowide';
-
-
 export function Hero() {
   const [isExpanded, setIsExpanded] = useState(false);
   const [fontIndex, setFontIndex] = useState(0);
@@ -46,8 +38,8 @@ export function Hero() {
         <source src="/video.mp4" type="video/mp4" />
       </video>
       <div className={`${styles.heroCard} ${isExpanded ? styles.expanded : ""}`}>
-        {/* Apply dynamic font class to title */}
-        <h1 className={`${styles.title} ${fonts[fontIndex]}`}>Adamass</h1>
+  
+        <h1>Welcome to Adamass</h1>
         <div className={styles.buttons}>
         <a href="#contact-us">
           <Button radius="xl" size="sm" className={styles.primaryButton}>

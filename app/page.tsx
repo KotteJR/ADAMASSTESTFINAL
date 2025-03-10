@@ -58,7 +58,6 @@ export default function HomePage() {
       </div>
 
       <section className="section">
-        <h2 className="section-title"></h2>
         <Hero />
       </section>
 
