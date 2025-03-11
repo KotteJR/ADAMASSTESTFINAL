@@ -32,7 +32,7 @@ export function ProjectThree() {
       className={`${styles.projectSection} ${isExpanded ? styles.expanded : ""}`}
     >
       <video autoPlay loop muted className={styles.backgroundVideo}>
-        <source src="/ZOION.mp4" type="video/mp4" />
+        <source src="/DALIA.mp4" type="video/mp4" />
       </video>
 
       <div className={styles.projectContent}>
