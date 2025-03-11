@@ -1,41 +1,53 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { Burger, Container, Group, Image, Drawer } from "@mantine/core";
+import {
+  IconChevronDown,
+  IconCode,
+  IconCoin,
+  IconBook,
+  IconFingerprint,
+  IconChartPie3,
+  IconNotification,
+} from "@tabler/icons-react";
+import {
+  Anchor,
+  Box,
+  Burger,
+  Button,
+  Center,
+  Collapse,
+  Container,
+  Divider,
+  Drawer,
+  Group,
+  HoverCard,
+  ScrollArea,
+  SimpleGrid,
+  Text,
+  ThemeIcon,
+  UnstyledButton,
+  useMantineTheme,
+} from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import styles from "../styles/HeaderSimple.module.scss";
+import { useEffect, useState } from "react";
+import classes from "../styles/HeaderMegaMenu.module.scss";
+import Image from "next/image";
 
-const links = [
-  { link: "#hero", label: "Home" },
-  { link: "#features", label: "Offerings" },
-  { link: "#about-us", label: "About Us" },
-  { link: "#contact-us", label: "Contact Us" },
-];
-
-export function HeaderSimple() {
-  const [active, setActive] = useState(links[0].link);
-  const [opened, { toggle, close }] = useDisclosure(false);
-  const [isMobile, setIsMobile] = useState(false);
+export function HeaderMegaMenu() {
+  const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
   const [scrollDirection, setScrollDirection] = useState<"up" | "down" | null>(null);
   const [lastScrollY, setLastScrollY] = useState(0);
-
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
       if (currentScrollY <= 10) {
-        setScrollDirection(null);
+        setScrollDirection(null); // Transparent at top
       } else if (currentScrollY > lastScrollY) {
-        setScrollDirection("down");
+        setScrollDirection("down"); // Hide on scroll down
       } else {
-        setScrollDirection("up");
+        setScrollDirection("up"); // Show on scroll up
       }
 
       setLastScrollY(currentScrollY);
@@ -45,86 +57,48 @@ export function HeaderSimple() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        let foundActive = false;
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !foundActive) {
-            setActive(`#${entry.target.id}`);
-            foundActive = true;
-          }
-        });
-      },
-      { root: null, rootMargin: "-30% 0px -50% 0px", threshold: 0.2 }
-    );
-
-    links.forEach((link) => {
-      const section = document.querySelector(link.link);
-      if (section) observer.observe(section);
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
-  const handleSmoothScroll = (event: React.MouseEvent<HTMLAnchorElement>, target: string) => {
-    event.preventDefault();
-    setActive(target);
-
-    const section = document.querySelector(target);
-    if (section) {
-      const offsetPosition = section.getBoundingClientRect().top + window.scrollY - (isMobile ? 50 : 80);
-      window.scrollTo({ top: offsetPosition, behavior: "smooth" });
-
-      setTimeout(() => setActive(target), 300);
-    }
-
-    if (isMobile) close();
-  };
-
   return (
-    <header
-      className={`${styles.header} ${
-        scrollDirection === "down" ? styles.hidden : scrollDirection === "up" ? styles.visible : ""
-      }`}
-    >
-      <Container size="md" className={styles.inner}>
-        <Image src="/LOGO.png" alt="Custom Logo" height={25} width={95} />
+    <Box pb={0}>
+      <header
+        className={`${classes.header} ${
+          scrollDirection === "up"
+            ? classes.visible
+            : scrollDirection === "down"
+            ? classes.hidden
+            : classes.transparent
+        }`}
+      >
+        {/* === FIXED === Using Container for Proper Width and Centering */}
+        <Container size="md" className={classes.inner}>
+          <Group justify="space-between" h="100%">
 
-        {!isMobile && (
-          <Group gap="5" className={styles.links}>
-            {links.map((link) => (
-              <a
-                key={link.label}
-                href={link.link}
-                className={`${styles.link} ${active === link.link ? styles.active : ""}`}
-                onClick={(event) => handleSmoothScroll(event, link.link)}
-              >
-                {link.label}
-              </a>
-            ))}
-          </Group>
-        )}
+            {/* Logo */}
+            <Image
+              src="/LOGO.png"
+              alt="Adamass Logo"
+              width={100}
+              height={20}
+              priority
+            />
 
-        {isMobile && <Burger opened={opened} onClick={toggle} size="sm" />}
-
-        {isMobile && (
-          <Drawer opened={opened} onClose={close} size="100%" position="right" padding="md" title="Menu">
-            <Group style={{ flexDirection: "column" }} gap="lg" align="center" className={styles.mobileMenu}>
-              {links.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.link}
-                  className={`${styles.link} ${active === link.link ? styles.active : ""}`}
-                  onClick={(event) => handleSmoothScroll(event, link.link)}
-                >
-                  {link.label}
-                </a>
-              ))}
+            {/* Links */}
+            <Group h="100%" gap="5" visibleFrom="sm">
+              <a href="#" className={classes.link}>Home</a>
+              <a href="#" className={classes.link}>Features</a>
+              <a href="#" className={classes.link}>About Us</a>
+              <a href="#" className={classes.link}>Contact</a>
             </Group>
-          </Drawer>
-        )}
-      </Container>
-    </header>
+
+            {/* Auth Buttons */}
+            <Group visibleFrom="sm">
+              <Button variant="default">Log in</Button>
+              <Button>Sign up</Button>
+            </Group>
+
+            <Burger opened={drawerOpened} onClick={toggleDrawer} hiddenFrom="sm" />
+          </Group>
+        </Container>
+      </header>
+    </Box>
   );
 }

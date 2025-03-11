@@ -2,8 +2,6 @@
 import { useEffect } from "react";
 import { animate, scroll } from "@motionone/dom";
 import "./globals.scss";
-
-import { HeaderSimple } from "./components/Header";
 import { Hero } from "./components/Hero";
 import { FeatureSection } from "./components/FeatureSection";
 import { AboutUs } from "./components/AboutUs";
@@ -33,7 +31,6 @@ export default function HomePage() {
 
   return (
     <>
-      <HeaderSimple />
 
       <div className="progress-square">
         <div className="top"></div>

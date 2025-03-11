@@ -47,7 +47,7 @@ export function ProjectOne() {
     <>
       {/* Section Title Added Above */}
       <h2 ref={sectionTitleRef} className={styles.sectionTitle}>
-        Portfolio.
+        Our Portfolio.
       </h2>
 
       <section

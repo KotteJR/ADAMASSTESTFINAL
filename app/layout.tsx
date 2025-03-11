@@ -2,7 +2,7 @@ import "./globals.scss";
 import type { Metadata } from "next";
 import { MantineProvider, ColorSchemeScript, createTheme } from "@mantine/core";
 import "@mantine/core/styles.css";
-import { HeaderSimple } from "./components/Header";
+import { HeaderMegaMenu } from "./components/HeaderMegaMenu";
 
 export const metadata: Metadata = {
   title: "Adamass",
@@ -20,7 +20,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         <MantineProvider theme={theme} defaultColorScheme="light">
-          <HeaderSimple />
+          <HeaderMegaMenu />
           <main>{children}</main>
         </MantineProvider>
       </body>
