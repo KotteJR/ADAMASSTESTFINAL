@@ -5,6 +5,7 @@
   flex-wrap: wrap;
   max-width: 85vw !important;
   height: auto;
+  gap: 1rem;
   margin-bottom: 20vh;
   margin-top: 20vh;
   flex-direction: row-reverse;
@@ -19,10 +20,8 @@
   font-weight: bold;
   color: rgba(0, 110, 255, 1);
   opacity: 0.2;
-  margin-bottom: 1rem; /* Add spacing between title and cards */
   z-index: 1;
 }
-
 
 /* Text Container */
 .textContainer {
