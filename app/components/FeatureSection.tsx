@@ -64,9 +64,10 @@ export function FeatureSection() {
 
     return (
         <Container className={classes.aboutSection} id="features">
-          <Title ref={sectionTitleRef} order={2} className={classes.sectionTitle}>
-         Our Expertise.
-        </Title>
+            <h2 ref={sectionTitleRef} className={classes.sectionTitle}>
+            Our Expertise.
+            </h2>
+
 
             <div className={classes.grid}>
                 {features.map((feature, index) => (
