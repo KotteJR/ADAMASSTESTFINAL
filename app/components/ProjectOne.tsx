@@ -55,7 +55,7 @@ export function ProjectOne() {
         className={`${styles.projectSection} ${isExpanded ? styles.expanded : ""}`}
       >
         <video autoPlay loop muted className={styles.backgroundVideo}>
-          <source src="/zoion.mp4" type="video/mp4" />
+          <source src="/ZOION.mp4" type="video/mp4" />
         </video>
 
         <div className={styles.projectContent}>

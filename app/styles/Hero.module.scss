@@ -33,7 +33,7 @@
         font-size: clamp(2.5rem, 5vw, 6rem);
         font-weight: bold;
         margin-bottom: 1.5rem;
-        margin-top: -0.1rem;
+        margin-top: -0.5rem;
     }
 
     .contactButton {
@@ -46,7 +46,7 @@
         cursor: pointer;
         font-size: 1rem;
         transition: background 0.3s ease;
-        margin-bottom: 1rem;
+        margin-bottom: 0.7rem;
 
         &:hover {
             background-color: #005bb5;
