@@ -41,13 +41,12 @@
 }
 
 
-
-
 /* Image */
 .image {
-  width: clamp(250px, 30vw, 400px); /* 🔥 Smooth scaling between 250px and 500px */
-  height: auto;                     /* Maintains aspect ratio */
-  object-fit: contain;              /* Prevents distortion */
+  width: 100%;  /* Make the image responsive */
+  max-width: 350px;  /* Set the maximum width to prevent it from getting too large */
+  height: auto;  /* Ensure the height adjusts automatically to maintain aspect ratio */
+  object-fit: contain;  /* Ensure the image maintains its aspect ratio */
 }
 
 

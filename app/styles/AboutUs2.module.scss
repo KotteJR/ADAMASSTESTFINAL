@@ -37,11 +37,11 @@
 .imageContainer {
   flex: 1;
   display: flex;
-  justify-content: center;  /* Center the image horizontally */
+  justify-content: flex-start;  /* Center the image horizontally */
   align-items: center;  /* Center the image vertically */
   max-width: 50%;  /* Limit the maximum width of the container */
+  
 }
-
 
 /* Image */
 .image {
