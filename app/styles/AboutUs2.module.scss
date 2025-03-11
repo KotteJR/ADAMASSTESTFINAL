@@ -46,7 +46,7 @@
 /* Image */
 .image {
   width: 100%;  /* Make the image responsive */
-  max-width: 500px;  /* Set the maximum width to prevent it from getting too large */
+  max-width: 350px;  /* Set the maximum width to prevent it from getting too large */
   height: auto;  /* Ensure the height adjusts automatically to maintain aspect ratio */
   object-fit: contain;  /* Ensure the image maintains its aspect ratio */
 }
