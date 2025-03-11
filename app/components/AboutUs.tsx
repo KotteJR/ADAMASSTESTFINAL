@@ -23,9 +23,9 @@ export function AboutUs() {
 
   return (
     <Container className={classes.aboutSection} id="about-us">
-      <Title ref={sectionTitleRef} order={2} className={classes.sectionTitle}>
-        Approach.
-      </Title>
+          <h2 ref={sectionTitleRef} className={classes.sectionTitle}>
+            Approach.
+          </h2>
 
       <div className={classes.textContainer}>
         <Text c="dimmed" mt="lg" size="lg">

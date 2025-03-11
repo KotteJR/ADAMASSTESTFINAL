@@ -26,6 +26,7 @@
   z-index: 1;
 }
 
+
 /* Text Container */
 .textContainer {
   flex: 1;
@@ -34,21 +35,20 @@
 }
 
 .imageContainer {
-  flex: 1;                /* Allows the container to expand proportionally */
+  flex: 1;
   display: flex;
-  align-items: center;    /* Centers image vertically */
-  justify-content: flex-start;  /* Aligns image to the right */
-  max-width: 50%;         /* Ensures the image can expand */
+  justify-content: center;  /* Center the image horizontally */
+  align-items: center;  /* Center the image vertically */
+  max-width: 50%;  /* Limit the maximum width of the container */
 }
-
-
 
 
 /* Image */
 .image {
-  width: clamp(250px, 30vw, 400px); /* 🔥 Smooth scaling between 250px and 500px */
-  height: auto;                     /* Maintains aspect ratio */
-  object-fit: contain;              /* Prevents distortion */
+  width: 100%;  /* Make the image responsive */
+  max-width: 500px;  /* Set the maximum width to prevent it from getting too large */
+  height: auto;  /* Ensure the height adjusts automatically to maintain aspect ratio */
+  object-fit: contain;  /* Ensure the image maintains its aspect ratio */
 }
 
 
