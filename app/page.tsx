@@ -8,48 +8,33 @@ import { Hero } from "./components/Hero";
 import { FeatureSection } from "./components/FeatureSection";
 import { AboutUs } from "./components/AboutUs";
 import { AboutUs2 } from "./components/AboutUs2";
+import { ProjectOne } from "./components/ProjectOne";
+import { ProjectTwo } from "./components/ProjectTwo";
+import { ProjectThree } from "./components/ProjectThree";
 import { ContactUs } from "./components/ContactUs";
 import { FooterCentered } from "./components/FooterCentered";
 
 export default function HomePage() {
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      const windowHeight = window.innerHeight;
-      const documentHeight = document.documentElement.scrollHeight;
-      
-      // Get the footer's position
-      const footer = document.querySelector("footer");
-      const footerOffset = footer ? footer.offsetTop : documentHeight;
-  
-      // Calculate scroll progress stopping before the footer
-      const maxScrollableHeight = footerOffset - windowHeight;
-      const progress = Math.min(scrollTop / maxScrollableHeight, 1) * 100;
-  
-      // Apply progress to the CSS variable
-      document.documentElement.style.setProperty("--progress-bottom-width", `${progress}%`);
-    };
-  
-    window.addEventListener("scroll", handleScroll);
-  
-    // Restore Section Title Animation
-    document.querySelectorAll(".section-title").forEach((title) => {
+    const titles = document.querySelectorAll(`.${'sectionTitle'}`);
+    titles.forEach((title) => {
       scroll(
-        animate(title, { y: [-50, 50], opacity: [0.2, 1, 0.2,] }, { easing: "ease-in-out" }),
+        animate(title, 
+          { 
+            y: [-50, 50], 
+            opacity: [0.2, 1, 0.2] 
+          }, 
+          { easing: "ease-in-out", duration: 1.5 }
+        ),
         { target: title }
       );
     });
-  
-    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-  
-  
 
   return (
     <>
       <HeaderSimple />
-      
-      {/* Progress Square */}
+
       <div className="progress-square">
         <div className="top"></div>
         <div className="bottom"></div>
@@ -57,31 +42,21 @@ export default function HomePage() {
         <div className="right"></div>
       </div>
 
-      <section className="section">
         <Hero />
-      </section>
 
-      <section className="section">
-        <h2 className="section-title">Our Expertise.</h2>
         <FeatureSection />
-      </section>
 
-      <section className="section">
-        <h2 className="section-title">About Us.</h2>
         <AboutUs2 />
-      </section>
 
-      <section className="section">
-        <h2 className="section-title">Approach.</h2>
         <AboutUs />
-      </section>
 
-      <section className="section">
-        <h2 className="section-title">Contact.</h2>
-        <ContactUs />
-      </section>
+        <ProjectOne />
 
-      <FooterCentered />
+        <ProjectTwo />
+
+        <ProjectThree />
+
+        <FooterCentered />
     </>
   );
 }

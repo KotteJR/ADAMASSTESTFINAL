@@ -21,43 +21,6 @@ html, body {
 
 }
 
-.section-title {
-  width: 83vw; 
-  text-align: center; 
-  top: 2vh;
-  font-size: 8rem; /* Larger for desktop */
-  font-weight: bold;
-  color: rgba(0, 110, 255, 1);
-  opacity: 0.2; 
-  z-index: -1; 
-  
-
-  @media (max-width: 2200px) {
-    font-size: 5rem; /* Smaller for large desktops */
-    margin-top: 15vh;
-  }
-
-  @media (min-width: 2200px) {
-    margin-top: 15vh;
-  }
-  
-
-  @media (max-width: 1024px) {
-    font-size: 5rem; /* Smaller for tablets */
-    max-width: 90vw;
-  }
-
-  
-  @media (max-width: 768px) {
-    font-size: 3rem !important; 
-    text-align: left; 
-  }
-
-  @media (max-width: 480px) {
-    font-size: 3rem !important; /* Smallest for very small screens */
-  }
-}
-
 :root {
   --progress-top: 0%;
   --progress-bottom: 0%;

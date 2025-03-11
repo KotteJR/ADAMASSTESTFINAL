@@ -1,65 +1,53 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { Button, Text } from "@mantine/core";
-import styles from "../styles/Hero.module.scss";
+import { useEffect, useRef, useState } from "react";
+import { Text } from "@mantine/core";
+import classes from "../styles/Hero.module.scss";
 
 export function Hero() {
-  const [isExpanded, setIsExpanded] = useState(false);
-  const [fontIndex, setFontIndex] = useState(0);
+    const cardRef = useRef<HTMLDivElement>(null);
+    const [isExpanded, setIsExpanded] = useState(false);
 
-  // Define an array of font class names
-  const fonts = [styles.pressStart, styles.orbitron, styles.krona, styles.audiowide, styles.dseg7];
+    useEffect(() => {
+        const handleScroll = () => setIsExpanded(window.scrollY > 0);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 100) {
-        setIsExpanded(true);
-      } else {
-        setIsExpanded(false);
-      }
-    };
+        window.addEventListener("scroll", handleScroll, { passive: true });
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    return (
+        <div className={classes.heroContainer}>
+            <video
+                id="hero-video"
+                className={classes.heroVideo}
+                autoPlay
+                muted
+                loop
+                playsInline
+            >
+                <source src="/hello.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setFontIndex((prevIndex) => (prevIndex + 1) % fonts.length);
-    }, 1000);
+            <div
+                ref={cardRef}
+                className={`${classes.expandingCard} ${isExpanded ? classes.expanded : ""}`}
+            >
+                <div className={classes.heroContent}>
+                    <h1 className={classes.heroTitle}>Empowering Innovation with AI</h1>
 
-    return () => clearInterval(interval);
-  }, []);
+                    <button className={classes.contactButton}>Contact Us</button>
 
-  return (
-    <section className={styles.hero} id="hero">
-      <video autoPlay loop muted className={styles.backgroundVideo}>
-        <source src="/video.mp4" type="video/mp4" />
-      </video>
-      <div className={`${styles.heroCard} ${isExpanded ? styles.expanded : ""}`}>
-  
-        <h1>Welcome to Adamass</h1>
-        <div className={styles.buttons}>
-        <a href="#contact-us">
-          <Button radius="xl" size="sm" className={styles.primaryButton}>
-            Contact Us
-          </Button>
-            </a>
-
-        <a href="#features">
-          <Button variant="default" radius="xl" size="sm" className={styles.secondaryButton}>
-            Learn More
-          </Button>
-          </a>
-        </div>
-        <div className={`${styles.hiddenContent} ${isExpanded ? styles.show : ""}`}>
-        <div className={styles.textContainer}>
-            <Text className={styles.text} size="lg" c="dimmed">
-            Unlock smarter decision-making with expert-driven analysis and advanced AI insights. Adamass empowers investors, businesses, and startups with in-depth technology assessments, risk evaluations, and strategic growth solutions — enabling informed decisions that accelerate growth, strengthen operations, and deliver sustainable success.            </Text>
+                    <Text
+                        className={`${classes.heroText} ${isExpanded ? classes.textVisible : ""}`}
+                        c="dimmed"
+                        size="lg"
+                        mt="lg"
+                    >
+                        Unlock smarter decision-making with expert-driven analysis and advanced AI insights. Adamass empowers investors, businesses, and startups with in-depth technology assessments, risk evaluations, and strategic growth solutions — enabling informed decisions that accelerate growth, strengthen operations, and deliver sustainable success.
+                    </Text>
+                </div>
             </div>
         </div>
-      </div>
-    </section>
-  );
+    );
 }

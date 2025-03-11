@@ -1,202 +1,188 @@
 .featureSection {
-  text-align: center;
-  width: 100vw;
+  width: 100%;
+  min-height: 100vh;      /* Ensures fullscreen height */
   display: flex;
-  justify-content: center;
-  height: 80vh;
-  position: relative; /* Ensure it acts as a positioning reference */
+  flex-direction: column;
+  justify-content: center; /* Vertically centered content */
+  padding: 6rem 0;         /* Increased padding for improved spacing */
+  position: relative;
+}
 
-  @media (max-width: 1300px) {
-    &::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 60px;
-      height: 100%;
-      pointer-events: none;
-      z-index: 5;
-    }
-  }
-
-  @media (max-width: 1300px) {
-
-    width: 90vw;
-    max-height: 85vh;
-  }
+.sectionTitle {
+  text-align: center;
+  font-size: clamp(3rem, 8vw, 8rem); /* Dynamic scaling */
+  font-weight: bold;
+  color: rgba(0, 110, 255, 1);
+  opacity: 0.2;
+  z-index: 1;
+  margin-bottom: 2rem; /* Added spacing for improved visual balance */
 
   @media (max-width: 768px) {
-    max-height:100vh;
-  }
+    margin-top: 5vh;
+    }
+
 }
 
 .grid {
-  grid-template-columns: repeat(3, minmax(400px, 1fr));
-  max-width: 100vw;
-  display: grid;
-  justify-content: center;
-  gap: 2rem;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  max-width: 100%;
+  padding-bottom: 2rem;
   position: relative;
+}
 
-  @media (max-width: 1300px) {
-    height: 80vh;
-    display: flex;
-    width: 100vw;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    gap: 1rem;
-    justify-content: flex-start;
-
-    .featureCard {
-      height: 75vh;
-      flex: 0 0 40%;
-      max-width: 40%;
-      scroll-snap-align: start;
-      border-radius: 1rem !important;
-    }
-      }
-
-
-      @media (max-width: 768px) {
-        width: 80vw !important;
-        display: flex;
-        overflow-x: auto;
-        justify-content: flex-start;
-        height: 85vh;
-
-        .featureCard {
-          flex: 0 0 100%;
-          max-width: 100%;
-          min-height: 80vh;
-          scroll-snap-align: center;
-
-          @media (max-width: 768px) {
-            height: 80vh;
-          }
-    }
-
-    .featureCard:hover {
-      transform: none !important;
-
-      .image {
-        filter: brightness(0.4) !important;
-      }
-    }
-  }
+.grid::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
 }
 
 .featureCard {
+  flex: 1 1 350px;
+  min-width: 350px;
+  max-width: 400px;
   position: relative;
-  border-radius: 1rem;
+  border-radius: 1.5rem;
   overflow: hidden;
-  height: 600px;
+  height: 600px;         /* Slightly taller cards for visual balance */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 1.5rem;
   color: white;
   cursor: pointer;
-  transition: transform 0.3s ease-in-out, border-radius 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  background: #f5f5f7;
+  z-index: 1;
+  scroll-snap-align: start;
 
   &:hover {
-    transform: scale(1.02);
-  }
-
-  &:hover::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: inherit;
-    background: rgba(0, 0, 0, 0);
+      z-index: 20;
   }
 
   .image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-size: cover;
-    background-position: center;
-    filter: brightness(0.8);
-    transition: filter 0.2s ease-in-out;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.8);
   }
-
-
 
   .content {
-    position: relative;
-    z-index: 1;
-    padding: 1.5rem;
-    text-align: left;
-    color: white;
+      position: relative;
+      z-index: 1;
+      padding: 1.5rem;
+      text-align: left;
+      color: white;
 
-    .featureTitle {
-      font-size: 1.5rem;
-      font-weight: bold;
-      margin-bottom: 0.5rem;
-    }
+      .featureTitle {
+          font-size: 1.5rem;
+          font-weight: bold;
+          margin-bottom: 0.5rem;
+      }
 
-    p {
-      font-size: 1.2rem;
-      opacity: 0.9;
-    }
+      p {
+          font-size: 1.2rem;
+          opacity: 0.9;
+      }
   }
 
+  .plusIcon {
+      position: absolute;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      background-color: #000;
+      color: #fff;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
 
+      &:hover {
+          background-color: #0071e3; /* Apple blue */
+      }
+  }
+}
+
+/* MODAL DESIGN */
+.modalCustomSize {
+  background: #f5f5f7;
+  border-radius: 1.5rem;
+  padding: 2rem;
+
+  .modalTitle {
+      font-weight: bold;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+  }
+
+  .modalDescription {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: #555;
+      margin-bottom: 2rem;
+  }
+
+  .modalImage img {
+      border-radius: 1rem;
+      width: 100%;
+  }
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+  .grid {
+      flex-wrap: nowrap; 
+  }
+
+  .featureCard {
+      flex: 0 0 350px;
+      max-width: 100%;
+      height: 90vh;
+  }
+
+  .plusIcon {
+      bottom: 1rem;
+      right: 1rem;
+      width: 30px;
+      height: 30px;
+  }
+}
+
+
+.grid {
+  perspective: 1000px; /* Defines the perspective for 3D transformations */
+}
+
+.featureCard {
+  transform-style: preserve-3d; /* Ensures children are positioned in 3D space */
+  transition: transform 0.3s ease-in-out;
+
+  &:hover {
+    transform: rotateY(5deg) scale(1.01); /* Rotates and scales the card on hover */
+  }
+
+  @media (max-width: 768px) {
+    .grid {
+        overflow-x: auto;
+        perspective: none; /* Critical for disabling 3D */
+    }
+
+    .featureCard {
+        transform: none !important; /* Ensures rotation is disabled */
+        &:hover {
+            transform: none !important; /* Fully cancels hover rotation */
+        }
+      }
   
 }
-
-// Set the modal size
-.modalCustomSize {
-  width: 60vw !important;
-  height: 80vh !important;
-  max-width: 60vw;
-  max-height: 80vh;
-  display: flex;
-  flex-direction: column;
-  margin-top: 1vh;
-
-  @media (max-width: 1300px) {
-    width: 80vw !important;
-    height: 80vh !important;
-    max-width: 80vw;
-    max-height: 80vh;
-  }
-}
-
-.modalContent {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  height: 90%;
-  overflow: hidden;
-}
-
-// Adjust the top section for the larger modal
-.modalTop {
-  display: flex;
-  flex-direction: row;
-  gap: 1rem;
-  align-items: center;
-  justify-content: center;
-  height: 85vh;
-
-  @media (max-width: 1300px) {
-    flex-direction: column;
-    height: auto;
-  }
-}
-
-// Text Content (Right)
-.modalText {
-  width: 90%;
-  height: auto;
-
-  @media (max-width: 1300px) {
-    width: 100%;
-  }
 }

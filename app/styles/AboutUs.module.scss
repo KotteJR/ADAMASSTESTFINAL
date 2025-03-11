@@ -1,77 +1,72 @@
-$mantine-breakpoint-xs: 576px;
-$mantine-breakpoint-sm: 768px;
-$mantine-breakpoint-md: 1100px;
-$mantine-breakpoint-lg: 1200px;
-
-/* About Section */
 .aboutSection {
-  height: 65vh;
-  max-width: 80vw;
-  min-width: 80vw;
-  width: 80vw;
   display: flex;
   align-items: center;
-  text-align: justify;
   justify-content: space-between;
-  margin-top: -12vh;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 85vw;
+  min-width: 85vw;
+  height: auto;
+  gap: 2rem;
+  margin-bottom: 20vh;
+  margin-top: 20vh;
 
-  @media (max-width: 1300px) {
-    height: 100vh;
-    min-width: 85vw;
-    margin-top: -30vh;
-
-  }
-
-
-  @media (max-width: 768px) {
-    height: 100vh;
-    flex-direction: column;
-    gap: 20px;
-    min-width: 90vw;
-    padding-top: 5vh;
-
-  }
 }
 
+/* Section Title */
+.sectionTitle {
+  width: 100%;
+  text-align: center;
+  font-size: clamp(3rem, 8vw, 8rem); /* Dynamic scaling for title */
+  font-weight: bold;
+  color: rgba(0, 110, 255, 1);
+  opacity: 0.2;
+  margin-bottom: 1rem; /* Add spacing between title and cards */
+  z-index: 1;
+}
 
 /* Text Container */
 .textContainer {
   flex: 1;
   max-width: 50%;
-
-  @media (max-width: $mantine-breakpoint-md) {
-    max-width: 100%;
-    text-align: justify;
-  }
+  text-align: justify;
 }
 
-/* Image Container */
 .imageContainer {
-  flex: 1;
+  flex: 1;                /* Allows the container to expand proportionally */
   display: flex;
-  justify-content: flex-end; 
-  align-items: center;
-  max-width: 50%;
-  min-width: 50%;
-
-  
-
-  @media (max-width: $mantine-breakpoint-sm) {
-    justify-content: center;
-    margin-top: 15px;
-    max-width: 100%;
-  }
+  align-items: center;    /* Centers image vertically */
+  justify-content: flex-end;  /* Aligns image to the right */
+  max-width: 50%;         /* Ensures the image can expand */
 }
+
+
+
 
 /* Image */
 .image {
-  max-width: 50%;
-  min-width: 50%;
-  height: auto;
-  object-fit: contain;
+  width: clamp(250px, 30vw, 400px); /* 🔥 Smooth scaling between 250px and 500px */
+  height: auto;                     /* Maintains aspect ratio */
+  object-fit: contain;              /* Prevents distortion */
+}
 
-  @media (max-width: $mantine-breakpoint-sm) {
-    max-width: 50%;
-    min-width: 50vw;
+
+
+
+@media (max-width: 768px) {
+  .aboutSection {
+    flex-direction: column; /* Stack content vertically */
+    align-items: center; /* Center both text and image */
+    min-width: 90vw;
+  }
+
+  .textContainer,
+  .imageContainer {
+    max-width: 90%; /* Increase width for better readability */
+    order: 1; /* Ensure text appears first */
+  }
+
+  .imageContainer {
+    display: none; /* Hides the image on screens smaller than 768px */
   }
 }
