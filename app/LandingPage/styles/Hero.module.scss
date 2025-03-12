@@ -41,7 +41,7 @@
     .heroTitle {
         color: #003366;
         font-size: clamp(2.5rem, 5vw, 6rem);
-        font-weight: bold;
+        font-weight: 500;
         margin-bottom: 2rem;
         margin-top: 0.5rem;
     }
@@ -81,7 +81,7 @@
 
     &.expanded {
         width: 100vw;
-        height: 50vh;
+        height: 70vh;
         background: rgba(255, 255, 255, 1); 
         backdrop-filter: blur(0px);
 
@@ -109,7 +109,7 @@
     }
 
     .expanded {
-        height: 60vh !important;
+        height: 80vh !important;
     }
 
     .heroContent {
@@ -130,3 +130,16 @@
         }
     }
 }
+
+
+@media (max-width: 1500px) {
+    .expandingCard {
+        height: 20vh; /* 🔥 Reduced height for mobile */
+        width: 90vw;
+    }
+
+    .expanded {
+        height: 70vh !important;
+    }
+}
+    

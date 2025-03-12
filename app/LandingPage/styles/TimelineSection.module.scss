@@ -1,0 +1,79 @@
+.timelineSection {
+    text-align: center;
+    padding: 4rem 0;
+    width: 85vw;
+    max-width: 1000px;
+    margin: 0 auto;
+
+    .title {
+        color: #003366;
+        font-size: clamp(2.5rem, 5vw, 6rem);
+        font-weight: 500;
+        margin-bottom: 1rem;
+    }
+
+    .description {
+        color: #777;
+        max-width: 60vw;
+        margin: 0 auto 5rem auto;
+    }
+
+    .timeline {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+    
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50px;
+            width: 2px;
+            height: 100%;
+            background: #e0e0e0; /* Default grey line */
+            z-index: 0;
+        }
+    
+        .glowLine {
+            position: absolute;
+            top: 0;
+            left: 50px;
+            width: 2px;
+            height: 0; /* Start with no height */
+            background: #007BFF;
+            box-shadow: 0 0 10px 2px rgba(0, 123, 255, 0.8); 
+            transition: height 0s ease-in-out; /* Faster, smoother animation */
+            z-index: 1;
+        }
+    }
+
+    .step {
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        .circle {
+            width: 30px;
+            height: 30px;
+            background: #fff;
+            border: 2px solid #e0e0e0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 200;
+            position: relative;
+            z-index: 1;
+        }
+
+        .content {
+            text-align: left;
+            margin-left: 3rem;
+
+            .mantine-Text-root {
+                margin-bottom: 0.5rem;  
+            }
+        }
+    }
+}

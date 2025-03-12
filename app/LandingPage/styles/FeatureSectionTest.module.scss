@@ -22,7 +22,7 @@
     max-width: 45%;
     line-height: 0.5;
     color: #003366;
-    margin-left: 2.5rem;
+    margin-left: 1.5rem;
 }
 
 .textContent {
@@ -61,14 +61,14 @@
 .cards {
     display: flex;
     flex-wrap: wrap;
-    gap: 3rem;
+    gap: 2rem;
     width: 100%;
     justify-content: center;
 }
 
 .card {
-    width: 28%;
-    aspect-ratio: 3 / 4;
+    width: 30%;
+    aspect-ratio: 2 / 3;
     border-radius: 12px;
     overflow: hidden;
     position: relative;
@@ -108,7 +108,7 @@
     .card {
         width: 100%;
         flex-direction: column; /* Full image stacked */
-        height: 30vh;
+        height: 40vh;
     }
 
     .title {
