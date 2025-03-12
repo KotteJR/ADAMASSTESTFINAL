@@ -2,7 +2,7 @@ import "./globals.scss";
 import type { Metadata } from "next";
 import { MantineProvider, ColorSchemeScript, createTheme } from "@mantine/core";
 import "@mantine/core/styles.css";
-import { HeaderMegaMenu } from "./components/HeaderMegaMenu";
+import { HeaderMegaMenu } from "./LandingPage/components/HeaderMegaMenu";
 
 export const metadata: Metadata = {
   title: "Adamass",

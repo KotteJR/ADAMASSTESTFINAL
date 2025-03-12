@@ -1,0 +1,51 @@
+.wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 15vh 5vw;
+    margin-top: 10vh;
+    height: 55vh;
+  }
+  
+  .inner {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .title {
+    font-size: clamp(2.5rem, 5vw, 5rem);
+    color: #003366;
+    margin-bottom: 2rem;
+    font-family: 'SF Pro', sans-serif;
+  }
+  
+
+  .description {
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  .scrollArrow {
+    margin-top: 4rem;
+    animation: bounce 1.5s infinite ease-in-out;  // Arrow bounce animation
+  }
+  
+  .arrowIcon {
+    font-size: 3.5rem;
+    color: #0071e3;
+  }
+  
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-10px);
+    }
+    60% {
+      transform: translateY(-5px);
+    }
+  }
+  

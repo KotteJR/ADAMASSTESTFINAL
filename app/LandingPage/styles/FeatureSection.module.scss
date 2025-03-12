@@ -10,9 +10,9 @@
 
 .sectionTitle {
   text-align: center;
-  font-size: clamp(4rem, 8vw, 8rem); /* Dynamic scaling */
+  font-size: clamp(3rem, 8vw, 8rem); /* Dynamic scaling */
   font-weight: bold;
-  color: rgba(0, 110, 255, 1);
+  color: #003366;;
   opacity: 0.2;
   z-index: 1;
   margin-bottom: 2rem; /* Added spacing for improved visual balance */

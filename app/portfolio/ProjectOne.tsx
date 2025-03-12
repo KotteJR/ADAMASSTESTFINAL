@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { Text } from "@mantine/core";
 import { animate, scroll } from "@motionone/dom";
-import styles from "../styles/ProjectOne.module.scss";
+import styles from "./ProjectOne.module.scss";
 
 export function ProjectOne() {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -17,7 +17,7 @@ export function ProjectOne() {
         animate(sectionTitleRef.current, 
           { 
             y: [-50, 0, 50], 
-            opacity: [0.2, 1, 0.2] 
+            opacity: [0.4, 1, 0.2] 
           }, 
           { easing: "ease-in-out", duration: 1.5 }
         ),
@@ -46,9 +46,7 @@ export function ProjectOne() {
   return (
     <>
       {/* Section Title Added Above */}
-      <h2 ref={sectionTitleRef} className={styles.sectionTitle}>
-        Our Portfolio
-      </h2>
+
 
       <section
         ref={sectionRef}

@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  max-width: 90vw !important;
+  max-width: 85vw !important;
   height: auto;
   gap: 1rem;
   margin-bottom: 20vh;
@@ -15,9 +15,9 @@
 .sectionTitle {
   width: 100%;
   text-align: center;
-  font-size: clamp(4rem, 8vw, 8rem); /* Dynamic scaling for title */
+  font-size: clamp(3rem, 8vw, 8rem); /* Dynamic scaling for title */
   font-weight: bold;
-  color: rgba(0, 110, 255, 1);
+  color: #003366;
   opacity: 0.2;
   margin-bottom: -0.5rem;
   z-index: 1;

@@ -12,7 +12,7 @@ export function AboutUs() {
         animate(sectionTitleRef.current,
           { 
             y: [-50, 0, 50], 
-            opacity: [0.2, 1, 0.2] 
+            opacity: [0.4, 1, 0.2] 
           },
           { easing: "ease-in-out", duration: 1.5 }
         ),

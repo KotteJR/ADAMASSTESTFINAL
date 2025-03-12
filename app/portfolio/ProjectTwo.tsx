@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";  // Import Image for the logo
 import { Text } from "@mantine/core";
-import styles from "../styles/ProjectTwo.module.scss";
+import styles from "./ProjectTwo.module.scss";
 
 export function ProjectTwo() {
   const [isExpanded, setIsExpanded] = useState(false);

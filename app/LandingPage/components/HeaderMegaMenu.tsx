@@ -1,5 +1,7 @@
 "use client";
 
+import Link from 'next/link'
+
 import {
   IconBook,
   IconChartPie3,
@@ -109,9 +111,14 @@ export function HeaderMegaMenu() {
 
 
           <Group h="100%" gap={0} visibleFrom="sm">
-            <a href="#" className={classes.link}>
+            <Link href="/LandingPage" className={classes.link}>
               Home
-            </a>
+            </Link>
+
+            <Link href="/portfolio" className={classes.link}>
+              Portfolio
+            </Link>
+
             <HoverCard width={600} position="bottom" radius="md" shadow="md" withinPortal>
               <HoverCard.Target>
                 <a href="#" className={classes.link}>
@@ -153,12 +160,10 @@ export function HeaderMegaMenu() {
                 </div>
               </HoverCard.Dropdown>
             </HoverCard>
-            <a href="#" className={classes.link}>
-              About Us
-            </a>
-            <a href="#" className={classes.link}>
+            <Link href="/contact" className={classes.link}>
               Contact
-            </a>
+            </Link>
+
           </Group>
 
           <Group visibleFrom="sm">
