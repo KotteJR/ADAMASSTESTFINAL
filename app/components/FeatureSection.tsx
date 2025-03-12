@@ -65,7 +65,7 @@ export function FeatureSection() {
     return (
         <Container className={classes.aboutSection} id="features">
             <h2 ref={sectionTitleRef} className={classes.sectionTitle}>
-            Our Expertise.
+            Our Expertise
             </h2>
 
 

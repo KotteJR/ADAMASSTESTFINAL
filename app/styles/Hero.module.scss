@@ -111,6 +111,7 @@
 @media (max-width: 768px) {
     .expandingCard {
         height: 35vh; /* 🔥 Reduced height for mobile */
+        width: 90vw;
     }
 
     .expanded {

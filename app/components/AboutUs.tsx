@@ -24,7 +24,7 @@ export function AboutUs() {
   return (
     <Container className={classes.aboutSection} id="about-us">
           <h2 ref={sectionTitleRef} className={classes.sectionTitle}>
-            Approach.
+            Approach
           </h2>
 
       <div className={classes.textContainer}>
