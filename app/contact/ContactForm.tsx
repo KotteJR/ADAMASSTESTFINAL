@@ -1,7 +1,7 @@
 "use client";
 
 import { TextInput, Textarea, Button, Text, Title } from "@mantine/core";
-import classes from "./contactForm.module.scss";
+import classes from "./contactform.module.scss";
 
 export function ContactForm() {
   return (
