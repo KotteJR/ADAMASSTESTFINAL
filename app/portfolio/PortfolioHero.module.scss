@@ -15,8 +15,9 @@
   }
   
   .title {
-    font-size: clamp(2.5rem, 5vw, 5rem);
     color: #003366;
+    font-size: clamp(2.5rem, 5vw, 6rem);
+    font-weight: 500;
     margin-bottom: 2rem;
     font-family: 'SF Pro', sans-serif;
   }
@@ -33,7 +34,7 @@
   }
   
   .arrowIcon {
-    font-size: 3.5rem;
+    font-size: 3rem;
     color: #0071e3;
   }
   

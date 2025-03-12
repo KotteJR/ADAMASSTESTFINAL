@@ -2,7 +2,8 @@
     text-align: center;
     padding: 4rem 0;
     width: 85vw;
-    max-width: 1000px;
+    max-width: 75vw;
+
     margin: 0 auto;
 
     .title {
@@ -15,7 +16,7 @@
     .description {
         color: #777;
         max-width: 60vw;
-        margin: 0 auto 5rem auto;
+        margin: 0 auto 10rem auto;
     }
 
     .timeline {
@@ -23,49 +24,70 @@
         display: flex;
         flex-direction: column;
         gap: 3rem;
+        margin-top: 5rem;
     
         &::before {
             content: '';
             position: absolute;
-            top: 0;
+            top: 5%; /* Corrected starting position */
             left: 50px;
             width: 2px;
-            height: 100%;
-            background: #e0e0e0; /* Default grey line */
+            height: 100%;  /* Ensures it aligns with the content */
+            background: #e0e0e0; 
             z-index: 0;
         }
     
         .glowLine {
             position: absolute;
-            top: 0;
+            top: 5%; /* Align with the grey line */
             left: 50px;
             width: 2px;
-            height: 0; /* Start with no height */
+            height: 0;
             background: #007BFF;
             box-shadow: 0 0 10px 2px rgba(0, 123, 255, 0.8); 
-            transition: height 0s ease-in-out; /* Faster, smoother animation */
+            transition: height 0s ease-in-out;
             z-index: 1;
         }
     }
+    
 
     .step {
         display: flex;
         align-items: center;
         position: relative;
-
+    
         .circle {
-            width: 30px;
-            height: 30px;
+            width: 40px; /* Larger for better visibility */
+            height: 40px;
             background: #fff;
-            border: 2px solid #e0e0e0;
+            border: 2px solid rgba(0, 0, 0, 0.1); /* Light grey border */
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 200;
+            font-weight: 400; /* Softer weight */
+            color: #000; /* Ensure number visibility */
             position: relative;
             z-index: 1;
+    
+            /* Shadow for subtle depth effect */
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    
+            /* Optional: Slight fade-in effect for elegance */
+            animation: fadeIn 0.6s ease-in-out forwards;
         }
+    
+        @keyframes fadeIn {
+            from {
+                opacity: 0.5;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
 
         .content {
             text-align: left;
@@ -77,3 +99,14 @@
         }
     }
 }
+
+.step {
+    .content {
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #003366;  // Deep blue for consistency
+        }
+    }
+}
+

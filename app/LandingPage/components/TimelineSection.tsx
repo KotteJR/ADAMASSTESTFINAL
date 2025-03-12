@@ -1,5 +1,6 @@
 'use client';
 
+import { Text } from "@mantine/core";
 import { useEffect, useRef } from 'react';
 import styles from '../styles/TimelineSection.module.scss';
 
@@ -35,35 +36,43 @@ export function TimelineSection() {
 
     return (
         <section className={styles.timelineSection}>
-            <h1 className={styles.title}>Launch with Assurance</h1>
-            <p className={styles.description}>
-                Simplify your workflow with our tools that provide clear insights, minimizing the complexity of managing intricate deployment data.
-            </p>
+            <h1 className={styles.title}>Empower Your Business</h1>
+            <Text c="dimmed" mt="lg" size="lg">
+            Adamass provides businesses with the insights and expertise they need to navigate complex challenges. By combining over 25 years of cumulative experience with a deep understanding of technology, finance, and strategy, we deliver solutions that drive growth, innovation, and stability. Our tailored approach ensures businesses make informed decisions that unlock new opportunities in dynamic markets.
+            </Text>
+
+
 
             <div className={styles.timeline}>
                 <div ref={glowLineRef} className={styles.glowLine}></div>
 
                 <div className={styles.step}>
-                    <div className={styles.circle}>1</div>
+                    <div className={styles.circle}>a</div>
                     <div className={styles.content}>
-                        <h3>Monitor Deployments live</h3>
-                        <p>Track your deployments with clarity, seeing updates take place as they happen.</p>
+                        <h3>Adaptive Solutions</h3>
+                        <Text c="dimmed" mt="lg" size="ml">
+                        We design flexible strategies that align with your unique objectives, ensuring agility in ever-changing business landscapes. 
+                        </Text>
                     </div>
                 </div>
 
                 <div className={styles.step}>
-                    <div className={styles.circle}>2</div>
+                    <div className={styles.circle}>b</div>
                     <div className={styles.content}>
-                        <h3>Immediate Issue Detection</h3>
-                        <p>Spot issues instantly and address them with precise metrics for optimized performance.</p>
+                        <h3>Business Clarity</h3>
+                        <Text c="dimmed" mt="lg" size="ml">
+                        Our insights offer clear guidance, helping you assess risks, explore growth opportunities, and make confident decisions.
+                        </Text>
                     </div>
                 </div>
 
                 <div className={styles.step}>
-                    <div className={styles.circle}>3</div>
+                    <div className={styles.circle}>c</div>
                     <div className={styles.content}>
-                        <h3>Seamless Automation</h3>
-                        <p>Automate repetitive tasks and ensure consistent deployment workflows for better scalability.</p>
+                        <h3>Comprehensive Support</h3>
+                        <Text c="dimmed" mt="lg" size="ml">
+                        From strategic consulting to financial advisory, our integrated approach empowers your organization to thrive at every stage.
+                        </Text>
                     </div>
                 </div>
             </div>
