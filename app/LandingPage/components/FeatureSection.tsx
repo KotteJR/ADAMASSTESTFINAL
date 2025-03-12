@@ -6,6 +6,7 @@ import { animate, scroll } from "@motionone/dom";
 
 
 
+
 interface Feature {
     title: string;
     description: string;

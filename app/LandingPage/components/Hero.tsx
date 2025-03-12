@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Text } from "@mantine/core";
+import { Text, Button } from "@mantine/core";
 import classes from "../styles/Hero.module.scss";
 
 export function Hero() {
@@ -25,7 +25,7 @@ export function Hero() {
                 loop
                 playsInline
             >
-                <source src="/hello.mp4" type="video/mp4" />
+                <source src="/HEROHERO.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
             </video>
 
@@ -35,9 +35,6 @@ export function Hero() {
             >
                 <div className={classes.heroContent}>
                     <h1 className={classes.heroTitle}>Empowering Innovation with AI</h1>
-
-                    <button className={classes.contactButton}>Contact Us</button>
-
                     <Text
                         className={`${classes.heroText} ${isExpanded ? classes.textVisible : ""}`}
                         c="dimmed"
@@ -46,6 +43,10 @@ export function Hero() {
                     >
                         Unlock smarter decision-making with expert-driven analysis and advanced AI insights. Adamass empowers investors, businesses, and startups with in-depth technology assessments, risk evaluations, and strategic growth solutions — enabling informed decisions that accelerate growth, strengthen operations, and deliver sustainable success.
                     </Text>
+
+                <div className={classes.buttons}>
+                            <Button className={classes.primaryButton}>Contact Us</Button>
+                        </div>
                 </div>
             </div>
         </div>

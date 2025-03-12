@@ -1,9 +1,10 @@
 "use client";
+
 import { useEffect } from "react";
 import { animate, scroll } from "@motionone/dom";
 import "../globals.scss";
 import { Hero } from "./components/Hero";
-import { FeatureSection } from "./components/FeatureSection";
+import { FeatureSectionTest } from "./components/FeatureSectionTest";
 import { AboutUs } from "./components/AboutUs";
 import { AboutUs2 } from "./components/AboutUs2";
 import { FooterCentered } from "./components/FooterCentered";
@@ -17,7 +18,7 @@ export default function HomePage() {
 
         <Hero />
 
-        <FeatureSection />
+        <FeatureSectionTest />
 
         <AboutUs2 />
 
