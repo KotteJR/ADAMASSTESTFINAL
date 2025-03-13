@@ -167,8 +167,7 @@
 @media (max-width: 768px) {
     .topContent {
         flex-direction: column; /* Stack content */
-        align-items: center; /* Center align text */
-        text-align: center;
+        text-align: left !important;
     }
 
     .title {
@@ -184,7 +183,6 @@
     .buttons {
         width: 50; /* Buttons full width */
         display: flex;
-        justify-content: center;
         gap: 1rem;
         margin-top: 1.5rem;
         

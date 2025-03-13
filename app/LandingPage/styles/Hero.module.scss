@@ -100,12 +100,12 @@
 
 @media (max-width: 768px) {
     .expandingCard {
-        height: 25vh; /* 🔥 Reduced height for mobile */
+        height: 35vh; /* 🔥 Reduced height for mobile */
         width: 90vw;
     }
 
     .expanded {
-        height: 80vh !important;
+        height: 100vh !important;
     }
 
     .heroContent {
