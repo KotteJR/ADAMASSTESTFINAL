@@ -105,7 +105,7 @@
     }
 
     .expanded {
-        height: 100vh !important;
+        height: 90vh !important;
     }
 
     .heroContent {
@@ -144,4 +144,15 @@
         height: 70vh !important;
     }
 }
-    
+
+
+@media (max-width: 400px) {
+    .expandingCard {
+        height: 35vh; /* 🔥 Reduced height for mobile */
+        width: 110vw;
+    }
+
+    .expanded {
+        height: 90vh !important;
+    }
+}
