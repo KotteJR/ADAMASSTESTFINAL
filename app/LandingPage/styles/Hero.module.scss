@@ -114,15 +114,21 @@
         .heroTitle {
             font-size: 2rem; /* 🔥 Slightly smaller title for mobile */
             margin-bottom: 1rem; 
+            text-align: left;
         }
 
-        .contactButton {
-            padding: 0.6rem 1.5rem; /* 🔥 Smaller button to match tighter layout */
+        .primaryButton {
+            padding: 0rem 1.5rem; /* 🔥 Smaller button to match tighter layout */
+            width: 50%; /* Full width for container */
+            margin-top: 2rem;
+            text-align: center;
+        
         }
 
         .heroText {
             display: block; /* 🔥 Ensures text always shows */
             overflow-y: auto;  /* 🔥 Enables scrolling if text exceeds height */
+            text-align: left !important;
         }
     }
 }
