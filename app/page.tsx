@@ -5,8 +5,8 @@ import { animate, scroll } from "@motionone/dom";
 import "./globals.scss";
 import { Hero } from "./LandingPage/components/Hero";
 import { FeatureSectionTest } from "./LandingPage/components/FeatureSectionTest";
-import { AboutUs } from "./LandingPage/components/AboutUs";
 import { TimelineSection } from "./LandingPage/components/TimelineSection";
+import { FeatureCards } from "./LandingPage/components/FeatureCards";
 import { FooterCentered } from "./LandingPage/components/FooterCentered";
 
 export default function HomePage() {
@@ -22,9 +22,10 @@ export default function HomePage() {
 
         <TimelineSection />
 
-        <AboutUs />
+        <FeatureCards />
 
         <FooterCentered />
+        
     </>
   );
 }

@@ -20,7 +20,7 @@ export function TimelineSection() {
                 if (timelineRect.top <= windowHeight && timelineRect.bottom >= 0) {
                     const totalTimelineHeight = timelineRect.height;
                     const visibleHeight = windowHeight - timelineRect.top;
-                    const heightPercentage = Math.min((visibleHeight / totalTimelineHeight) * 60, 100);
+                    const heightPercentage = Math.min((visibleHeight / totalTimelineHeight) * 50, 100);
     
                     glowLine.style.height = `${heightPercentage}%`;
                 } else {
@@ -47,7 +47,6 @@ export function TimelineSection() {
                 <div ref={glowLineRef} className={styles.glowLine}></div>
 
                 <div className={styles.step}>
-                    <div className={styles.circle}>a</div>
                     <div className={styles.content}>
                         <h3>Adaptive Solutions</h3>
                         <Text c="dimmed" mt="lg" size="ml">
@@ -57,7 +56,6 @@ export function TimelineSection() {
                 </div>
 
                 <div className={styles.step}>
-                    <div className={styles.circle}>b</div>
                     <div className={styles.content}>
                         <h3>Business Clarity</h3>
                         <Text c="dimmed" mt="lg" size="ml">
@@ -67,7 +65,6 @@ export function TimelineSection() {
                 </div>
 
                 <div className={styles.step}>
-                    <div className={styles.circle}>c</div>
                     <div className={styles.content}>
                         <h3>Comprehensive Support</h3>
                         <Text c="dimmed" mt="lg" size="ml">
