@@ -31,7 +31,7 @@ export function ProjectThree() {
       ref={sectionRef}
       className={`${styles.projectSection} ${isExpanded ? styles.expanded : ""}`}
     >
-      <video autoPlay loop muted className={styles.backgroundVideo}>
+      <video autoPlay loop muted playsInline className={styles.backgroundVideo}>
         <source src="/DALIA.mp4" type="video/mp4" />
       </video>
 
