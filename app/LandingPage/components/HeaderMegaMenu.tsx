@@ -41,7 +41,32 @@ const mockdata = [
 export function HeaderMegaMenu() {
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
   const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [isVisible, setIsVisible] = useState(true);
+  const [isScrolled, setIsScrolled] = useState(false);
   const theme = useMantineTheme();
+
+  // SCROLL LOGIC — Ensures hide-on-scroll + appear-on-scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      setIsScrolled(currentScrollY > 0);
+
+      if (currentScrollY < lastScrollY || currentScrollY === 0) {
+        setIsVisible(true); // Show when scrolling up or at top
+      }
+
+      if (currentScrollY > lastScrollY && currentScrollY > 0) {
+        setIsVisible(false); // Hide when scrolling down
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
 
   const links = mockdata.map((item) => (
     <Link href={item.link || "#"} key={item.title} className={classes.subLink}>
@@ -63,7 +88,11 @@ export function HeaderMegaMenu() {
 
   return (
     <Box pb={0}>
-      <header className={classes.header}>
+      <header
+        className={`${classes.header} 
+        ${isVisible ? classes.visible : classes.hidden} 
+        ${isScrolled ? classes.scrolled : ''}`}
+      >
         <Group justify="space-between" h="100%">
 
           <Image
@@ -113,75 +142,79 @@ export function HeaderMegaMenu() {
 
       {/* Drawer for Mobile Navigation */}
       <Drawer
-  opened={drawerOpened}
-  onClose={closeDrawer}
-  size="100%"
-  padding="md"
-  hiddenFrom="sm"
-  zIndex={1000000}
->
-  <ScrollArea h="calc(100vh - 80px)" mx="-md">
-    <Divider my="sm" />
-
-    <div className={classes.drawerLinksContainer}>
-    <Link href="/LandingPage" 
-      className={`${classes.drawerLink} drawerLink`}
-      onClick={closeDrawer}>
-  Home
-</Link>
-
-<Link href="/portfolio" 
-      className={`${classes.drawerLink} drawerLink`}
-      onClick={closeDrawer}>
-  Portfolio
-</Link>
-
-<UnstyledButton 
-      className={`${classes.drawerLink} ${classes.solutionsLink}`} 
-      onClick={toggleLinks}>
-  <Text fw={500} style={{ flex: 1 }}>Solutions</Text>
-  <IconChevronDown size={16} color={theme.colors.blue[6]} />
-</UnstyledButton>
-
-<Collapse in={linksOpened}>
-  <div className={classes.subLinkContainer}>
-    {mockdata.map(item => (
-      <Link 
-        href={item.link} 
-        key={item.title}
-        onClick={closeDrawer}
-        className={classes.subLink}  // Directly use .subLink without extra wrappers
+        opened={drawerOpened}
+        onClose={closeDrawer}
+        size="100%"
+        padding="md"
+        hiddenFrom="sm"
+        zIndex={1000000}
       >
-        <ThemeIcon size={34} variant="default" radius="md">
-          <item.icon size={22} color={theme.colors.blue[6]} />
-        </ThemeIcon>
+        <ScrollArea h="calc(100vh - 80px)" mx="-md">
+          <Divider my="sm" />
 
-        <div className={classes.text}>
-          <h3>{item.title}</h3>
-          <p>{item.description}</p>
-        </div>
-      </Link>
-    ))}
-  </div>
-</Collapse>
+          <div className={classes.drawerLinksContainer}>
+            <Link
+              href="/LandingPage"
+              className={`${classes.drawerLink} drawerLink`}
+              onClick={closeDrawer}
+            >
+              Home
+            </Link>
 
+            <Link
+              href="/portfolio"
+              className={`${classes.drawerLink} drawerLink`}
+              onClick={closeDrawer}
+            >
+              Portfolio
+            </Link>
 
-<Link href="/contact" 
-      className={`${classes.drawerLink} drawerLink`}
-      onClick={closeDrawer}>
-  Contact
-</Link>
+            <UnstyledButton
+              className={`${classes.drawerLink} ${classes.solutionsLink}`}
+              onClick={toggleLinks}
+            >
+              <Text fw={500} style={{ flex: 1 }}>Solutions</Text>
+              <IconChevronDown size={16} color={theme.colors.blue[6]} />
+            </UnstyledButton>
 
-    </div>
+            <Collapse in={linksOpened}>
+              <div className={classes.subLinkContainer}>
+                {mockdata.map(item => (
+                  <Link
+                    href={item.link}
+                    key={item.title}
+                    onClick={closeDrawer}
+                    className={classes.subLink}
+                  >
+                    <ThemeIcon size={34} variant="default" radius="md">
+                      <item.icon size={22} color={theme.colors.blue[6]} />
+                    </ThemeIcon>
 
-    <Divider my="sm" />
+                    <div className={classes.text}>
+                      <h3>{item.title}</h3>
+                      <p>{item.description}</p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </Collapse>
 
-    <Group justify="center" grow pb="xl" px="md">
-      <Button onClick={closeDrawer}>Sign up</Button>
-    </Group>
-  </ScrollArea>
-</Drawer>
+            <Link
+              href="/contact"
+              className={`${classes.drawerLink} drawerLink`}
+              onClick={closeDrawer}
+            >
+              Contact
+            </Link>
+          </div>
 
+          <Divider my="sm" />
+
+          <Group justify="center" grow pb="xl" px="md">
+            <Button onClick={closeDrawer}>Sign up</Button>
+          </Group>
+        </ScrollArea>
+      </Drawer>
     </Box>
   );
 }
