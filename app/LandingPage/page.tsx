@@ -3,11 +3,11 @@
 import { useEffect } from "react";
 import { animate, scroll } from "@motionone/dom";
 import "../globals.scss";
-import { Hero } from "./components/Hero";
-import { FeatureSectionTest } from "./components/FeatureSectionTest";
-import { AboutUs } from "./components/AboutUs";
-import { AboutUs2 } from "./components/AboutUs2";
-import { FooterCentered } from "./components/FooterCentered";
+import { Hero } from "../LandingPage/components/Hero";
+import { FeatureSectionTest } from "../LandingPage/components/FeatureSectionTest";
+import { TimelineSection } from "../LandingPage/components/TimelineSection";
+import { FeatureCards } from "../LandingPage/components/FeatureCards";
+import { FooterCentered } from "../LandingPage/components/FooterCentered";
 
 export default function HomePage() {
 
@@ -20,11 +20,12 @@ export default function HomePage() {
 
         <FeatureSectionTest />
 
-        <AboutUs2 />
+        <TimelineSection />
 
-        <AboutUs />
+        <FeatureCards />
 
         <FooterCentered />
+        
     </>
   );
 }

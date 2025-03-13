@@ -43,7 +43,7 @@
         font-size: clamp(2.5rem, 5vw, 6rem);
         font-weight: 500;
         margin-bottom: 2rem;
-        margin-top: 0.5rem;
+        margin-top: 0.1rem;
     }
 
 
@@ -81,7 +81,7 @@
 
     &.expanded {
         width: 100vw;
-        height: 70vh;
+        height: 65vh;
         background: rgba(255, 255, 255, 1); 
         backdrop-filter: blur(0px);
 
@@ -135,7 +135,7 @@
     }
 
     .expanded {
-        height: 70vh !important;
+        height: 60vh !important;
     }
 }
     
