@@ -1,16 +1,13 @@
 "use client";
 
-import Link from 'next/link'
-
+import Link from 'next/link';
 import {
   IconBook,
   IconChartPie3,
   IconChevronDown,
-  IconCode,
-  IconCoin,
-  IconFingerprint,
   IconNotification,
-} from "@tabler/icons-react";
+} from '@tabler/icons-react';
+
 import {
   Anchor,
   Box,
@@ -28,44 +25,23 @@ import {
   ThemeIcon,
   UnstyledButton,
   useMantineTheme,
-} from "@mantine/core";
-import { useDisclosure } from "@mantine/hooks";
-import { useEffect, useState } from "react";
-import classes from "../styles/HeaderMegaMenu.module.scss";
-import Image from "next/image";
+} from '@mantine/core';
+
+import { useDisclosure } from '@mantine/hooks';
+import { useEffect, useState } from 'react';
+import classes from '../styles/HeaderMegaMenu.module.scss';
+import Image from 'next/image';
 
 const mockdata = [
-  { icon: IconBook, title: "Due Diligence", description: "In-depth research and market evaluation.", link: "/duediligence"},
-  { icon: IconChartPie3, title: "Capital Advisory", description: "Investor insights and funding strategies.", link: "/capitaladvisory" },
-  { icon: IconNotification, title: "Strategic Advisory", description: "Tailored strategies for business growth.", link: "/strategicadvisory" },
+  { icon: IconBook, title: 'Due Diligence', description: 'In-depth research and market evaluation.', link: '/duediligence' },
+  { icon: IconChartPie3, title: 'Capital Advisory', description: 'Investor insights and funding strategies.', link: '/capitaladvisory' },
+  { icon: IconNotification, title: 'Strategic Advisory', description: 'Tailored strategies for business growth.', link: '/strategicadvisory' },
 ];
 
 export function HeaderMegaMenu() {
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
   const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);
   const theme = useMantineTheme();
-
-  const [scrollDirection, setScrollDirection] = useState<"up" | "down" | null>(null);
-  const [lastScrollY, setLastScrollY] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-
-      if (currentScrollY <= 10) {
-        setScrollDirection(null);  
-      } else if (currentScrollY > lastScrollY) {
-        setScrollDirection("down"); 
-      } else {
-        setScrollDirection("up");  
-      }
-
-      setLastScrollY(currentScrollY);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
 
   const links = mockdata.map((item) => (
     <Link href={item.link || "#"} key={item.title} className={classes.subLink}>
@@ -84,37 +60,23 @@ export function HeaderMegaMenu() {
       </Group>
     </Link>
   ));
-  
 
   return (
     <Box pb={0}>
-      <header
-        className={`${classes.header} ${
-          scrollDirection === "up"
-            ? classes.visible
-            : scrollDirection === "down"
-            ? classes.hidden
-            : classes.transparent
-        }`}
-      >
+      <header className={classes.header}>
         <Group justify="space-between" h="100%">
 
           <Image
-            src="/LOGO.png" 
+            src="/LOGO.png"
             alt="Adamass Logo"
-            width={100}  
-            height={20}  
-            priority        
+            width={100}
+            height={20}
+            priority
           />
 
           <Group h="100%" gap={0} visibleFrom="sm">
-            <Link href="/LandingPage" className={classes.link}>
-              Home
-            </Link>
-
-            <Link href="/portfolio" className={classes.link}>
-              Portfolio
-            </Link>
+            <Link href="/LandingPage" className={classes.link}>Home</Link>
+            <Link href="/portfolio" className={classes.link}>Portfolio</Link>
 
             <HoverCard width={600} position="bottom" radius="md" shadow="md" withinPortal>
               <HoverCard.Target>
@@ -131,35 +93,14 @@ export function HeaderMegaMenu() {
               <HoverCard.Dropdown>
                 <Group justify="space-between" px="md">
                   <Text fw={500}>Solutions</Text>
-                  <Anchor href="#" fz="xs">
-                  </Anchor>
                 </Group>
 
                 <Divider my="sm" />
-
-                <SimpleGrid cols={2} spacing={0}>
-                  {links}
-                </SimpleGrid>
-
-                <div className={classes.dropdownFooter}>
-                  <Group justify="space-between">
-                    <div>
-                      <Text fw={500} fz="sm">
-                        Explore Desktop Review AI
-                      </Text>
-                      <Text size="xs" c="dimmed">
-                        Speed up your assessments with our cutting-edge AI-driven review platform.
-                      </Text>
-                    </div>
-                    <Button variant="default">Try for Free</Button>
-                  </Group>
-                </div>
+                <SimpleGrid cols={2} spacing={0}>{links}</SimpleGrid>
               </HoverCard.Dropdown>
             </HoverCard>
 
-            <Link href="/contact" className={classes.link}>
-              Contact
-            </Link>
+            <Link href="/contact" className={classes.link}>Contact</Link>
           </Group>
 
           <Group visibleFrom="sm">
@@ -169,6 +110,78 @@ export function HeaderMegaMenu() {
           <Burger opened={drawerOpened} onClick={toggleDrawer} hiddenFrom="sm" />
         </Group>
       </header>
+
+      {/* Drawer for Mobile Navigation */}
+      <Drawer
+  opened={drawerOpened}
+  onClose={closeDrawer}
+  size="100%"
+  padding="md"
+  hiddenFrom="sm"
+  zIndex={1000000}
+>
+  <ScrollArea h="calc(100vh - 80px)" mx="-md">
+    <Divider my="sm" />
+
+    <div className={classes.drawerLinksContainer}>
+    <Link href="/LandingPage" 
+      className={`${classes.drawerLink} drawerLink`}
+      onClick={closeDrawer}>
+  Home
+</Link>
+
+<Link href="/portfolio" 
+      className={`${classes.drawerLink} drawerLink`}
+      onClick={closeDrawer}>
+  Portfolio
+</Link>
+
+<UnstyledButton 
+      className={`${classes.drawerLink} ${classes.solutionsLink}`} 
+      onClick={toggleLinks}>
+  <Text fw={500} style={{ flex: 1 }}>Solutions</Text>
+  <IconChevronDown size={16} color={theme.colors.blue[6]} />
+</UnstyledButton>
+
+<Collapse in={linksOpened}>
+  <div className={classes.subLinkContainer}>
+    {mockdata.map(item => (
+      <Link 
+        href={item.link} 
+        key={item.title}
+        onClick={closeDrawer}
+        className={classes.subLink}  // Directly use .subLink without extra wrappers
+      >
+        <ThemeIcon size={34} variant="default" radius="md">
+          <item.icon size={22} color={theme.colors.blue[6]} />
+        </ThemeIcon>
+
+        <div className={classes.text}>
+          <h3>{item.title}</h3>
+          <p>{item.description}</p>
+        </div>
+      </Link>
+    ))}
+  </div>
+</Collapse>
+
+
+<Link href="/contact" 
+      className={`${classes.drawerLink} drawerLink`}
+      onClick={closeDrawer}>
+  Contact
+</Link>
+
+    </div>
+
+    <Divider my="sm" />
+
+    <Group justify="center" grow pb="xl" px="md">
+      <Button onClick={closeDrawer}>Sign up</Button>
+    </Group>
+  </ScrollArea>
+</Drawer>
+
     </Box>
   );
 }

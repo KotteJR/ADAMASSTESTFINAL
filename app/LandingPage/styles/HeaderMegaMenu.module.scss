@@ -48,6 +48,7 @@
   display: flex;
 }
 
+
 .subLink {
   text-decoration: none; 
   color: var(--mantine-color-gray-7);  
@@ -64,3 +65,178 @@
 }
 
 
+.drawerLinksContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 0;
+
+  .drawerLink {
+    display: block;
+    text-decoration: none;
+    color: #4a4a4a; // Softer grey for improved readability
+    font-weight: 400; // Lighter, less bold text
+    background-color: #fafafa; // Lighter grey for a softer appearance
+    border: 1px solid #ebebeb; // Subtle border
+    border-radius: 8px;
+    padding: 10px 18px;
+    transition: background 0.2s ease, color 0.2s ease;
+
+    &:hover {
+      background-color: #eaf2ff; // Soft blue for hover
+      color: #0056b3; // Darker blue for emphasis
+    }
+
+    &.active {
+      background-color: #dbeafe; // Highlight active links with light blue
+      color: #004ba8;
+    }
+  }
+
+  .solutionsLink {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fafafa;
+    border: 1px solid #ebebeb;
+    border-radius: 8px;
+    padding: 10px 18px;
+    font-weight: 400; // Less bold, more subtle
+    transition: background 0.2s ease, color 0.2s ease;
+
+    &:hover {
+      background-color: #eaf2ff;
+      color: #0056b3;
+    }
+  }
+
+  .subLink {
+    display: flex;
+    align-items: center;
+    gap: 10px; // Clean spacing
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 12px 16px;
+    width: 100%; 
+    text-align: left;
+    box-shadow: none; // Important to remove any Mantine shadow
+  
+    &:hover {
+      background-color: #eaf2ff;
+      color: #0078ff;
+    }
+  
+    .text {
+      flex: 1;
+  
+      h3 {
+        font-weight: 400; // Less bold, calmer look
+        margin: 0;
+      }
+  
+      p {
+        font-weight: 300;
+        color: #6c757d;
+        margin: 0;
+      }
+    }
+  }
+  
+  .subLinkContainer {
+    padding: 0;  // Ensures no added spacing
+    margin: 0;
+    border: none; // Removes any excess borders
+    background: transparent; // Ensures clean layout
+  }
+  .subLink {
+    display: flex;
+    align-items: center;
+    gap: 10px; // Clean spacing
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 12px 16px;
+    width: 100%; 
+    text-align: left;
+    box-shadow: none; // Important to remove any Mantine shadow
+  
+    &:hover {
+      background-color: #eaf2ff;
+      color: #0078ff;
+    }
+  
+    .text {
+      flex: 1;
+  
+      h3 {
+        font-weight: 400; // Less bold, calmer look
+        margin: 0;
+      }
+  
+      p {
+        font-weight: 300;
+        color: #6c757d;
+        margin: 0;
+      }
+    }
+  }
+  
+  .subLinkContainer {
+    padding: 0;  // Ensures no added spacing
+    margin: 0;
+    border: none; // Removes any excess borders
+    background: transparent; // Ensures clean layout
+  }
+  .subLink {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 10px 16px;
+    width: 100%;
+    text-align: left;
+    box-shadow: none;
+  
+    &:hover {
+      background-color: #eaf2ff;
+      color: #0078ff;
+    }
+  
+    .text {
+      flex: 1;
+  
+      h3 {
+        font-weight: 400;
+        font-size: 14px; // Reduced for cleaner look
+        margin: 0;
+        color: #4a4a4a; // Softer color for reduced emphasis
+      }
+  
+      p {
+        font-weight: 300;
+        font-size: 12px; // Smaller and more subtle
+        color: #6c757d;
+        margin: 0;
+      }
+    }
+  }
+  
+  .subLinkContainer {
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: transparent;
+  }
+  
+  }
+  
+  .subLinkContainer {
+    padding: 0;  // Ensures no added spacing
+    margin: 0;
+    border: none; // Removes any excess borders
+    background: transparent; // Ensures clean layout
+  }
