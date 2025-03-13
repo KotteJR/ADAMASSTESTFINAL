@@ -11,38 +11,37 @@ export function TimelineSection() {
         const handleScroll = () => {
             const timeline = document.querySelector(`.${styles.timeline}`);
             const glowLine = glowLineRef.current;
-
+    
             if (timeline && glowLine) {
                 const timelineRect = timeline.getBoundingClientRect();
                 const windowHeight = window.innerHeight;
-
-                // Mobile viewport adjustment
-                const isMobile = window.innerWidth <= 768; 
-                const glowMultiplier = isMobile ? 1.5 : 1; // Increase glow for mobile
-
+    
                 // Start glow only when timeline is actually in view
                 if (timelineRect.top <= windowHeight && timelineRect.bottom >= 0) {
                     const totalTimelineHeight = timelineRect.height;
                     const visibleHeight = windowHeight - timelineRect.top;
-                    const heightPercentage = Math.min((visibleHeight / totalTimelineHeight) * 100 * glowMultiplier, 100);
-
+                    const heightPercentage = Math.min((visibleHeight / totalTimelineHeight) * 50, 100);
+    
                     glowLine.style.height = `${heightPercentage}%`;
                 } else {
                     glowLine.style.height = '0'; // Prevents starting early
                 }
             }
         };
-
+    
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+    
 
     return (
         <section className={styles.timelineSection}>
             <h1 className={styles.title}>Empower Your Business</h1>
             <Text c="dimmed" mt="lg" size="lg">
-                Adamass provides businesses with the insights and expertise they need to navigate complex challenges. By combining over 25 years of cumulative experience with a deep understanding of technology, finance, and strategy, we deliver solutions that drive growth, innovation, and stability. Our tailored approach ensures businesses make informed decisions that unlock new opportunities in dynamic markets.
+            Adamass provides businesses with the insights and expertise they need to navigate complex challenges. By combining over 25 years of cumulative experience with a deep understanding of technology, finance, and strategy, we deliver solutions that drive growth, innovation, and stability. Our tailored approach ensures businesses make informed decisions that unlock new opportunities in dynamic markets.
             </Text>
+
+
 
             <div className={styles.timeline}>
                 <div ref={glowLineRef} className={styles.glowLine}></div>
@@ -51,7 +50,7 @@ export function TimelineSection() {
                     <div className={styles.content}>
                         <h3>Adaptive Solutions</h3>
                         <Text c="dimmed" mt="lg" size="ml">
-                            We design flexible strategies that align with your unique objectives, ensuring agility in ever-changing business landscapes. 
+                        We design flexible strategies that align with your unique objectives, ensuring agility in ever-changing business landscapes. 
                         </Text>
                     </div>
                 </div>
@@ -60,7 +59,7 @@ export function TimelineSection() {
                     <div className={styles.content}>
                         <h3>Business Clarity</h3>
                         <Text c="dimmed" mt="lg" size="ml">
-                            Our insights offer clear guidance, helping you assess risks, explore growth opportunities, and make confident decisions.
+                        Our insights offer clear guidance, helping you assess risks, explore growth opportunities, and make confident decisions.
                         </Text>
                     </div>
                 </div>
@@ -69,7 +68,7 @@ export function TimelineSection() {
                     <div className={styles.content}>
                         <h3>Comprehensive Support</h3>
                         <Text c="dimmed" mt="lg" size="ml">
-                            From strategic consulting to financial advisory, our integrated approach empowers your organization to thrive at every stage.
+                        From strategic consulting to financial advisory, our integrated approach empowers your organization to thrive at every stage.
                         </Text>
                     </div>
                 </div>
