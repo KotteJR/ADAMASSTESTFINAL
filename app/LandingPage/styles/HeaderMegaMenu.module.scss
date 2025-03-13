@@ -49,9 +49,18 @@
 }
 
 .subLink {
-  padding: 10px 0;   /* Adds vertical space */
-  margin-bottom: 15px; /* Extra spacing between each item */
-  display: flex; 
-  align-items: flex-start; 
-  gap: 1rem; /* Consistent gap between icons and text */
+  text-decoration: none; 
+  color: var(--mantine-color-gray-7);  
+  padding: 10px 0;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+
+  &:hover {
+    background-color: rgba(0, 110, 255, 0.1);
+    border-radius: 10px;
+  }
 }
+
+

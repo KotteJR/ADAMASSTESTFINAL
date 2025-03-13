@@ -35,9 +35,9 @@ import classes from "../styles/HeaderMegaMenu.module.scss";
 import Image from "next/image";
 
 const mockdata = [
-  { icon: IconBook, title: "Due Diligence", description: "In-depth research and market evaluation." },
-  { icon: IconChartPie3, title: "Capital Advisory", description: "Investor insights and funding strategies." },
-  { icon: IconNotification, title: "Strategic Advisory", description: "Tailored strategies for business growth." },
+  { icon: IconBook, title: "Due Diligence", description: "In-depth research and market evaluation.", link: "/duediligence"},
+  { icon: IconChartPie3, title: "Capital Advisory", description: "Investor insights and funding strategies.", link: "/capitaladvisory" },
+  { icon: IconNotification, title: "Strategic Advisory", description: "Tailored strategies for business growth.", link: "/strategicadvisory" },
 ];
 
 export function HeaderMegaMenu() {
@@ -53,11 +53,11 @@ export function HeaderMegaMenu() {
       const currentScrollY = window.scrollY;
 
       if (currentScrollY <= 10) {
-        setScrollDirection(null);  // Transparent when at top
+        setScrollDirection(null);  
       } else if (currentScrollY > lastScrollY) {
-        setScrollDirection("down"); // Hide on scroll down
+        setScrollDirection("down"); 
       } else {
-        setScrollDirection("up");   // Show and turn white on scroll up
+        setScrollDirection("up");  
       }
 
       setLastScrollY(currentScrollY);
@@ -68,7 +68,7 @@ export function HeaderMegaMenu() {
   }, [lastScrollY]);
 
   const links = mockdata.map((item) => (
-    <UnstyledButton className={classes.subLink} key={item.title}>
+    <Link href={item.link || "#"} key={item.title} className={classes.subLink}>
       <Group wrap="nowrap" align="flex-start">
         <ThemeIcon size={34} variant="default" radius="md">
           <item.icon size={22} color={theme.colors.blue[6]} />
@@ -82,8 +82,9 @@ export function HeaderMegaMenu() {
           </Text>
         </div>
       </Group>
-    </UnstyledButton>
+    </Link>
   ));
+  
 
   return (
     <Box pb={0}>
@@ -93,19 +94,18 @@ export function HeaderMegaMenu() {
             ? classes.visible
             : scrollDirection === "down"
             ? classes.hidden
-            : classes.transparent // Transparent by default
+            : classes.transparent
         }`}
       >
         <Group justify="space-between" h="100%">
 
-         <Image
-            src="/LOGO.png"    // Path to your logo
-             alt="Adamass Logo" // Alternative text for accessibility
-             width={100}        // Adjust width as per your design
-             height={20}        // Adjust height to align properly
-            priority           // Ensures the logo loads faster for improved UX
+          <Image
+            src="/LOGO.png" 
+            alt="Adamass Logo"
+            width={100}  
+            height={20}  
+            priority        
           />
-
 
           <Group h="100%" gap={0} visibleFrom="sm">
             <Link href="/LandingPage" className={classes.link}>
@@ -146,10 +146,9 @@ export function HeaderMegaMenu() {
                     <div>
                       <Text fw={500} fz="sm">
                         Explore Desktop Review AI
-
                       </Text>
                       <Text size="xs" c="dimmed">
-                      Speed up your assessments with our cutting-edge AI-driven review platform.
+                        Speed up your assessments with our cutting-edge AI-driven review platform.
                       </Text>
                     </div>
                     <Button variant="default">Try for Free</Button>
@@ -157,14 +156,13 @@ export function HeaderMegaMenu() {
                 </div>
               </HoverCard.Dropdown>
             </HoverCard>
+
             <Link href="/contact" className={classes.link}>
               Contact
             </Link>
-
           </Group>
 
           <Group visibleFrom="sm">
-            <Button variant="default">Log in</Button>
             <Button>Sign up</Button>
           </Group>
 

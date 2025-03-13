@@ -100,7 +100,7 @@
 
 @media (max-width: 768px) {
     .expandingCard {
-        height: 20vh; /* 🔥 Reduced height for mobile */
+        height: 25vh; /* 🔥 Reduced height for mobile */
         width: 90vw;
     }
 
@@ -128,7 +128,7 @@
 }
 
 
-@media (max-width: 1500px) {
+@media (min-width: 769px) and (max-width: 1500px) {
     .expandingCard {
         height: 20vh; /* 🔥 Reduced height for mobile */
         width: 90vw;
