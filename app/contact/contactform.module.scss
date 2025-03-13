@@ -13,7 +13,8 @@
       text-align: center;
       min-height: 100vh;
       max-height: 100vh;      
-      margin-top: 15vh;
+      margin-top: 20vh;
+      margin-bottom: 20vh;
     }
   }
   
@@ -67,7 +68,7 @@
     gap: 1rem;
 
     @media (max-width: 768px) {
-      margin-top: -20vh !important;
+      margin-top: 0 !important;
     }
   }
   
