@@ -45,4 +45,13 @@
   background-color: rgba(245, 245, 245, 1);
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   padding: 15px 20px;
+  display: flex;
+}
+
+.subLink {
+  padding: 10px 0;   /* Adds vertical space */
+  margin-bottom: 15px; /* Extra spacing between each item */
+  display: flex; 
+  align-items: flex-start; 
+  gap: 1rem; /* Consistent gap between icons and text */
 }

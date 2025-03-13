@@ -26,17 +26,17 @@ export function FeatureSectionTest() {
       <div className={styles.cards}>
         {[
           { 
-            title: "Startup Funds", 
+            title: "Due Diligence", 
             description: "Effortlessly manage early-stage capital", 
             image: "/aidd.png" 
           },
           { 
-            title: "Flexible Funds", 
+            title: "Strategic Advisory", 
             description: "Adapt your funding strategy", 
             image: "/aisa.png" 
           },
           { 
-            title: "Capital Syndication", 
+            title: "Capital Advisory", 
             description: "Raise investment with ease", 
             image: "/aica.png" 
           }

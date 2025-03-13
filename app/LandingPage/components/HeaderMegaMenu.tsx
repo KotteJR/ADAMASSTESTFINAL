@@ -35,12 +35,9 @@ import classes from "../styles/HeaderMegaMenu.module.scss";
 import Image from "next/image";
 
 const mockdata = [
-  { icon: IconCode, title: "Open source", description: "Reliable and transparent code." },
-  { icon: IconCoin, title: "Free for everyone", description: "Open and accessible for all." },
-  { icon: IconBook, title: "Documentation", description: "Comprehensive guides and tutorials." },
-  { icon: IconFingerprint, title: "Security", description: "Robust protection for your data." },
-  { icon: IconChartPie3, title: "Analytics", description: "Powerful data visualization tools." },
-  { icon: IconNotification, title: "Notifications", description: "Stay updated with alerts." },
+  { icon: IconBook, title: "Due Diligence", description: "In-depth research and market evaluation." },
+  { icon: IconChartPie3, title: "Capital Advisory", description: "Investor insights and funding strategies." },
+  { icon: IconNotification, title: "Strategic Advisory", description: "Tailored strategies for business growth." },
 ];
 
 export function HeaderMegaMenu() {
@@ -124,7 +121,7 @@ export function HeaderMegaMenu() {
                 <a href="#" className={classes.link}>
                   <Center inline>
                     <Box component="span" mr={5}>
-                      Features
+                      Solutions
                     </Box>
                     <IconChevronDown size={16} color={theme.colors.blue[6]} />
                   </Center>
@@ -133,9 +130,8 @@ export function HeaderMegaMenu() {
 
               <HoverCard.Dropdown>
                 <Group justify="space-between" px="md">
-                  <Text fw={500}>Features</Text>
+                  <Text fw={500}>Solutions</Text>
                   <Anchor href="#" fz="xs">
-                    View all
                   </Anchor>
                 </Group>
 
@@ -149,13 +145,14 @@ export function HeaderMegaMenu() {
                   <Group justify="space-between">
                     <div>
                       <Text fw={500} fz="sm">
-                        Get started
+                        Explore Desktop Review AI
+
                       </Text>
                       <Text size="xs" c="dimmed">
-                        Begin your journey with us today.
+                      Speed up your assessments with our cutting-edge AI-driven review platform.
                       </Text>
                     </div>
-                    <Button variant="default">Get started</Button>
+                    <Button variant="default">Try for Free</Button>
                   </Group>
                 </div>
               </HoverCard.Dropdown>
