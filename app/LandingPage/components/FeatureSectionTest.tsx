@@ -4,8 +4,15 @@ import React from 'react';
 import styles from '../styles/FeatureSectionTest.module.scss';
 import { Text, Button } from '@mantine/core'; // Mantine Image replaced
 import { ArrowRight } from 'lucide-react'; // ShadCN/Lucide icons
+import Link from 'next/link';
 
 export function FeatureSectionTest() {
+  const links = [
+    "/duediligence",
+    "/strategicadvisory",
+    "/capitaladvisory"
+  ];
+
   return (
     <section className={styles.featureSection}>
       <div className={styles.topContent}>
@@ -13,7 +20,7 @@ export function FeatureSectionTest() {
 
         <div className={styles.textContent}>
           <Text c="dimmed" mt="lg" size="lg">
-          We have now implemented our AI enhanced Desktop Review, feel free to try it or ask us for more information.
+            We have now implemented our AI enhanced Desktop Review, feel free to try it or ask us for more information.
           </Text>
 
           <div className={styles.buttons}>
@@ -52,9 +59,11 @@ export function FeatureSectionTest() {
               <p>{card.description}</p>
             </div>
 
-            <div className={styles.arrow}>
-              <ArrowRight />
-            </div>
+            <Link href={links[index]} passHref>
+              <div className={styles.arrow} role="button" tabIndex={0}>
+                <ArrowRight />
+              </div>
+            </Link>
           </div>
         ))}
       </div>

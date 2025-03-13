@@ -36,7 +36,7 @@
             top: 1.6rem;
             left: 0px;
             width: 4px;
-            height: 95%;  /* Ensures it aligns with the content */
+            height: 96%;  /* Ensures it aligns with the content */
             background: #e0e0e0; 
             z-index: 0;
 
@@ -51,7 +51,7 @@
             background: #007BFF;
             transition: height 0s ease-in-out;
             z-index: 1;
-            max-height: 95%;
+            max-height: 96%;
         }
     }
     
