@@ -147,12 +147,24 @@
 
 
 @media (max-width: 400px) {
+    
+    .buttons
+    {
+        .primaryButton {
+            width: 60%; /* Full width for container */
+        
+        }
+    }
+    
     .expandingCard {
         height: 35vh; /* 🔥 Reduced height for mobile */
-        width: 110vw;
+        width: 100vw;
     }
 
     .expanded {
-        height: 90vh !important;
-    }
+        height: 100vh !important;
+
+
+    
+}
 }
