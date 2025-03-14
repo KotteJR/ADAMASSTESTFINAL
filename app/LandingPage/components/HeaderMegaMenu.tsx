@@ -51,7 +51,7 @@ export function HeaderMegaMenu() {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      setIsScrolled(currentScrollY > 0);
+      setIsScrolled(currentScrollY > 20);
 
       if (currentScrollY < lastScrollY || currentScrollY === 0) {
         setIsVisible(true); // Show when scrolling up or at top
