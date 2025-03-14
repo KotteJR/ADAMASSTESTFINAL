@@ -16,7 +16,7 @@
     transform: translateY(0);
 
     &.scrolled {
-      background-color: rgba(255, 255, 255, 0.95); // White when scrolled
+      background-color: rgb(255, 255, 255); // White when scrolled
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); // Soft shadow for visibility
     }
   }
@@ -74,15 +74,15 @@
 .drawerLinksContainer {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
   padding: 12px 0;
 
   .drawerLink {
     display: block;
     text-decoration: none;
-    color: #4a4a4a; // Softer grey for improved readability
-    font-weight: 400; // Lighter, less bold text
-    background-color: #fafafa; // Lighter grey for a softer appearance
+    color: #003366; // Softer grey for improved readability
+    font-weight: 300; // Lighter, less bold text
+    background-color: #ffffff; // Lighter grey for a softer appearance
     border: 1px solid #ebebeb; // Subtle border
     border-radius: 8px;
     padding: 10px 18px;
@@ -127,7 +127,6 @@
     padding: 12px 16px;
     width: 100%; 
     text-align: left;
-    box-shadow: none; // Important to remove any Mantine shadow
   
     &:hover {
       background-color: #eaf2ff;
@@ -219,7 +218,7 @@
         font-weight: 400;
         font-size: 14px; // Reduced for cleaner look
         margin: 0;
-        color: #4a4a4a; // Softer color for reduced emphasis
+        color: #003366; // Softer color for reduced emphasis
       }
   
       p {
