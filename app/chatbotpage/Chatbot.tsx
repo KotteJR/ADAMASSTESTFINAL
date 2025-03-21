@@ -1,9 +1,8 @@
-"use client";
-
 import { TextInput, Button, Text, Title } from "@mantine/core";
 import classes from "./Chatbot.module.scss";
 import { useState } from "react";
 import { IconThumbUp, IconThumbDown, IconRepeat } from "@tabler/icons-react";
+import overlayStyles from './overlay.module.scss';
 
 export function Chatbot() {
   const [selectedSection, setSelectedSection] = useState('Overview');
@@ -15,11 +14,16 @@ export function Chatbot() {
     'Financials Summary',
     'Earnings Call Transcripts',
     'Valuation & Funding',
-
   ];
 
   return (
     <div className={classes.dashboardWrapper}>
+      
+      {/* Overlay placed INSIDE dashboardWrapper */}
+      <div className={overlayStyles.overlay}>
+        <h1 className={overlayStyles.comingSoonText}>Coming Soon</h1>
+      </div>
+
       {/* Left Panel */}
       <div className={classes.leftPanel}>
         <TextInput label="Company Name" placeholder="e.g. Apple" required />

@@ -3,7 +3,7 @@
     gap: 3rem;
     align-items: center;
     justify-content: space-between;
-    width: 75vw;
+    width: 80vw;
     height: 100vh;
     margin: 0 auto;
     text-align: left;
@@ -14,7 +14,7 @@
       text-align: left;
       min-height: 100vh;
       max-height: 100vh;      
-      margin-top: 15vh;
+      margin-top: 20vh;
       margin-bottom: 20vh;
     }
   }
@@ -37,7 +37,6 @@
     font-family: 'SF Pro', sans-serif;
 
     @media (max-width: 768px) {
-      min-width: 90vw !important;
     }
   }
   
@@ -58,7 +57,7 @@
     max-width: 50vh;
 
     @media (max-width: 768px) {
-      margin-top: 10vh;
+      margin-top: 6vh;
       margin-bottom: 5vh !important;
     }
 

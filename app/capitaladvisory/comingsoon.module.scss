@@ -1,0 +1,76 @@
+
+.comingSoonSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #007BFF;
+    width: 100vw;
+    height: 100vh;
+}
+
+.title {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.description {
+    font-size: 1.1rem;
+    color: #ffffff;
+    margin-bottom: 2rem;
+    max-width: 600px;
+}
+
+.countdown {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+
+    .timerBox {
+        background-color: #002855;
+        color: #fff;
+        padding: 1rem 2rem;
+        border-radius: 8px;
+        min-width: 100px;
+        text-align: center;
+
+        span {
+            font-size: 2rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        small {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .comingSoonSection {
+        width: 100vw;
+        padding: 3rem 1.5rem;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    .description {
+        font-size: 1rem;
+    }
+
+    .countdown {
+        flex-wrap: wrap;
+
+        .timerBox {
+            padding: 1rem;
+            min-width: 80px;
+        }
+    }
+}

@@ -2,9 +2,10 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
-import styles from './ChatbotSection.module.scss';
+import styles from './ChatbotSection.module.scss' 
 import { Text, Button, Textarea, Input } from '@mantine/core';
 import { v4 as uuidv4 } from 'uuid';
+import overlayStyles from './overlay.module.scss';
 
 interface Message {
   sender: 'user' | 'ai';
@@ -117,6 +118,11 @@ export function ChatbotSection() {
   };
 
   return (
+    <>
+            <div className={overlayStyles.overlay}>
+                <h1 className={overlayStyles.comingSoonText}>Coming Soon</h1>
+            </div>
+    
     <div className={styles.container}>
       <div className={styles.leftPanel}>
         <h2>Free Desktop Review</h2>
@@ -180,8 +186,10 @@ export function ChatbotSection() {
               </Button>
             </div>
           </>
+        
         )}
       </div>
     </div>
+    </>
   );
 }

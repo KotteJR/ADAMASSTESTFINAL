@@ -3,10 +3,8 @@
     flex-direction: column;
     align-items: center;
     width: 75vw;
-    max-width: 100vw;
     margin: 0 auto;
-    height: 100vh;
-    margin-bottom: 1rem;
+    padding: 4rem 0;
 }
 
 .topContent {
@@ -50,6 +48,8 @@
         color: #fff;
         padding: 0rem 1.5rem;
         border-radius: 5px;
+        width: auto; /* Each button takes full width */
+
     }
 
     .secondaryButton {
@@ -107,7 +107,9 @@
 
 
 
-@media (max-width: 1200px) {
+@media (max-width: 950px) {
+
+
     .cards {
         display: flex;
         flex-direction: column  ;
@@ -116,7 +118,7 @@
     .card {
         width: 100%;
         flex-direction: column; /* Full image stacked */
-        height: 40vh;
+        height: 30vh;
     }
 
     .title {
@@ -172,6 +174,41 @@
     }
 }
 
+
+@media (max-width: 768px) {
+   
+    .topContent {
+        flex-direction: column; /* Stack content */
+        text-align: left !important;
+    }
+
+    .title {
+        max-width: 100%; /* Full width title */
+        margin-bottom: 1rem; /* Space between title and text */
+    }
+
+    .textContent {
+        max-width: 100%; /* Full width text */
+        gap: 1rem;
+    }
+
+    .buttons {
+        width: 100%; /* Full width for container */
+        display: flex;
+        flex-direction: row; /* Stack buttons vertically */
+        gap: 1rem;
+        margin-top: 2rem;
+        padding: 0rem 0;  /* Uniform padding */
+
+
+        .primaryButton,
+        .secondaryButton {
+            width: auto; /* Each button takes full width */
+            text-align: center; /* Ensures text is centered */
+            padding: 0rem 0;  /* Uniform padding */
+        }
+    }
+}
 
 
 @media (max-width: 768px) {

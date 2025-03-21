@@ -1,24 +1,26 @@
 .heroCTAContainer {
     display: flex;
+    padding: 4rem 0;
     justify-content: center;
-    height: 65vh;
-    background-color: #ffffff;
+    background-color: #007BFF;
+    display: flex;
+    align-items: center; /* This ensures vertical centering */
 }
 
 .heroCTACard {
-    background-color: #003366;
+    background-color: #fff;
     padding: 4rem;
     border-radius: 16px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     text-align: center;
     width: 75vw;
-    height: 48vh;
+    height: auto;
 }
 
 .heroCTATitle {
     font-size: clamp(2.5rem, 4vw, 5rem);
     font-weight: 400;
-    color: #fff;
+    color: #003366;
     margin-bottom: 1rem;
 }
 
@@ -33,9 +35,9 @@
     gap: 1rem;
 
     .learnMoreButton {
-        background-color: #fff;
-        color: #003366;
-        border: 1px solid #fff;
+        background-color: #003366;
+        color: #fff;
+        border: 1px solid #003366;
         padding: 0.5rem 1.5rem;
         border-radius: 5px;
     }
@@ -55,11 +57,14 @@
     }
 
     .heroCTAButtons {
-        flex-direction: column;
+        width: 100%; /* Full width for container */
+        display: flex;
+        flex-direction: row; /* Stack buttons vertically */
 
         .learnMoreButton,
         .getStartedButton {
-            width: 100%;
+            width: 50%;
+            
         }
     }
 }

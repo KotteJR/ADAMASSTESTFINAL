@@ -6,14 +6,11 @@ export function CTA() {
     <div className={classes.heroCTAContainer}>
       <Container className={classes.heroCTACard}>
         <Title order={2} className={classes.heroCTATitle}>
-          Ready to Get Started?
-        </Title>
-        <Text size="lg" c="white" className={classes.heroCTAText}>
-          Join thousands of satisfied customers using our platform to build amazing websites.
-        </Text>
+        Accelerate Your Growth Today        </Title>
+        <Text size="lg" className={classes.heroCTAText}>
+        Partner with Adamass to unlock strategic insights, optimize operations, and drive success.        </Text>
         <div className={classes.heroCTAButtons}>
-          <Button variant="default" className={classes.learnMoreButton}>Learn More</Button>
-          <Button variant="filled" className={classes.getStartedButton}>Get Started</Button>
+          <Button variant="default" className={classes.learnMoreButton}>Contact Us</Button>
         </div>
       </Container>
     </div>

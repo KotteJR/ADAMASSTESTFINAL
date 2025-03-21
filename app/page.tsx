@@ -7,6 +7,7 @@ import { Hero } from "./LandingPage/components/Hero";
 import { FeatureSectionTest } from "./LandingPage/components/FeatureSectionTest";
 import { TimelineSection } from "./LandingPage/components/TimelineSection";
 import { FeatureCards } from "./LandingPage/components/FeatureCards";
+import { CTA } from "./LandingPage/components/CTA";
 import { FooterCentered } from "./LandingPage/components/FooterCentered";
 
 export default function HomePage() {
@@ -23,6 +24,8 @@ export default function HomePage() {
         <TimelineSection />
 
         <FeatureCards />
+        
+        <CTA />
 
         <FooterCentered />
         
