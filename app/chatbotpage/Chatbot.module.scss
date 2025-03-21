@@ -1,0 +1,186 @@
+.dashboardWrapper {
+    display: flex;
+    width: 100vw;
+    height: 100vh;  /* Fixed page height */
+    background-color: #fff; 
+    padding: 1rem;
+    gap: 0.5rem; /* Spacing between cards */
+}
+
+.leftPanel, .middlePanel, .rightPanel {
+    border-radius: 12px; /* Rounded corners for all panels */
+}
+
+.leftPanel {
+    margin-top: 8vh;
+    width: 25%;
+    background-color: #f0f7ff; 
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: 85vh;  /* Fixed content height */
+
+    .input {
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 1px solid #fff;
+        border-radius: 4px;
+    }
+
+    .aiLogs {
+        flex-grow: 1;
+        background-color: #fff;
+        padding: 15px;
+        border-radius: 4px;
+    }
+
+    .generateButton {
+        background-color: #003366;
+        color: #fff;
+        margin-top: auto;
+        width: 100%;
+        padding: 10px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+}
+
+.middlePanel {
+    margin-top: 8vh;
+    width: 50%;
+    background-color: #f0f7ff;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    height: 85vh;  /* Fixed content height */
+
+    .contentWrapper {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        height: 100%;
+    }
+
+    .navbar {
+        width: 25%;  
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;  
+        background-color: #fff;
+        padding: 0.5rem;  
+        border-right: 1px solid #d0e3ff;
+        border-radius: 5px;
+        height: 67vh;
+
+        .navItem {
+            font-size: 0.85rem;  
+            line-height: 1.2;    
+            padding: 4px 8px;    
+            cursor: pointer;
+    
+            &:hover {
+                background-color: #e6f0ff;
+            }
+        }
+    
+        .active {
+            font-weight: bold;
+            color: #003366;
+        }
+    }
+
+    .contentDisplay {
+        width: 70%;
+        height: 67vh;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 12px;
+    }
+
+    .buttonGroup {
+        display: flex;
+        gap: 10px;
+        margin-top: auto;
+
+        .saveButton, .downloadButton {
+            background-color: #003366;
+            color: #fff;
+            width: 100%;
+            padding: 10px 15px;
+            border-radius: 4px;
+        }
+    }
+}
+
+.rightPanel {
+    margin-top: 8vh;
+    width: 25%;
+    background-color: #f0f7ff;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem; 
+    gap: 1rem;
+    height: 85vh;  /* Fixed content height */
+
+    .chatArea {
+        background-color: #ffffff;
+        padding: 1rem;
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        overflow-y: auto;
+        height: calc(100% - 110px);
+    }
+
+    .chatMessage {
+        background-color: #f0f7ff;
+        border-radius: 12px;
+        padding: 0.75rem 1rem;
+        margin-bottom: 0.5rem;
+        font-size: 0.9rem;
+        color: #333;
+        line-height: 1.4;
+    }
+
+    .chatIcons {
+        display: flex;
+        gap: 0.5rem;
+        justify-content: flex-end;
+        padding-top: 0.5rem;
+
+        svg {
+            cursor: pointer;
+            color: #003366;
+            font-size: 1.1rem;
+        }
+    }
+
+    .chatInput {
+        background-color: #ffffff;
+        padding: 0.75rem;
+        border-radius: 12px;
+        display: flex;
+        gap: 0.5rem;
+
+        input {
+            width: 100%;
+            border: none;
+            outline: none;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .sendButton {
+            background-color: #003366;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            width: 38%;
+        }
+    }
+}

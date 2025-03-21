@@ -1,0 +1,65 @@
+.heroCTAContainer {
+    display: flex;
+    justify-content: center;
+    height: 65vh;
+    background-color: #ffffff;
+}
+
+.heroCTACard {
+    background-color: #003366;
+    padding: 4rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 75vw;
+    height: 48vh;
+}
+
+.heroCTATitle {
+    font-size: clamp(2.5rem, 4vw, 5rem);
+    font-weight: 400;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.heroCTAText {
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+.heroCTAButtons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+
+    .learnMoreButton {
+        background-color: #fff;
+        color: #003366;
+        border: 1px solid #fff;
+        padding: 0.5rem 1.5rem;
+        border-radius: 5px;
+    }
+    
+    .getStartedButton {
+        background-color: #007BFF;
+        color: #fff;
+        padding: 0.5rem 1.5rem;
+        border-radius: 5px;
+    }
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+    .heroCTACard {
+        padding: 2rem;
+    }
+
+    .heroCTAButtons {
+        flex-direction: column;
+
+        .learnMoreButton,
+        .getStartedButton {
+            width: 100%;
+        }
+    }
+}

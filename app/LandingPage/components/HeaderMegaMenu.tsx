@@ -36,6 +36,8 @@ const mockdata = [
   { icon: IconBook, title: 'Due Diligence', description: 'In-depth research and market evaluation.', link: '/duediligence' },
   { icon: IconChartPie3, title: 'Capital Advisory', description: 'Investor insights and funding strategies.', link: '/capitaladvisory' },
   { icon: IconNotification, title: 'Strategic Advisory', description: 'Tailored strategies for business growth.', link: '/strategicadvisory' },
+  { icon: IconNotification, title: 'DD CHATBOT TEST', description: 'Tailored strategies for business growth.', link: '/chatbotpage' },
+
 ];
 
 export function HeaderMegaMenu() {

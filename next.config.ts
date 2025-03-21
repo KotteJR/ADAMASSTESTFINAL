@@ -1,11 +1,16 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-  compiler: {
-    styledComponents: true, // If using styled-components
-  },
-  // Ensure SSR is enabled:
-  target: 'server', // This will force Next.js to treat the site as dynamic
+import { NextConfig } from 'next';
+
+const nextConfig: NextConfig = {
+    reactStrictMode: true, // Recommended for performance and catching issues
+    compiler: {
+        styledComponents: true, // Ensures styled-components support
+    },
+    env: {
+        OPENAI_API_KEY: process.env.OPENAI_API_KEY // Exposing your OpenAI API key securely
+    },
+    typescript: {
+        ignoreBuildErrors: false, // Ensures proper error catching during builds
+    }
 };
 
 export default nextConfig;
