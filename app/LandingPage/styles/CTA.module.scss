@@ -18,10 +18,12 @@
 
 .title {
     color: #003366;
-    font-size: clamp(1.5rem, 4vw, 4rem);
+    font-size: clamp(2rem, 4vw, 4rem);
     font-weight: 400;
+    display: flex;
+    margin-bottom: 1.5rem;
     text-align: center;
-    margin-bottom: 1rem;
+    justify-content: center;
 }
 
 .heroCTAText {
@@ -29,7 +31,7 @@
 }
 
 .heroCTAButtons {
-    margin-top: 1.5rem;
+    margin-top: 2.5rem;
     display: flex;
     justify-content: center;
 

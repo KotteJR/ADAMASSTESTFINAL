@@ -5,7 +5,7 @@ export function CTA() {
   return (
     <div className={classes.heroCTAContainer}>
       <div className={classes.heroCTACard}>
-        <Title className={classes.title}>Accelerate Your Growth Today</Title>
+        <h1 className={classes.title}>Our Approach</h1>
 
         <Text c="dimmed" size="lg" className={classes.heroCTAtext}>
           Partner with Adamass to unlock strategic insights, optimize operations, and drive success.
