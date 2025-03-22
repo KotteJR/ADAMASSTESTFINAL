@@ -45,7 +45,7 @@ export function Hero() {
                     </Text>
 
                 <div className={classes.buttons}>
-                            <Button variant="default" className={classes.primaryButton}>Contact Us</Button>
+                            <Button variant="default" component="a" href="/contact" className={classes.primaryButton}>Contact Us</Button>
                         </div>
                 </div>
             </div>

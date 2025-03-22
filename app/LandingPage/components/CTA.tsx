@@ -12,7 +12,7 @@ export function CTA() {
         </Text>
 
         <div className={classes.heroCTAButtons}>
-          <Button variant="default" className={classes.learnMoreButton}>Contact Us</Button>
+          <Button component="a" href="/contact" variant="default" className={classes.learnMoreButton}>Contact Us</Button>
         </div>
       </div>
     </div>

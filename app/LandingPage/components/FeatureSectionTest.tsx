@@ -24,11 +24,13 @@ export function FeatureSectionTest() {
           </Text>
 
           <div className={styles.buttons}>
-            <Button variant="default" className={styles.primaryButton}>Learn More</Button>
-            <Button variant="default" className={styles.secondaryButton}>Try for Free</Button>
+            <Button component="a" href="/duediligence" variant="default" className={styles.primaryButton}>Learn More</Button>
+            <Button component="a" href="/chatbotpage" variant="default" className={styles.secondaryButton}>Try for Free</Button>
           </div>
         </div>
       </div>
+
+
 
       <div className={styles.cards}>
         {[
