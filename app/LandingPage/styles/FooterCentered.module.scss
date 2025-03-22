@@ -1,6 +1,7 @@
 .footer {
-  width: 100%;
-  min-width: 90vw;
+
+  max-width: 2592px;
+  width: 80vw;
   margin-top: auto; /* Ensures footer is at the bottom */
   border-top: 1px solid var(--mantine-color-gray-2);
   padding: var(--mantine-spacing-lg);
@@ -8,6 +9,7 @@
   flex-direction: column; /* Centers everything */
   align-items: center; /* Centers horizontally */
   text-align: center; /* Ensures text stays centered */
+  margin: 0 auto;
 }
 
 .inner {

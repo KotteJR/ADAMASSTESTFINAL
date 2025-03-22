@@ -1,12 +1,14 @@
 .heroContainer {
     position: relative;
     width: 100%;
-    height: 100vh;
+    height: 100vh; /* Restored full height for maximum visibility */
     overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
+    max-width: 2592px;
+    padding-bottom: 2rem;
 }
 
 .heroVideo {
@@ -23,9 +25,10 @@
     .primaryButton {
         background-color: #003366;
         color: #fff;
-        padding: 0rem 1.5rem;
+        padding: 0.75rem 2rem; /* Enhanced size for visibility */
         border-radius: 5px;
-        margin-top: 2.5rem;
+        margin-top: 1.5rem;
+        width: auto; /* Flexible size */
     }
 }
 
@@ -42,23 +45,20 @@
         color: #003366;
         font-size: clamp(2.5rem, 5vw, 6rem);
         font-weight: 400;
-        margin-bottom: 2rem;
+        margin-bottom: 1.5rem;
         margin-top: 0.1rem;
-
+        opacity: 0;
+        transform: translateY(20px); 
+        animation: fadeInUp 0.8s forwards 0.3s; /* Ensures text appears on load */
     }
 
-
     .heroText {
-        max-width: 80vw;
+        max-width: 75vw;
         color: #555;
         line-height: 1.6;
         opacity: 0;
-        transition: opacity 0.5s ease;
-
-    }
-
-    .textVisible {
-        opacity: 1;
+        animation: fadeIn 0.8s forwards 0.5s; /* Slight delay to enhance flow */
+        text-align: center;
     }
 }
 
@@ -69,8 +69,8 @@
     left: 50%;
     transform: translateX(-50%);
     width: 80vw;
-    height: 20vh;
-    background:white;
+    height: 15vh; /* Reduced default height for improved spacing */
+    background: white;
     border-top-left-radius: 2rem;
     border-top-right-radius: 2rem;
     transition: width 1s ease, height 1s ease;
@@ -82,93 +82,81 @@
 
     &.expanded {
         width: 100vw;
-        height: 65vh;
+        height: 65vh; 
         background: rgba(255, 255, 255, 1); 
         backdrop-filter: blur(0px);
-
     }
+}
+
+/* Animations for Smooth Entry */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* Mobile Optimization */
 @media (max-width: 768px) {
-    .heroContent {
-        .heroTitle {
-            font-size: 2.5rem;
-        }
-
-    }
-    
-
-}
-
-
-@media (max-width: 768px) {
-    .expandingCard {
-        height: 35vh; /* 🔥 Reduced height for mobile */
-        width: 90vw;
-    }
-
-    .expanded {
-        height: 90vh !important;
+    .heroContainer {
+        height: 100vh; /* Ensures video is fullscreen on mobile too */
     }
 
     .heroContent {
-        padding-bottom: 2rem; /* 🔥 Less bottom padding for tighter spacing */
-        
+        padding-bottom: 1.5rem;
+
         .heroTitle {
-            font-size: 2rem; /* 🔥 Slightly smaller title for mobile */
-            margin-bottom: 1rem; 
-            text-align: left;
+            font-size: 2rem;
+            margin-bottom: 1rem;
         }
 
         .primaryButton {
-            padding: 0rem 1.5rem; /* 🔥 Smaller button to match tighter layout */
-            width: 50%; /* Full width for container */
-            margin-top: 2rem;
-            text-align: center;
-        
+            width: 80%; 
+            padding: 0.75rem 1.5rem;
         }
 
         .heroText {
-            display: block; /* 🔥 Ensures text always shows */
-            overflow-y: auto;  /* 🔥 Enables scrolling if text exceeds height */
-            text-align: left !important;
+            text-align: center;
         }
     }
-}
 
-
-@media (min-width: 769px) and (max-width: 1500px) {
     .expandingCard {
-        height: 20vh; /* 🔥 Reduced height for mobile */
+        height: 30vh;
         width: 90vw;
     }
 
     .expanded {
-        height: 70vh !important;
+        height: 75vh !important;
     }
 }
 
+@media (min-width: 769px) and (max-width: 1500px) {
+    .expandingCard {
+        height: 20vh;
+        width: 90vw;
+    }
+
+    .expanded {
+        height: 65vh !important;
+    }
+}
 
 @media (max-width: 400px) {
-    
-    .buttons
-    {
+    .buttons {
         .primaryButton {
-            width: 60%; /* Full width for container */
-        
+            width: 100%; /* Ensures the button is always visible */
         }
     }
-    
+
     .expandingCard {
-        height: 35vh; /* 🔥 Reduced height for mobile */
+        height: 30vh;
         width: 100vw;
     }
 
     .expanded {
-        height: 100vh !important;
-
-
-    
-}
+        height: 80vh !important;
+    }
 }

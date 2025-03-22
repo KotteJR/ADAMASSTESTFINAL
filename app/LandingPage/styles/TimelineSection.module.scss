@@ -1,9 +1,10 @@
 .timelineSection {
     text-align: center;
     padding: 4rem 0;
-    max-width: 75vw;
+    width: 75vw;
     text-align: justify;
     margin: 0 auto;
+    max-width: 2592px;
 
 
     .title {
@@ -25,7 +26,7 @@
         position: relative;
         display: flex;
         flex-direction: column;
-        gap: 3rem;
+        gap: 5rem;
         margin-top: 3rem;
 
     

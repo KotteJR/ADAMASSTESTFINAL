@@ -45,7 +45,7 @@ export function Hero() {
                     </Text>
 
                 <div className={classes.buttons}>
-                            <Button className={classes.primaryButton}>Contact Us</Button>
+                            <Button variant="default" className={classes.primaryButton}>Contact Us</Button>
                         </div>
                 </div>
             </div>

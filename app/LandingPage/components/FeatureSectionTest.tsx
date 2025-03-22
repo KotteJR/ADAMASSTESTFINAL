@@ -24,8 +24,8 @@ export function FeatureSectionTest() {
           </Text>
 
           <div className={styles.buttons}>
-            <Button className={styles.primaryButton}>Learn More</Button>
-            <Button variant="outline" className={styles.secondaryButton}>Try for Free</Button>
+            <Button variant="default" className={styles.primaryButton}>Learn More</Button>
+            <Button variant="default" className={styles.secondaryButton}>Try for Free</Button>
           </div>
         </div>
       </div>

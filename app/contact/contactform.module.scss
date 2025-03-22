@@ -1,12 +1,14 @@
 .contactWrapper {
     display: flex;
-    gap: 3rem;
+    gap: 4rem;
     align-items: center;
     justify-content: space-between;
-    width: 80vw;
+    width: 75vw;
     height: 100vh;
     margin: 0 auto;
     text-align: left;
+    max-width: 2592px;
+
    
   
     @media (max-width: 768px) {
