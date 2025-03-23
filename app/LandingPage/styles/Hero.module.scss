@@ -112,7 +112,7 @@
 
     &.expanded {
         width: 100vw;
-        height: 55vh; /* 🔥 Ensures button is always visible */
+        height: 60vh; /* 🔥 Ensures button is always visible */
         background: rgba(255, 255, 255, 1);
         backdrop-filter: blur(0px);
     }
