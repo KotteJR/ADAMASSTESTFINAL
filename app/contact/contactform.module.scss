@@ -4,7 +4,7 @@
     align-items: center;
     justify-content: space-between;
     width: 75vw;
-    height: 100vh;
+    padding: 4rem 0;
     margin: 0 auto;
     text-align: left;
     max-width: 2592px;
@@ -17,7 +17,7 @@
       min-height: 100vh;
       max-height: 100vh;      
       margin-top: 20vh;
-      margin-bottom: 20vh;
+      margin-bottom: 40vh;
     }
   }
   
@@ -29,6 +29,7 @@
       font-size: clamp(1.2rem, 1.5vw, 1.4rem); /* Dynamic scaling */
       line-height: 1.6; /* Improved readability */
       color: rgba(142,142,147,1)
+
   }
 
     @media (max-width: 768px) {
@@ -64,8 +65,9 @@
     max-width: 50vh;
 
     @media (max-width: 768px) {
-      margin-top: 6vh;
+      margin-top: 2vh;
       margin-bottom: 5vh !important;
+      min-width: 80vw;
     }
 
 

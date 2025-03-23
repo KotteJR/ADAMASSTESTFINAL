@@ -99,7 +99,7 @@
     left: 50%;
     transform: translateX(-50%);
     width: 80vw;
-    height: 18vh; /* 🔥 Fixed for default state */
+    height: 20vh; /* 🔥 Fixed for default state */
     background: white;
     border-top-left-radius: 2rem;
     border-top-right-radius: 2rem;
@@ -112,7 +112,7 @@
 
     &.expanded {
         width: 100vw;
-        height: 60vh; /* 🔥 Ensures button is always visible */
+        height: 65vh; /* 🔥 Ensures button is always visible */
         background: rgba(255, 255, 255, 1);
         backdrop-filter: blur(0px);
     }
@@ -122,22 +122,7 @@
 /* MEDIA QUERIES */
 
 /* 🔥 For Tablet Devices (768px - 1200px) */
-@media (max-width: 1200px) {
-    .expandingCard {
-        height: 11vh; /* Slightly taller for visibility */
-    }
 
-    .expanded {
-        height: 45vh !important; /* Improved expanded size */
-    }
-
-    .heroContent {
-        .heroTitle {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-        }
-    }
-}
 
 /* 🔥 For Standard Mobile Devices (Below 768px) */
 @media (max-width: 768px) {
@@ -155,19 +140,7 @@
         height: 55vh !important; /* Ensures button stays visible */
     }
 
-    .heroContent {
-        .heroTitle {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            text-align: left;
-        }
-
-        .heroText {
-            display: block;
-            overflow-y: auto;
-            text-align: left !important;
-        }
-    }
+    
 }
 
 /* 🔥 For Small Mobile Devices (Below 400px) */
@@ -186,17 +159,5 @@
         height: 80vh !important; /* Ensures content fits well */
     }
 
-    .heroContent {
-        .heroTitle {
-            font-size: 1.8rem;
-            margin-bottom: 0.8rem;
-            text-align: left;
-        }
-
-        .heroText {
-            display: block;
-            overflow-y: auto;
-            text-align: left !important;
-        }
-    }
+   
 }
