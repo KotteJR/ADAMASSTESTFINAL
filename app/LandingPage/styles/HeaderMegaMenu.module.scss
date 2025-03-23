@@ -247,10 +247,14 @@
   }
 
 
+  .buttons {
+    display: flex;
+    gap: 1rem;
+
     .primaryButton {
         display: inline-block;
         font-size: clamp(1rem, 1.2vw, 1.4rem); /* Dynamic text scaling */
-        padding: 0rem 2rem; /* Controlled padding for stability */
+        padding: 0rem 1rem; /* Controlled padding for stability */
         background: #003366;
         color: #fff;
         border: none;
@@ -262,13 +266,13 @@
         transition: all 0.3s ease-in-out;
     
         &:hover {
-            transform: translateY(-4px);  /* Lift effect */
+            transform: translateY(-5px);  /* Lift effect */
             box-shadow: 0 10px 0 #001f4d, 0 15px 40px rgba(0, 31, 77, 0.4); /* Enhanced shadow for glow effect */
         }
     
         &:active {
-            transform: translateY(3px); /* Press-in effect */
-            box-shadow: 0 2px 0 #3b4e6b;
+            transform: translateY(5px); /* Press-in effect */
+            box-shadow: 0 3px 0 #3b4e6b;
         }
     
         &:disabled {
@@ -277,4 +281,4 @@
             box-shadow: none;
         }
     }
-  
+  }

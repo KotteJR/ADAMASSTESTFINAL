@@ -1,4 +1,5 @@
 .contactWrapper {
+    min-height:100vh;
     display: flex;
     gap: 4rem;
     align-items: center;
@@ -14,16 +15,16 @@
     @media (max-width: 768px) {
       flex-direction: column;
       text-align: left;
-      min-height: 100vh;
-      max-height: 100vh;      
-      margin-top: 20vh;
-      margin-bottom: 40vh;
+ 
+      margin-top: 5rem;
+      margin-bottom: 3rem;
     }
   }
   
   .textContainer {
     flex: 1;
     max-width: 45%;
+    text-align: justify;
 
     p {
       font-size: clamp(1.2rem, 1.5vw, 1.4rem); /* Dynamic scaling */
@@ -65,15 +66,11 @@
     max-width: 50vh;
 
     @media (max-width: 768px) {
-      margin-top: 2vh;
-      margin-bottom: 5vh !important;
       min-width: 80vw;
     }
 
 
     @media (max-width: 400px) {
-      margin-top: 2vh;
-      margin-bottom: 5vh !important;
     }
 
   }
@@ -84,7 +81,42 @@
     gap: 1rem;
 
     @media (max-width: 768px) {
-      margin-top: 0 !important;
     }
   }
 
+
+  .buttons {
+    display: flex;
+    gap: 1rem;
+
+    .primaryButton {
+        display: inline-block;
+        font-size: clamp(1rem, 1.2vw, 1.4rem); /* Dynamic text scaling */
+        padding: 0rem 2rem; /* Controlled padding for stability */
+        background: #003366;
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        position: relative;
+        text-align: center;
+        box-shadow: 0 6px 0 #001f4d; /* Strong 3D effect */
+        transition: all 0.3s ease-in-out;
+    
+        &:hover {
+            transform: translateY(-5px);  /* Lift effect */
+            box-shadow: 0 10px 0 #001f4d, 0 15px 40px rgba(0, 31, 77, 0.4); /* Enhanced shadow for glow effect */
+        }
+    
+        &:active {
+            transform: translateY(5px); /* Press-in effect */
+            box-shadow: 0 3px 0 #3b4e6b;
+        }
+    
+        &:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+      }
+    }

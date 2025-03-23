@@ -20,9 +20,9 @@ export function ContactForm() {
           <TextInput label="Email Address" placeholder="Enter your email" type="email" required />
           <TextInput label="Phone Number" placeholder="+39 999 999999" required />
           <Textarea label="Message" placeholder="How can we help?" minRows={4} required />
-          <Button className={classes.submitButton} fullWidth>
-            Send Your Message
-          </Button>
+          <div className={classes.buttons}>
+            <Button variant="default" className={classes.primaryButton} fullWidth>Submit your Message</Button>
+          </div>
         </form>
       </div>
     </div>

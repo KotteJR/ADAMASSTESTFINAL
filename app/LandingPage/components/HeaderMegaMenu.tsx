@@ -135,7 +135,9 @@ export function HeaderMegaMenu() {
           </Group>
 
           <Group visibleFrom="sm">
+          <div className={classes.buttons}>
           <Button component="a" href="/duediligence" variant="default" className={classes.primaryButton}>Sign Up</Button>
+          </div>
           </Group>
 
           <Burger opened={drawerOpened} onClick={toggleDrawer} hiddenFrom="sm" />
