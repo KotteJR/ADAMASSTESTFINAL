@@ -245,3 +245,36 @@
     border: none; // Removes any excess borders
     background: transparent; // Ensures clean layout
   }
+
+
+    .primaryButton {
+        display: inline-block;
+        font-size: clamp(1rem, 1.2vw, 1.4rem); /* Dynamic text scaling */
+        padding: 0rem 2rem; /* Controlled padding for stability */
+        background: #003366;
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        position: relative;
+        text-align: center;
+        box-shadow: 0 6px 0 #001f4d; /* Strong 3D effect */
+        transition: all 0.3s ease-in-out;
+    
+        &:hover {
+            transform: translateY(-4px);  /* Lift effect */
+            box-shadow: 0 10px 0 #001f4d, 0 15px 40px rgba(0, 31, 77, 0.4); /* Enhanced shadow for glow effect */
+        }
+    
+        &:active {
+            transform: translateY(3px); /* Press-in effect */
+            box-shadow: 0 2px 0 #3b4e6b;
+        }
+    
+        &:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+    }
+  
