@@ -4,7 +4,6 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 15vh 5vw;
     margin-top: 15vh;
     height: 70vh;
     width: 95vw;
@@ -13,8 +12,9 @@
   }
   
   .inner {
-    width: 100%;
     text-align: center;
+    min-width: 75vw;
+    max-width: 2592px;
   }
   
   .title {
@@ -29,6 +29,13 @@
   .description {
     margin-bottom: 2rem;
     text-align: center;
+
+    p {
+      font-size: clamp(1.2rem, 1.5vw, 1.4rem); /* Dynamic scaling */
+      line-height: 1.6; /* Improved readability */
+      color: rgba(142,142,147,1)
+      
+  }
   }
   
   .scrollArrow {

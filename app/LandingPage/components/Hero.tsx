@@ -35,14 +35,9 @@ export function Hero() {
             >
                 <div className={classes.heroContent}>
                     <h1 className={classes.heroTitle}>Empowering Innovation with AI</h1>
-                    <Text
-                        className={`${classes.heroText} ${isExpanded ? classes.textVisible : ""}`}
-                        c="dimmed"
-                        size="lg"
-                        mt="lg"
-                    >
+                    <p className={classes.heroDescription}>
                         Unlock smarter decision-making with expert-driven analysis and advanced AI insights. Adamass empowers investors, businesses, and startups with in-depth technology assessments, risk evaluations, and strategic growth solutions — enabling informed decisions that accelerate growth, strengthen operations, and deliver sustainable success.
-                    </Text>
+                    </p>
 
                 <div className={classes.buttons}>
                             <Button variant="default" component="a" href="/contact" className={classes.primaryButton}>Contact Us</Button>

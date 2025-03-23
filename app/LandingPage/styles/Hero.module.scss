@@ -49,6 +49,12 @@
     }
 
 
+    p {
+        font-size: clamp(1.2rem, 1.5vw, 1.4rem); /* Dynamic scaling */
+        line-height: 1.6; /* Improved readability */
+        color: rgba(142,142,147,1)
+    }
+
     .heroText {
         max-width: 80vw;
         color: #555;
@@ -70,7 +76,7 @@
     left: 50%;
     transform: translateX(-50%);
     width: 80vw;
-    height: 20vh;
+    height: 17vh;
     background:white;
     border-top-left-radius: 2rem;
     border-top-right-radius: 2rem;
@@ -83,7 +89,7 @@
 
     &.expanded {
         width: 100vw;
-        height: 65vh;
+        height: 50vh;
         background: rgba(255, 255, 255, 1); 
         backdrop-filter: blur(0px);
 
@@ -101,6 +107,9 @@
     
 
 }
+
+
+
 
 
 @media (max-width: 768px) {
@@ -121,6 +130,9 @@
             margin-bottom: 1rem; 
             text-align: left;
         }
+
+
+        
 
         .primaryButton {
             padding: 0rem 1.5rem; /* 🔥 Smaller button to match tighter layout */

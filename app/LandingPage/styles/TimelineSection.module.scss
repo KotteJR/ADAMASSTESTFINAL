@@ -1,10 +1,17 @@
 .timelineSection {
-    text-align: center;
     padding: 4rem 0;
     width: 75vw;
     text-align: justify;
     margin: 0 auto;
     max-width: 2592px;
+    
+
+    p {
+        font-size: clamp(1.2rem, 1.5vw, 1.4rem); /* Dynamic scaling */
+        line-height: 1.6; /* Improved readability */
+        color: rgba(142,142,147,1)
+        
+    }
 
 
     .title {
@@ -12,7 +19,8 @@
         font-size: clamp(2.5rem, 5vw, 6rem);
         font-weight: 400;
         text-align: left !important;
-        margin-top: 0rem;
+        margin: 0 0 3rem 0; /* Ensure minimal gap below */
+
     }
 
     .description {
@@ -27,7 +35,7 @@
         display: flex;
         flex-direction: column;
         gap: 5rem;
-        margin-top: 3rem;
+        margin-top: 5rem;
 
     
         &::before {
@@ -35,7 +43,7 @@
             position: absolute;
             left: 0px;
             width: 8px;
-            height: 100%;  /* Ensures it aligns with the content */
+            height: calc(100% - 1.3rem); /* Matches content height minus spacing */
             background: #e0e0e0; 
             z-index: 0;
             border-radius: 5px;
@@ -50,7 +58,7 @@
             background: #007BFF;
             transition: height 0s ease-in-out;
             z-index: 1;
-            max-height: 100%;
+            max-height: calc(100% - 1.3rem); /* Matches content height minus spacing */
             border-radius: 5px;
             box-shadow: 0 6px 10px #007BFF;
 
@@ -89,7 +97,7 @@
 .step {
     .content {
         h3 {
-            font-size: 1.5rem;
+            font-size: clamp(1.5rem, 4vw, 2rem);
             font-weight: 400;
             color: #003366;  // Deep blue for consistency
             margin: 0;

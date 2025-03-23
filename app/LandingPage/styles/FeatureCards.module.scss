@@ -13,7 +13,8 @@
         color: #777;
         letter-spacing: 1px;
         text-align: left;
-        margin-bottom: 1.5rem !important;
+        font-size: clamp(1.2rem, 1.5vw, 1.4rem)
+
     }
 
     .title {
@@ -22,7 +23,6 @@
         font-weight: 400;
         text-align: justify;
         display: flex;
-        margin-bottom: 2.5rem;
     }
 
     .cardsContainer {
@@ -39,33 +39,36 @@
             padding: 2rem;
             box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
 
+            p {
+                font-size: clamp(1.2rem, 1.5vw, 1.4rem); /* Dynamic scaling */
+                line-height: 1.6; /* Improved readability */
+                color: rgba(142,142,147,1)
+            }
+
             .icon {
                 background-color: #fff;
                 border-radius: 50%;
-                width: 50px;
-                height: 50px;
+                width: 60px;
+                height: 60px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 padding: 8px;
                 box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-                align-self: flex-start; /* Ensures it sticks to the left in a flex container */
+                flex-shrink: 0; /* Ensures icon doesn't resize */
 
             }
 
             h3 {
-                font-size: 1.5rem;
-                font-weight: 500;
+                font-size: clamp(1.5rem, 4vw, 1.8rem);
+                font-weight: 400;
                 color: #003366;  // Deep blue for consistency
             }
 
-            .mantine-Text-root {
-                color: #777;
-                font-size: 0.9rem;
-            }
         }
     }
 }
+
 
 
 @media (max-width: 950px) {

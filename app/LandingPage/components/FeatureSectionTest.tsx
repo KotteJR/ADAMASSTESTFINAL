@@ -2,7 +2,7 @@
 
 import React from 'react';
 import styles from '../styles/FeatureSectionTest.module.scss';
-import { Text, Button } from '@mantine/core'; // Mantine Image replaced
+import { Text, Button } from '@mantine/core'; 
 import { ArrowRight } from 'lucide-react'; // ShadCN/Lucide icons
 import Link from 'next/link';
 
@@ -19,9 +19,9 @@ export function FeatureSectionTest() {
         <h1 className={styles.title}>Expertise</h1>
 
         <div className={styles.textContent}>
-          <Text c="dimmed" mt="lg" size="lg">
+          <p>
             We have now implemented our AI enhanced Desktop Review, feel free to try it or ask us for more information.
-          </Text>
+          </p>
 
           <div className={styles.buttons}>
             <Button component="a" href="/duediligence" variant="default" className={styles.primaryButton}>Learn More</Button>

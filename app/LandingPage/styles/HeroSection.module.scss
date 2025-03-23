@@ -1,0 +1,81 @@
+.heroSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 75vw;
+    margin: 0 auto;
+    padding: 8rem 0; // Improved spacing, balanced margin
+    max-width: 2592px;
+}
+
+.textContent {
+    text-align: center;
+
+
+    .title {
+      font-size: clamp(2.5rem, 5vw, 6rem);
+      font-weight: 400; 
+      color: #003366;
+      margin-bottom: 1rem;
+    }
+
+    .description {
+      margin-bottom: 2rem;
+        p {
+            font-size: clamp(1.2rem, 1.5vw, 1.4rem); /* Dynamic scaling */
+            line-height: 1.6; /* Improved readability */
+            color: rgba(142,142,147,1)
+            
+        }
+
+    }
+}
+
+.buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 6rem;
+
+    .primaryButton {
+      background-color: #003366;
+      color: #fff;
+      border: 1px solid #003366;
+      padding: 0.7rem 2rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+      &:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 15px rgba(0, 51, 102, 0.3);
+      }
+    }
+
+    .secondaryButton {
+      background-color: #0071e3;
+      color: #fff;
+      border: 1px solid #0071e3;
+      padding: 0.7rem 2rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+      &:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 15px rgba(0, 113, 227, 0.3);
+      }
+    }
+}
+
+.heroVideo {
+    width: 100%;
+    max-width: 1600px;
+    border-radius: 15px;
+    box-shadow: 0 20px 60px rgba(0, 113, 227, 0.4); // Soft baby blue shadow
+
+
+}
+
+
+

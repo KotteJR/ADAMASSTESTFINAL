@@ -14,9 +14,9 @@ export function PortfolioHero() {
         </Title>
 
         <Container size={600} className={classes.description}>
-          <Text c="dimmed" size="lg">
+          <p>
             Discover how Adamass empowers innovation and drives growth with strategic insights, AI-powered analytics, and robust due diligence processes tailored specifically to elevate your business decisions.
-          </Text>
+            </p>
         </Container>
 
         <div className={classes.scrollArrow}>

@@ -32,12 +32,24 @@
     gap: 1rem;
     margin-top: 0rem;
 
+    p {
+        font-size: clamp(1.2rem, 1.5vw, 1.4rem); /* Dynamic scaling */
+        line-height: 1.6; /* Improved readability */
+        color: rgba(142,142,147,1)
+    }
 }
 
+
 .description {
-    font-size: 1.1rem;
+    font-size: clamp(1.2rem, 1.5vw, 1.4rem); /* Dynamic scaling */
     color: #666;
     text-align: justify;
+
+    p {
+        font-size: clamp(1.2rem, 1.5vw, 1.4rem); /* Dynamic scaling */
+        line-height: 1.6; /* Improved readability */
+        color: rgba(142,142,147,1)
+    }
 }
 
 .buttons {
@@ -68,6 +80,7 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     width: 100%;
+
 }
 
 .card {

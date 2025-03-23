@@ -37,9 +37,9 @@ export function TimelineSection() {
     return (
         <section className={styles.timelineSection}>
             <h1 className={styles.title}>Empower Your Business</h1>
-            <Text c="dimmed" mt="lg" size="lg">
+            <p>
             Adamass provides businesses with the insights and expertise they need to navigate complex challenges. By combining over 25 years of cumulative experience with a deep understanding of technology, finance, and strategy, we deliver solutions that drive growth, innovation, and stability. Our tailored approach ensures businesses make informed decisions that unlock new opportunities in dynamic markets.
-            </Text>
+            </p>
 
 
 
@@ -49,27 +49,27 @@ export function TimelineSection() {
                 <div className={styles.step}>
                     <div className={styles.content}>
                         <h3>Adaptive Solutions</h3>
-                        <Text c="dimmed" mt="lg" size="ml">
+                        <p>
                         We design flexible strategies that align with your unique objectives, ensuring agility in ever-changing business landscapes. 
-                        </Text>
+                        </p>
                     </div>
                 </div>
 
                 <div className={styles.step}>
                     <div className={styles.content}>
                         <h3>Business Clarity</h3>
-                        <Text c="dimmed" mt="lg" size="ml">
+                        <p>
                         Our insights offer clear guidance, helping you assess risks, explore growth opportunities, and make confident decisions.
-                        </Text>
+                        </p>
                     </div>
                 </div>
 
                 <div className={styles.step}>
                     <div className={styles.content}>
                         <h3>Comprehensive Support</h3>
-                        <Text c="dimmed" mt="lg" size="ml">
+                        <p>
                         From strategic consulting to financial advisory, our integrated approach empowers your organization to thrive at every stage.
-                        </Text>
+                        </p>
                     </div>
                 </div>
             </div>

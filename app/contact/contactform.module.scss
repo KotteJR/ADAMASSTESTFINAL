@@ -25,6 +25,12 @@
     flex: 1;
     max-width: 45%;
 
+    p {
+      font-size: clamp(1.2rem, 1.5vw, 1.4rem); /* Dynamic scaling */
+      line-height: 1.6; /* Improved readability */
+      color: rgba(142,142,147,1)
+  }
+
     @media (max-width: 768px) {
       min-width: 80vw !important;
   
@@ -45,7 +51,6 @@
   .description {
     max-width: 100%;
     color: #666;
-    line-height: 1.5;
   }
   
   .formWrapper {

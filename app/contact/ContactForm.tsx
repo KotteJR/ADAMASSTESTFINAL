@@ -8,10 +8,10 @@ export function ContactForm() {
     <div className={classes.contactWrapper}>
       <div className={classes.textContainer}>
         <Title className={classes.title}>Get in Touch</Title>
-        <Text c="dimmed" size="lg">
+        <p>
           Whether you have a question about our services, need support, or simply want to connect — we're here to help.
           Drop us a message and our team will get back to you shortly.
-        </Text>
+        </p>
       </div>
 
       <div className={classes.formWrapper}>
