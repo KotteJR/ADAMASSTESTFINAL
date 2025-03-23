@@ -20,7 +20,7 @@ export function TimelineSection() {
                 if (timelineRect.top <= windowHeight && timelineRect.bottom >= 0) {
                     const totalTimelineHeight = timelineRect.height;
                     const visibleHeight = windowHeight - timelineRect.top;
-                    const heightPercentage = Math.min((visibleHeight / totalTimelineHeight) * 55, 100);
+                    const heightPercentage = Math.min((visibleHeight / totalTimelineHeight) * 65, 100);
     
                     glowLine.style.height = `${heightPercentage}%`;
                 } else {
