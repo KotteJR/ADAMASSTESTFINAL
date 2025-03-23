@@ -99,7 +99,7 @@
     left: 50%;
     transform: translateX(-50%);
     width: 80vw;
-    height: 17vh; /* 🔥 Fixed for default state */
+    height: 18vh; /* 🔥 Fixed for default state */
     background: white;
     border-top-left-radius: 2rem;
     border-top-right-radius: 2rem;
@@ -112,7 +112,7 @@
 
     &.expanded {
         width: 100vw;
-        height: 50vh; /* 🔥 Ensures button is always visible */
+        height: 55vh; /* 🔥 Ensures button is always visible */
         background: rgba(255, 255, 255, 1);
         backdrop-filter: blur(0px);
     }
