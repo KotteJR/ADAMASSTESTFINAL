@@ -1,3 +1,4 @@
+/* HERO CONTAINER */
 .heroContainer {
     position: relative;
     width: 100%;
@@ -10,6 +11,7 @@
     max-width: 2592px;
 }
 
+/* HERO VIDEO */
 .heroVideo {
     position: absolute;
     top: 0;
@@ -20,13 +22,38 @@
     z-index: 0;
 }
 
+/* BUTTON STYLES */
 .buttons {
     .primaryButton {
-        background-color: #003366;
+        display: inline-block;
+        font-size: clamp(1rem, 1.2vw, 1.4rem);
+        padding: 0rem 2rem;
+        background: #003366;
         color: #fff;
-        padding: 0rem 1.5rem;
-        border-radius: 5px;
-        margin-top: 2.5rem;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        text-align: center;
+        box-shadow: 0 6px 0 #001f4d;
+        transition: all 0.3s ease-in-out;
+        margin-top: 1rem;
+        
+
+        &:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 0 #001f4d, 0 15px 40px rgba(0, 31, 77, 0.4);
+        }
+
+        &:active {
+            transform: translateY(5px);
+            box-shadow: 0 3px 0 #3b4e6b;
+        }
+
+        &:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
     }
 }
 
@@ -37,7 +64,6 @@
     text-align: center;
     color: white;
     width: 75vw;
-    padding-bottom: 3rem;
 
     .heroTitle {
         color: #003366;
@@ -45,14 +71,12 @@
         font-weight: 400;
         margin-bottom: 2rem;
         margin-top: 0.1rem;
-
     }
 
-
     p {
-        font-size: clamp(1.2rem, 1.5vw, 1.4rem); /* Dynamic scaling */
-        line-height: 1.6; /* Improved readability */
-        color: rgba(142,142,147,1)
+        font-size: clamp(1.2rem, 1.5vw, 1.4rem);
+        line-height: 1.6;
+        color: rgba(142, 142, 147, 1);
     }
 
     .heroText {
@@ -61,7 +85,6 @@
         line-height: 1.6;
         opacity: 0;
         transition: opacity 0.5s ease;
-
     }
 
     .textVisible {
@@ -76,8 +99,8 @@
     left: 50%;
     transform: translateX(-50%);
     width: 80vw;
-    height: 17vh;
-    background:white;
+    height: 16vh; /* 🔥 Fixed for default state */
+    background: white;
     border-top-left-radius: 2rem;
     border-top-right-radius: 2rem;
     transition: width 1s ease, height 1s ease;
@@ -89,101 +112,91 @@
 
     &.expanded {
         width: 100vw;
-        height: 50vh;
-        background: rgba(255, 255, 255, 1); 
+        height: 45vh; /* 🔥 Ensures button is always visible */
+        background: rgba(255, 255, 255, 1);
         backdrop-filter: blur(0px);
-
     }
-}
-
-/* Mobile Optimization */
-@media (max-width: 768px) {
-    .heroContent {
-        .heroTitle {
-            font-size: 2.5rem;
-        }
-
-    }
-    
 
 }
 
+/* MEDIA QUERIES */
 
-
-
-
-@media (max-width: 768px) {
+/* 🔥 For Tablet Devices (768px - 1200px) */
+@media (max-width: 1200px) {
     .expandingCard {
-        height: 35vh; /* 🔥 Reduced height for mobile */
-        width: 90vw;
+        height: 11vh; /* Slightly taller for visibility */
     }
 
     .expanded {
-        height: 90vh !important;
+        height: 45vh !important; /* Improved expanded size */
     }
 
     .heroContent {
-        padding-bottom: 2rem; /* 🔥 Less bottom padding for tighter spacing */
-        
         .heroTitle {
-            font-size: 2rem; /* 🔥 Slightly smaller title for mobile */
-            margin-bottom: 1rem; 
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+    }
+}
+
+/* 🔥 For Standard Mobile Devices (Below 768px) */
+@media (max-width: 768px) {
+    .buttons {
+        .primaryButton {
+            width: 45%; /* Improved button width for smaller screens */
+        }
+    }
+
+    .expandingCard {
+        height: 15vh; /* Ensures expanding card is visible */
+    }
+
+    .expanded {
+        height: 55vh !important; /* Ensures button stays visible */
+    }
+
+    .heroContent {
+        .heroTitle {
+            font-size: 2rem;
+            margin-bottom: 1rem;
             text-align: left;
         }
 
-
-        
-
-        .primaryButton {
-            padding: 0rem 1.5rem; /* 🔥 Smaller button to match tighter layout */
-            width: 50%; /* Full width for container */
-            margin-top: 2rem;
-            text-align: center;
-            border: 1px solid #003366;
-
-        
-        }
-
         .heroText {
-            display: block; /* 🔥 Ensures text always shows */
-            overflow-y: auto;  /* 🔥 Enables scrolling if text exceeds height */
+            display: block;
+            overflow-y: auto;
             text-align: left !important;
         }
     }
 }
 
-
-@media (min-width: 769px) and (max-width: 1500px) {
-    .expandingCard {
-        height: 20vh; /* 🔥 Reduced height for mobile */
-        width: 90vw;
-    }
-
-    .expanded {
-        height: 70vh !important;
-    }
-}
-
-
+/* 🔥 For Small Mobile Devices (Below 400px) */
 @media (max-width: 400px) {
-    
-    .buttons
-    {
+    .buttons {
         .primaryButton {
-            width: 60%; /* Full width for container */
-        
+            width: 45%; /* Full width for small screens */
         }
     }
-    
+
     .expandingCard {
-        height: 35vh; /* 🔥 Reduced height for mobile */
-        width: 100vw;
+        height: 15vh; /* Slightly taller for better spacing */
     }
 
     .expanded {
-        height: 100vh !important;
+        height: 80vh !important; /* Ensures content fits well */
+    }
 
+    .heroContent {
+        .heroTitle {
+            font-size: 1.8rem;
+            margin-bottom: 0.8rem;
+            text-align: left;
+        }
 
-    
-}
+        .heroText {
+            display: block;
+            overflow-y: auto;
+            text-align: left !important;
+        }
+    }
 }

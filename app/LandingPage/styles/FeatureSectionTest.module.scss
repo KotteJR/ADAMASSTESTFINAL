@@ -45,11 +45,6 @@
     color: #666;
     text-align: justify;
 
-    p {
-        font-size: clamp(1.2rem, 1.5vw, 1.4rem); /* Dynamic scaling */
-        line-height: 1.6; /* Improved readability */
-        color: rgba(142,142,147,1)
-    }
 }
 
 .buttons {
@@ -57,21 +52,64 @@
     gap: 1rem;
 
     .primaryButton {
-        background-color: #003366;
+        display: inline-block;
+        font-size: clamp(1rem, 1.2vw, 1.4rem); /* Dynamic text scaling */
+        padding: 0rem 2rem; /* Controlled padding for stability */
+        background: #003366;
         color: #fff;
-        border: 1px solid #003366;
-        padding: 0rem 1.5rem;
-        border-radius: 5px;
-        width: auto; /* Each button takes full width */
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        position: relative;
+        text-align: center;
+        box-shadow: 0 6px 0 #001f4d; /* Strong 3D effect */
+        transition: all 0.3s ease-in-out;
+    
+        &:hover {
+            transform: translateY(-5px);  /* Lift effect */
+            box-shadow: 0 10px 0 #001f4d, 0 15px 40px rgba(0, 31, 77, 0.4); /* Enhanced shadow for glow effect */
+        }
+    
+        &:active {
+            transform: translateY(5px); /* Press-in effect */
+            box-shadow: 0 3px 0 #3b4e6b;
+        }
+    
+        &:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+    }
+    .secondaryButton {
+        display: inline-block;
+    font-size: clamp(1rem, 1.2vw, 1.4rem); /* Dynamic text scaling */
+    padding: 0rem 2rem; /* Controlled padding for stability */
+    background: #0071e3;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 6px 0 #00458a; /* Strong 3D effect */
+    transition: all 0.3s ease-in-out;
 
+    &:hover {
+        transform: translateY(-3px);  /* Lift effect */
+        box-shadow: 0 10px 0 #00458a, 0 15px 40px rgba(0, 31, 77, 0.4); /* Enhanced shadow for glow effect */
     }
 
-    .secondaryButton {
-        background-color: #0071e3;
-        color: #fff;
-        border: 1px solid #0071e3;
-        padding: 0rem 1.5rem;
-        border-radius: 5px;
+    &:active {
+        transform: translateY(2px); /* Press-in effect */
+        box-shadow: 0 3px 0 #00458a;
+    }
+
+    &:disabled {
+        background: #ccc;
+        cursor: not-allowed;
+        box-shadow: none;
+    }
     }
 }
 
