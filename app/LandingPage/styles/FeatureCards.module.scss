@@ -81,7 +81,7 @@
 
             .card {
                 width: 100%;   // Cards will now take full width within the 75vw container
-                height: 35vh;
+                min-height: 35vh;
             }
         }
     }
