@@ -21,7 +21,7 @@ export function Chatbot() {
       
       {/* Overlay placed INSIDE dashboardWrapper */}
       <div className={overlayStyles.overlay}>
-        <h1 className={overlayStyles.comingSoonText}>Coming Soon</h1>
+        <h1 className={overlayStyles.comingSoonText}>Stay tuned.</h1>
       </div>
 
       {/* Left Panel */}
