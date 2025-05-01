@@ -2,11 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import { Tabs, Text, Loader, Card, Title, Modal, Divider } from "@mantine/core";
-import { createClient } from "@supabase/supabase-js";
-
-const supabaseUrl = "https://gmaktpbyligmrflxnsui.supabase.co";
-const supabaseAnonKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdtYWt0cGJ5bGlnbXJmbHhuc3VpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDM0OTQ4MTMsImV4cCI6MjA1OTA3MDgxM30.vH535RIHMZOAtVrasIIXkh3YrEZczMl3SewPB3usiHE";
-const supabase = createClient(supabaseUrl, supabaseAnonKey);
+import { supabase } from "@/lib/supabase";
 
 export function Security() {
   const [rawData, setRawData] = useState<string>("");
