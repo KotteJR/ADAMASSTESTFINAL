@@ -51,7 +51,9 @@ export default function RevenueGrowthChart() {
     Plotly.newPlot(chartRef.current, [data], layout, config);
 
     const handleResize = () => {
-      Plotly.Plots.resize(chartRef.current);
+      if (chartRef.current) {
+        Plotly.Plots.resize(chartRef.current);
+      }
     };
 
     window.addEventListener('resize', handleResize);

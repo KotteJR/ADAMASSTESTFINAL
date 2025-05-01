@@ -5,7 +5,14 @@ const nextConfig = {
     instrumentationHook: false // Disable instrumentation hook
   },
   webpack: (config, { isServer }) => {
-    // Add specific webpack configurations if needed
+    if (!isServer) {
+      // Don't resolve 'fs' module on the client to prevent this error on build --> Error: Can't resolve 'fs'
+      config.resolve.fallback = {
+        fs: false,
+        path: false,
+        child_process: false
+      };
+    }
     return config;
   },
   // Handle specific file imports
