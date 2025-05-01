@@ -59,6 +59,7 @@
     "@types/react-dom": "^18.2.19",
     "@types/recharts": "^1.8.29",
     "@types/stream-buffers": "^3.0.7",
+    "@types/uuid": "^10.0.0",
     "eslint": "^8.56.0",
     "postcss": "^8.4.35",
     "postcss-preset-mantine": "^1.13.0",
