@@ -215,7 +215,7 @@ export function HeaderMegaMenu() {
           <Divider my="sm" />
 
           <Group justify="center" grow pb="xl" px="md">
-            <Button onClick={closeDrawer}>Sign up</Button>
+            <Button variant="default">Sign up</Button>
           </Group>
         </ScrollArea>
       </Drawer>

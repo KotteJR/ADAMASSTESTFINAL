@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { animate, scroll } from "@motionone/dom";
 import "../globals.scss";
-import { Hero } from "../LandingPage/components/Hero";
+import { Herosimple } from "../LandingPage/components/Herosimple";
 import { FeatureSectionTest } from "../LandingPage/components/FeatureSectionTest";
 import { TimelineSection } from "../LandingPage/components/TimelineSection";
 import { FeatureCards } from "../LandingPage/components/FeatureCards";
@@ -17,7 +17,7 @@ export default function HomePage() {
 
       <div id="top"></div>
 
-        <Hero />
+        <Herosimple />
 
         <FeatureSectionTest />
 

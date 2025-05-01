@@ -1,0 +1,94 @@
+.heroSection {
+    position: relative;
+    background-color: #0f0f10;
+    width: 100%;
+    padding: 6rem 0;
+    overflow: visible;
+  }
+  
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 4rem;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+  
+    @media (max-width: 1024px) {
+      flex-direction: column;
+      padding: 2rem;
+      text-align: center;
+    }
+  }
+  
+  .left {
+    max-width: 580px;
+  
+    .title {
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: #fff;
+    }
+  
+    .subtitle {
+      font-size: 2.75rem;
+      font-weight: 400;
+      color: #fff;
+      margin-bottom: 1.5rem;
+    }
+  
+    .description {
+      font-size: 1.2rem;
+      color: #c4c4c4;
+      margin-bottom: 2rem;
+  
+      span {
+        text-decoration: underline;
+      }
+    }
+  
+    .buttons {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+  
+      button {
+        font-weight: 500;
+      }
+    }
+  
+    .caption {
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+  }
+  
+  .imageWrapper {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%) rotate(-2deg);
+    z-index: 1;
+    pointer-events: none;
+  
+    .image {
+      width: 1000px;
+      height: auto;
+      border-radius: 1.5rem;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+    }
+  
+    @media (max-width: 1024px) {
+      position: relative;
+      transform: none;
+      margin-top: 4rem;
+      display: flex;
+      justify-content: center;
+  
+      .image {
+        width: 100%;
+        max-width: 90%;
+      }
+    }
+  }

@@ -68,8 +68,9 @@ export function ProjectOne() {
           </div>
 
           <Text size="lg" className={styles.projectDescription}>
-            Our cutting-edge AI-driven solutions empower businesses with deep insights and smarter decision-making.
-          </Text>
+          Zoion is an application tailored for dog breeders, providing tools for managing breeding programs, tracking lineage, and maintaining health records. It seeks to promote responsible breeding practices through efficient record-keeping and data management.​
+
+</Text>
         </div>
       </section>
     </>

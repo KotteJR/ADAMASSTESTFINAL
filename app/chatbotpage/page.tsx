@@ -1,13 +1,6 @@
-"use client";
-
-import { Chatbot } from "./Chatbot";
-import { FooterCentered } from "../LandingPage/components/FooterCentered";
+// /app/chatbotpage/page.tsx
+import { ChatbotClient } from "./ChatbotClient";
 
 export default function ChatbotPage() {
-    return (
-        <>
-            <Chatbot />
-            <FooterCentered />
-        </>
-    );
+  return <ChatbotClient />;
 }

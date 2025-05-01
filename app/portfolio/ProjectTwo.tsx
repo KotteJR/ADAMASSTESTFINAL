@@ -48,7 +48,7 @@ export function ProjectTwo() {
         </div>
 
         <Text size="lg" className={styles.projectDescription}>
-          Our cutting-edge AI-driven solutions empower businesses with deep insights and smarter decision-making.
+        Boksy is a digital platform designed to enhance the reading experience by offering personalized book recommendations and facilitating community engagement among readers. It aims to streamline book discovery and foster a social environment for literature enthusiasts.​
         </Text>
       </div>
     </section>

@@ -48,8 +48,9 @@ export function ProjectThree() {
         </div>
 
         <Text size="lg" className={styles.projectDescription}>
-          Our cutting-edge AI-driven solutions empower businesses with deep insights and smarter decision-making.
-        </Text>
+        Dalia Labs offers an AI-powered intelligent assistant focused on real-time, effortless, and cost-effective tracking of skills transfer within organizations. By leveraging deep learning, it provides personalized advice to optimize skills acquisition, enhance performance, and maximize return on investment.
+
+</Text>
       </div>
     </section>
   );

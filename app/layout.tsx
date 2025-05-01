@@ -1,18 +1,25 @@
+// app/layout.tsx
 import "./globals.scss";
 import type { Metadata } from "next";
-import { MantineProvider, ColorSchemeScript, createTheme } from "@mantine/core";
+import {
+  MantineProvider,
+  ColorSchemeScript,
+  createTheme,
+} from "@mantine/core";
 import "@mantine/core/styles.css";
-import { HeaderMegaMenu } from "./LandingPage/components/HeaderMegaMenu";
+import { ClientLayout } from "./ClientLayout";
 
 export const metadata: Metadata = {
   title: "Adamass",
 };
 
-// ✅ Create a theme that applies "Inter" globally
-const theme = createTheme({
-});
+const theme = createTheme({});
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
       <head>
@@ -20,8 +27,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         <MantineProvider theme={theme} defaultColorScheme="light">
-          <HeaderMegaMenu />
-          <main>{children}</main>
+          <ClientLayout>{children}</ClientLayout>
         </MantineProvider>
       </body>
     </html>
