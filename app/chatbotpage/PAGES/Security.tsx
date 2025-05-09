@@ -1,8 +1,20 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
-import { Tabs, Text, Loader, Card, Title, Modal, Divider } from "@mantine/core";
-import { supabase } from "@/lib/supabase";
+import { Tabs, Text, Loader, Card, Title, Modal, Divider, Progress, Group, Box, SimpleGrid, Stack, Button, Collapse, Alert } from "@mantine/core";
+import { createClient } from "@supabase/supabase-js";
+import { IconCheck, IconAlertTriangle } from "@tabler/icons-react";
+
+const supabaseUrl = "https://gmaktpbyligmrflxnsui.supabase.co";
+const supabaseAnonKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdtYWt0cGJ5bGlnbXJmbHhuc3VpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDM0OTQ4MTMsImV4cCI6MjA1OTA3MDgxM30.vH535RIHMZOAtVrasIIXkh3YrEZczMl3SewPB3usiHE";
+const supabase = createClient(supabaseUrl, supabaseAnonKey);
+
+// Helper for badge icon
+function BadgeIcon({ type }: { type: string }) {
+  if (type === "positive") return <IconCheck size={18} style={{ marginRight: 6 }} />;
+  if (type === "negative") return <IconAlertTriangle size={18} style={{ marginRight: 6 }} />;
+  return null;
+}
 
 export function Security() {
   const [rawData, setRawData] = useState<string>("");
@@ -13,8 +25,9 @@ export function Security() {
   const [opened, setOpened] = useState(false);
   const [modalContent, setModalContent] = useState<string>("");
   const hasFetched = useRef(false);
+  const [rawOpenAI, setRawOpenAI] = useState<string>("");
+  const [expanded, setExpanded] = useState<{[key: string]: boolean}>({});
   const [findings, setFindings] = useState<any[]>([]);
-
 
   useEffect(() => {
     const job_id = "835df3af-e594-4973-ae07-a330a389cba6";
@@ -23,9 +36,7 @@ export function Security() {
       setLoading(false);
       return;
     }
-
     if (hasFetched.current) return;
-
     const fetchData = async () => {
       const { data, error } = await supabase
         .from("intel_results")
@@ -33,7 +44,6 @@ export function Security() {
         .eq("job_id", job_id)
         .in("source", ["DnsDumpster", "SubDomains", "SecureHeaders"])
         .order("created_at", { ascending: false });
-
       if (error) {
         setError(`Error fetching raw data: ${error.message}`);
       } else {
@@ -46,11 +56,9 @@ export function Security() {
             return typeof d.data === "string" ? d.data : JSON.stringify(d.data, null, 2);
           }
         }).join("\n\n---\n\n");
-
         setRawData(parsedResult);
       }
     };
-
     const fetchAiSummary = async () => {
       const { data, error } = await supabase
         .from("intel_results")
@@ -58,7 +66,6 @@ export function Security() {
         .eq("job_id", job_id)
         .in("source", ["DnsDumpster_AI", "SubDomains_AI", "SecureHeaders_AI"])
         .order("created_at", { ascending: false });
-
       if (error) {
         setError(`Error fetching AI analysis: ${error.message}`);
       } else {
@@ -66,7 +73,6 @@ export function Security() {
         await restructureAiData(aiText);
       }
     };
-
     const restructureAiData = async (aiText: string) => {
       try {
         const response = await fetch("/api/openai", {
@@ -77,37 +83,16 @@ export function Security() {
             context: "security"
           })
         });
-
         if (!response.ok) throw new Error(`Failed to fetch AI analysis. Status: ${response.status}`);
-
-        const { structuredData, findingsTable } = await response.json();
-        setFindings(findingsTable || []);
-
-
-        let parsedText = "";
-        try {
-          const json = JSON.parse(structuredData);
-          parsedText = json?.structuredData || "";
-        } catch (err) {
-          parsedText = structuredData;
-        }
-
-        const summaryMatch = parsedText.match(/\*\*Summary\*\*([\s\S]*?)(?=\*\*|$)/i);
-        const insightsMatch = parsedText.match(/\*\*Insights\*\*([\s\S]*?)(?=\*\*|$)/i);
-        const recommendationsMatch = parsedText.match(/\*\*Recommendations\*\*([\s\S]*?)(?=\*\*|$)/i);
-
-        const structured = {
-          summary: summaryMatch?.[1]?.trim() || "No summary available.",
-          insights: insightsMatch?.[1]?.trim() || "No insights available.",
-          recommendations: recommendationsMatch?.[1]?.trim() || "No recommendations available."
-        };
-
-        setAiSummary(structured);
+        const { structuredData, rawOpenAI } = await response.json();
+        setRawOpenAI(rawOpenAI || "");
+        setAiSummary(structuredData);
+        setFindings(structuredData?.findings || []);
       } catch (error: any) {
+        console.error("Error restructuring AI data:", error);
         setError(`Error restructuring AI data: ${error.message}`);
       }
     };
-
     fetchData().then(fetchAiSummary).finally(() => {
       setLoading(false);
       hasFetched.current = true;
@@ -153,103 +138,171 @@ export function Security() {
         </Tabs.Panel>
 
         <Tabs.Panel value="ai">
-
-        <div style={{ marginTop: "1.5rem", marginBottom: "2rem" }}>
-  <Title order={2} style={{ marginTop: "1rem", marginBottom: "1rem", color: "#003366" }}>Critical Findings</Title>
-  <div style={{ overflowX: "auto" }}>
-    <table style={{ width: "100%", borderCollapse: "collapse", borderSpacing: 0 }}>
-      <thead>
-        <tr style={{ backgroundColor: "#f0f0f0", textAlign: "left" }}>
-          <th style={{ padding: "0.75rem 1rem" }}>Category</th>
-          <th style={{ padding: "0.75rem 1rem" }}>Finding</th>
-          <th style={{ padding: "0.75rem 1rem" }}>Status</th>
-          <th style={{ padding: "0.75rem 1rem" }}>Fix Priority</th>
-        </tr>
-      </thead>
-      <tbody>
-        {(findings.length > 0 ? findings : [
-          { category: "SSL/TLS", finding: "TLS 1.0 still enabled", status: "⚠️", priority: "High" },
-          { category: "DNS Records", finding: "7 subdomains exposed", status: "🔥", priority: "Medium" },
-          { category: "Headers", finding: "HSTS not enforced", status: "❌", priority: "Medium" }
-        ]).map((row, index) => (
-
-          <tr key={index} style={{ borderBottom: "1px solid #ddd" }}>
-            <td style={{ padding: "0.75rem 1rem" }}>{row.category}</td>
-            <td style={{ padding: "0.75rem 1rem" }}>{row.finding}</td>
-            <td style={{ padding: "0.75rem 1rem" }}>{row.status}</td>
-            <td style={{ padding: "0.75rem 1rem" }}>{row.priority}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  </div>
-</div>
-
-<Title order={2} style={{ marginTop: "1rem", marginBottom: "1rem", color: "#003366" }}>Overview of Findings</Title>
-
-
           {error ? (
-            
             <Text>{error}</Text>
+          ) : aiSummary ? (
+            <Box style={{ maxWidth: 900, margin: "0 auto", padding: "2rem 0", background: "#fff", fontFamily: 'Inter, Roboto, Helvetica Neue, Arial, system-ui, sans-serif' }}>
+              {/* Overall Score Section */}
+              <Box mb={32} style={{ background: "transparent", padding: 0 }}>
+                <Title order={2} mb={8} style={{ color: "#1a202c", fontWeight: 700, fontSize: 24, textAlign: "left" }}>Security Score</Title>
+                <Group gap={8} align="center" style={{ justifyContent: "flex-start", marginBottom: 8 }}>
+                  <Text size="sm" fw={600} style={{ color: '#6b7280', fontSize: 15 }}>Total Score</Text>
+                  <Progress
+                    value={aiSummary.overall_score * 10}
+                    w={180}
+                    color={aiSummary.overall_score >= 7 ? "green" : aiSummary.overall_score >= 4 ? "yellow" : "red"}
+                    radius="md"
+                    size="md"
+                    style={{ flex: 1 }}
+                  />
+                  <Text size="sm" fw={700} style={{ color: '#6b7280', fontSize: 15 }}>{aiSummary.overall_score}/10</Text>
+                </Group>
+                {Array.isArray(aiSummary?.badges) && aiSummary.badges.length > 0 && (
+                  <Group gap="xs" mt={8} style={{ justifyContent: "flex-start", flexWrap: "wrap", overflowX: "auto" }}>
+                    {aiSummary.badges.map((badge: any, idx: number) => (
+                      <span
+                        key={idx}
+                        style={{
+                          display: "inline-block",
+                          background: badge.type === "positive" ? "#e0f7e9" : badge.type === "negative" ? "#ffeaea" : "#f0f0f0",
+                          color: "#222",
+                          borderRadius: 18,
+                          fontWeight: 500,
+                          fontSize: 15,
+                          padding: "7px 20px",
+                          marginRight: 6,
+                          marginBottom: 6
+                        }}
+                      >
+                        <BadgeIcon type={badge.type} />
+                        {badge.label}
+                      </span>
+                    ))}
+                  </Group>
+                )}
+              </Box>
+              
+              {/* Subscores */}
+              {aiSummary.subscores && (
+                <Box mb={32} style={{ background: "transparent", padding: 0 }}>
+                  <Title order={4} mb={12} style={{ color: "#1a202c", fontWeight: 600, fontSize: 18, textAlign: "left" }}>Subscores</Title>
+                  <SimpleGrid cols={2} spacing="md"> 
+                    {Object.entries(aiSummary.subscores).map(([key, value]: [string, any]) => (
+                      <Box key={key} mb={8}>
+                        <Text size="sm" color="dimmed" mb={4} style={{ textTransform: "capitalize" }}>{key.replace("_", " ")}</Text>
+                        <Progress value={value * 10} w="100%" color={value >= 7 ? "green" : value >= 4 ? "yellow" : "red"} radius="md" size="md" />
+                        <Text size="xs" color={value >= 7 ? "green" : value >= 4 ? "yellow" : "red"} mt={2}>{value}/10</Text>
+                      </Box>
+                    ))}
+                  </SimpleGrid>
+                </Box>
+              )}
+              <Box my={32} style={{ borderBottom: "1px solid #e5e7eb" }} />
+
+              {/* Critical Findings Table */}
+              <Box mb={32} style={{ background: "transparent", padding: 0 }}>
+                <Title order={2} mb={8} style={{ color: "#003366", fontWeight: 700, fontSize: 20, textAlign: "left" }}>Critical Findings</Title>
+                <Box style={{ overflowX: "auto", background: "#fff", border: "1px solid #e5e7eb", borderRadius: 8, padding: 0 }}>
+                  <table style={{ width: "100%", borderCollapse: "collapse", borderSpacing: 0 }}>
+                    <thead>
+                      <tr style={{ backgroundColor: "#f0f0f0", textAlign: "left" }}>
+                        <th style={{ padding: "0.75rem 1rem" }}>Category</th>
+                        <th style={{ padding: "0.75rem 1rem" }}>Finding</th>
+                        <th style={{ padding: "0.75rem 1rem" }}>Status</th>
+                        <th style={{ padding: "0.75rem 1rem" }}>Fix Priority</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {(() => {
+                        const minRows = 5;
+                        const maxRows = 6;
+                        let rows = findings.length > 0 ? findings.slice(0, maxRows) : [
+                          { category: "SSL/TLS", finding: "TLS 1.0 still enabled", status: "⚠️", priority: "High" },
+                          { category: "DNS Records", finding: "7 subdomains exposed", status: "🔥", priority: "Medium" },
+                          { category: "Headers", finding: "HSTS not enforced", status: "❌", priority: "Medium" }
+                        ];
+                        if (rows.length < minRows) {
+                          rows = rows.concat(Array.from({ length: minRows - rows.length }, () => ({ category: "", finding: "", status: "", priority: "" })));
+                        }
+                        return rows.map((row, index) => (
+                          <tr key={index} style={{ borderBottom: "1px solid #ddd" }}>
+                            <td style={{ padding: "0.75rem 1rem" }}>{row.category}</td>
+                            <td style={{ padding: "0.75rem 1rem" }}>{row.finding}</td>
+                            <td style={{ padding: "0.75rem 1rem" }}>{row.status}</td>
+                            <td style={{ padding: "0.75rem 1rem" }}>{row.priority}</td>
+                          </tr>
+                        ));
+                      })()}
+                    </tbody>
+                  </table>
+                </Box>
+              </Box>
+
+              {/* Main Good & Main Risks */}
+              <SimpleGrid cols={2} spacing="xl" mb={32}> 
+                <Box style={{ background: "#fff", border: "1px solid #e5e7eb", borderRadius: 8, padding: 20 }}>
+                  <Title order={4} c="green" mb={8} style={{ fontWeight: 600, fontSize: 18, color: "#1a7f37" }}>Key Strengths</Title>
+                  <Stack gap={10}>
+                    {(aiSummary.main_good || []).map((good: string, idx: number) => (
+                      <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                        <IconCheck color="#1a7f37" size={20} />
+                        <span style={{ color: "#1a7f37", fontSize: 16, fontWeight: 500 }}>{good}</span>
+                      </div>
+                    ))}
+                  </Stack>
+                </Box>
+                <Box style={{ background: "#fff", border: "1px solid #e5e7eb", borderRadius: 8, padding: 20 }}>
+                  <Title order={4} c="red" mb={8} style={{ fontWeight: 600, fontSize: 18, color: "#c92a2a" }}>Key Risks</Title>
+                  <Stack gap={10}>
+                    {(aiSummary.main_risks || []).map((risk: string, idx: number) => (
+                      <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                        <IconAlertTriangle color="#c92a2a" size={20} />
+                        <span style={{ color: "#c92a2a", fontSize: 16, fontWeight: 500 }}>{risk}</span>
+                      </div>
+                    ))}
+                  </Stack>
+                </Box>
+              </SimpleGrid>
+              <Box my={32} style={{ borderBottom: "1px solid #e5e7eb" }} />
+              {/* Section Cards */}
+              <Stack gap={32}>
+                {["summary", "insights", "recommendations"].map((section) => (
+                  <Box key={section} style={{ background: "transparent", padding: 0 }}>
+                    <Title order={3} mb={8} style={{ color: "#003366", fontWeight: 600, fontSize: 20, textAlign: "left" }}>{section.charAt(0).toUpperCase() + section.slice(1)}</Title>
+                    {aiSummary?.[section]?.highlight && (
+                      <Box mb={8} style={{ background: "#f5faff", borderLeft: "4px solid #228be6", padding: "10px 16px" }}>
+                        <Text style={{ color: "#228be6", fontWeight: 500 }}><b>Highlight:</b> {aiSummary[section].highlight}</Text>
+                      </Box>
+                    )}
+                    <Text style={{ fontWeight: 500, marginBottom: 6, fontSize: 15 }}>
+                      {aiSummary[section].preview || aiSummary[section].snippet || "No preview available."}
+                    </Text>
+                    <Button
+                      size="xs"
+                      variant="subtle"
+                      color="blue"
+                      onClick={() => setExpanded((prev) => ({ ...prev, [section]: !prev[section] }))}
+                      style={{ marginBottom: 8 }}
+                    >
+                      {expanded[section] ? "Hide full text" : "Read more"}
+                    </Button>
+                    <Collapse in={!!expanded[section]}>
+                      <Text style={{ whiteSpace: "pre-wrap", fontSize: 15, marginTop: 4 }}>
+                        {aiSummary[section].text || "No content available."}
+                      </Text>
+                    </Collapse>
+                  </Box>
+                ))}
+              </Stack>
+              <Box my={32} style={{ borderBottom: "1px solid #e5e7eb" }} />
+              {/* Raw AI Output Debug */}
+              
+            </Box>
           ) : (
-            <div style={{ display: "flex", justifyContent: "space-between", gap: "1rem", paddingBottom: "1rem" }}>
-              {["summary", "insights", "recommendations"].map((key) => (
-                
-                
-
-                <Card
-                  key={key}
-                  shadow="sm"
-                  padding="lg"
-                  radius="md"
-                  withBorder
-                  onClick={() => handleCardClick(key)}
-                  style={{
-                    position: "relative",
-                    height: "26.5rem",
-                    width: "30%",
-                    cursor: "pointer",
-                    overflow: "hidden",
-                    color: "#fff",
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "space-between",
-                    backgroundImage: `url('${backgroundImages[key]}')`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center"
-                  }}
-                >
-                  <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, backdropFilter: "blur(4.5px)", backgroundColor: "rgba(0, 0, 0, 0.4)", zIndex: 0 }} />
-
-                  <div style={{ position: "relative", zIndex: 1 }}>
-                    <Title order={3} style={{ marginBottom: "0.5rem" }}>{key.charAt(0).toUpperCase() + key.slice(1)}</Title>
-                    <Text style={{ fontSize: "0.9rem", paddingRight: "0.2rem", lineHeight: 1.4 }}>{(aiSummary?.[key]?.slice(0, 200) || "No preview available.") + "..."}</Text>
-                  </div>
-
-                  <Text
-                    style={{
-                      position: "relative",
-                      zIndex: 1,
-                      alignSelf: "flex-start",
-                      backgroundColor: "rgba(255, 255, 255, 0.15)",
-                      padding: "0.4rem 0.8rem",
-                      borderRadius: "6px",
-                      textTransform: "uppercase",
-                      fontWeight: 500,
-                      fontSize: "0.85rem",
-                      marginTop: "1rem"
-                    }}
-                  >
-                    View Full
-                  </Text>
-                </Card>
-              ))}
-            </div>
+            <Text>No AI analysis available.</Text>
           )}
-          
         </Tabs.Panel>
       </Tabs>
-
 
       <Modal opened={opened} onClose={() => setOpened(false)} title="AI Analysis Details">
         <Text>{modalContent}</Text>

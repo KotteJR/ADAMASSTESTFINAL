@@ -9,7 +9,6 @@ import { Security } from "./PAGES/Security";
 import { Legal } from "./PAGES/Legal";
 import { CompanyIntelligenceProfile } from "./PAGES/CompanyIntelligenceProfile";
 import { HumanCapital } from "./PAGES/HumanCapital";
-import { FullReport } from "./PAGES/FullReport";
 
 const SECTIONS = [
   "Company Information",
@@ -19,7 +18,6 @@ const SECTIONS = [
   "Legal",
   "Company Intelligence Profile",
   "Human Capital",
-  "Full Report"
 ];
 
 export function ChatbotClient() {
@@ -51,9 +49,7 @@ export function ChatbotClient() {
         <div style={{ display: activeSection === "Human Capital" ? "block" : "none" }}>
           <HumanCapital />
         </div>
-        <div style={{ display: activeSection === "Full Report" ? "block" : "none" }}>
-          <FullReport />
-        </div>
+
       </div>
     </div>
   );

@@ -1,54 +1,43 @@
 "use client";
 
-import { Tabs, Text, Loader, Title } from "@mantine/core";
-import { useState, useEffect } from "react";
+import { Title } from "@mantine/core";
+import { useState } from "react";
+import jsPDF from "jspdf";
+import html2canvas from "html2canvas";
+import { CompanyIntelligenceProfile } from "./CompanyIntelligenceProfile";
+import { Architecture } from "./Architecture";
+import { Security } from "./Security";
 
 export function FullReport() {
-  const [rawData, setRawData] = useState("");
-  const [aiSummary, setAiSummary] = useState("");
-  const [loading, setLoading] = useState(true);
+  const [downloading, setDownloading] = useState(false);
 
-  useEffect(() => {
-    // Fetch raw + AI data from backend/Supabase/n8n
-    setLoading(true);
-    fetch(`/api/report-data?section=public-info`) // adapt to your structure
-      .then((res) => res.json())
-      .then((data) => {
-        setRawData(data.raw || "");
-        setAiSummary(data.ai || "");
-        setLoading(false);
-      })
-      .catch(() => setLoading(false));
-  }, []);
+  const downloadPDF = async () => {
+    setDownloading(true);
+    const input = document.getElementById('report-content');
+    if (!input) return;
+    const canvas = await html2canvas(input);
+    const imgData = canvas.toDataURL('image/png');
+    const pdf = new jsPDF({ orientation: 'portrait', unit: 'pt', format: 'a4' });
+    const pdfWidth = pdf.internal.pageSize.getWidth();
+    const pdfHeight = pdf.internal.pageSize.getHeight();
+    pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+    pdf.save('full-report.pdf');
+    setDownloading(false);
+  };
 
   return (
     <div style={{ padding: "1rem", paddingTop: "1.5rem" }}>
-      <Tabs defaultValue="raw" keepMounted={false}>
-        <Tabs.List style={{ marginBottom: "0.5rem" }}>
-          <Tabs.Tab value="raw">Raw Output</Tabs.Tab>
-          <Tabs.Tab value="ai">AI Analysis</Tabs.Tab>
-        </Tabs.List>
-
-        <Tabs.Panel value="raw">
-          {loading ? (
-            <Loader />
-          ) : (
-            <Text style={{ whiteSpace: "pre-wrap", fontSize: "0.95rem" }}>
-              {rawData || "No data found."}
-            </Text>
-          )}
-        </Tabs.Panel>
-
-        <Tabs.Panel value="ai">
-          {loading ? (
-            <Loader />
-          ) : (
-            <Text style={{ whiteSpace: "pre-wrap", fontSize: "0.95rem" }}>
-              {aiSummary || "No analysis available."}
-            </Text>
-          )}
-        </Tabs.Panel>
-      </Tabs>
+      <button onClick={downloadPDF} disabled={downloading} style={{ marginBottom: 16, background: '#228BE6', color: '#fff', border: 'none', borderRadius: 4, padding: '8px 18px', fontWeight: 600, fontSize: 16, cursor: downloading ? 'not-allowed' : 'pointer' }}>
+        {downloading ? 'Preparing PDF...' : 'Download PDF'}
+      </button>
+      <div id="report-content">
+        <Title order={2} mb={24}>Company Intelligence Profile</Title>
+        <CompanyIntelligenceProfile />
+        <Title order={2} mb={24} mt={48}>Architecture</Title>
+        <Architecture />
+        <Title order={2} mb={24} mt={48}>Security</Title>
+        <Security />
+      </div>
     </div>
   );
 }

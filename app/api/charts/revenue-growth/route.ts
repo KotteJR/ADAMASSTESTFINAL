@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
-import type { NextRequest } from 'next/server';
+import Plotly from 'plotly.js-dist';
 
-export async function GET(request: NextRequest): Promise<Response> {
+export async function GET() {
   try {
     const data = {
       x: ['2022', '2023'],
@@ -13,38 +13,33 @@ export async function GET(request: NextRequest): Promise<Response> {
     };
 
     const layout = {
-      title: {
-        text: 'Revenue Growth (%)',
-        font: { size: 16 },
-        y: 0.95
-      },
+      title: 'Revenue Growth (%)',
       paper_bgcolor: 'rgba(0,0,0,0)',
       plot_bgcolor: 'rgba(0,0,0,0)',
       xaxis: {
         showgrid: true,
-        gridcolor: '#E9ECEF',
-        fixedrange: true
+        gridcolor: '#E9ECEF'
       },
       yaxis: {
         showgrid: true,
         gridcolor: '#E9ECEF',
-        title: 'Growth Rate (%)',
-        fixedrange: true
+        title: 'Growth Rate (%)'
       },
-      margin: { t: 30, r: 10, b: 30, l: 60 },
-      autosize: true,
-      height: 250
+      margin: { t: 40, r: 20, b: 40, l: 60 }
     };
 
     const config = {
       responsive: true,
-      displayModeBar: false,
-      staticPlot: true
+      displayModeBar: false
     };
 
-    return new NextResponse(JSON.stringify({ data, layout, config }), {
+    const chartDiv = document.createElement('div');
+    await Plotly.newPlot(chartDiv, [data], layout, config);
+    const imageBuffer = await Plotly.toImage(chartDiv, { format: 'png', width: 800, height: 400 });
+
+    return new NextResponse(imageBuffer, {
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'image/png',
         'Cache-Control': 'public, max-age=3600'
       }
     });

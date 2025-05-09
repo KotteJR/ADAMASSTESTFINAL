@@ -3,21 +3,26 @@
 import { useEffect, useRef } from 'react';
 import Plotly from 'plotly.js-dist';
 
-export default function RevenueGrowthChart() {
+export default function RevenueGrowthChart({ data = [] }: { data?: { year: number | string, revenue_growth_percent: number }[] }) {
   const chartRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!chartRef.current) return;
-
-    const data = {
-      x: ['2022', '2023'],
-      y: [233, 154],
-      type: 'scatter',
-      mode: 'lines+markers',
-      line: { color: '#228BE6', width: 3 },
-      marker: { size: 8 }
-    };
-
+    if (!data || data.length === 0) {
+      Plotly.purge(chartRef.current);
+      return;
+    }
+    const years = data.map(d => String(d.year));
+    const growth = data.map(d => d.revenue_growth_percent);
+    const plotData = [{
+      x: years,
+      y: growth,
+      type: 'bar',
+      marker: { color: '#228BE6' },
+      text: growth.map(v => v + '%'),
+      textposition: 'auto',
+      hovertemplate: '%{y}%<br>%{x}<extra></extra>'
+    }];
     const layout = {
       title: {
         text: 'Revenue Growth (%)',
@@ -41,39 +46,21 @@ export default function RevenueGrowthChart() {
       autosize: true,
       height: 250
     };
-
     const config = {
       responsive: true,
       displayModeBar: false,
       staticPlot: true
     };
-
-    Plotly.newPlot(chartRef.current, [data], layout, config);
-
-    const handleResize = () => {
-      if (chartRef.current) {
-        Plotly.Plots.resize(chartRef.current);
-      }
-    };
-
+    Plotly.newPlot(chartRef.current, plotData, layout, config);
+    const handleResize = () => { Plotly.Plots.resize(chartRef.current); };
     window.addEventListener('resize', handleResize);
-
     return () => {
       window.removeEventListener('resize', handleResize);
-      if (chartRef.current) {
-        Plotly.purge(chartRef.current);
-      }
+      if (chartRef.current) { Plotly.purge(chartRef.current); }
     };
-  }, []);
-
-  return (
-    <div 
-      ref={chartRef} 
-      style={{ 
-        width: '100%', 
-        height: '250px',
-        position: 'relative'
-      }} 
-    />
-  );
+  }, [data]);
+  if (!data || data.length === 0) {
+    return <div style={{ width: '100%', height: '250px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#888' }}>No revenue growth data available</div>;
+  }
+  return <div ref={chartRef} style={{ width: '100%', height: '250px', position: 'relative' }} />;
 } 
