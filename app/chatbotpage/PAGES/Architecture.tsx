@@ -29,7 +29,7 @@ export function Architecture() {
   const [expanded, setExpanded] = useState<{[key: string]: boolean}>({});
 
   useEffect(() => {
-    const job_id = "835df3af-e594-4973-ae07-a330a389cba6";
+    const job_id = "9e9470c8-450c-46c6-9098-3b441af9ef99";
     if (!job_id) {
       setError("Job ID not found.");
       setLoading(false);

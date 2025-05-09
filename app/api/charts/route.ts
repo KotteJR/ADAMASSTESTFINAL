@@ -2,12 +2,12 @@ import { NextResponse } from 'next/server';
 import { spawn } from 'child_process';
 import { join } from 'path';
 
-export async function GET(request: Request) {
+export async function GET(request: Request): Promise<Response> {
   const url = new URL(request.url);
   const chartType = url.pathname.split('/').pop();
 
   if (!chartType) {
-    return new NextResponse('Chart type not specified', { status: 400 });
+    return NextResponse.json({ error: 'Chart type not specified' }, { status: 400 });
   }
 
   try {
@@ -29,7 +29,7 @@ export async function GET(request: Request) {
 
       pythonProcess.on('close', (code) => {
         if (code !== 0) {
-          resolve(new NextResponse('Error generating chart', { status: 500 }));
+          resolve(NextResponse.json({ error: 'Error generating chart' }, { status: 500 }));
         } else {
           resolve(new NextResponse(imageData, {
             headers: {
@@ -42,6 +42,6 @@ export async function GET(request: Request) {
     });
   } catch (error) {
     console.error('Error generating chart:', error);
-    return new NextResponse('Error generating chart', { status: 500 });
+    return NextResponse.json({ error: 'Error generating chart' }, { status: 500 });
   }
 } 
