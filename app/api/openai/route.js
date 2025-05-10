@@ -101,7 +101,7 @@ Raw content:\n\n${aiText}`;
         console.error("Failed to parse security data:", e);
         return new Response(JSON.stringify({ error: "Failed to parse security data", rawOpenAI: structuredData }), { status: 500 });
       }
-    }
+      }
 
     // For architecture context
     if (safeContext === "architecture") {
@@ -111,11 +111,11 @@ Raw content:\n\n${aiText}`;
           throw new Error("No JSON object found in the response");
         }
         const parsedData = JSON.parse(jsonMatch[0]);
-        return new Response(JSON.stringify({
+          return new Response(JSON.stringify({
           rawOpenAI: structuredData,
           structuredData: parsedData
-        }));
-      } catch (e) {
+          }));
+        } catch (e) {
         console.error("Failed to parse architecture data:", e);
         return new Response(JSON.stringify({ error: "Failed to parse architecture data", rawOpenAI: structuredData }), { status: 500 });
       }
