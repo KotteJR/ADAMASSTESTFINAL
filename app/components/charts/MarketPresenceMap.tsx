@@ -127,7 +127,7 @@ export default function MarketPresenceMap({ data = [] }: { data?: { location: st
                   geography={geo}
                   fill="#F8F9FA"
                   stroke="#CED4DA"
-                  style={{
+      style={{ 
                     default: { outline: 'none' },
                     hover: { outline: 'none' },
                     pressed: { outline: 'none' }

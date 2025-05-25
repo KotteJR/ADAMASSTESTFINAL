@@ -18,53 +18,74 @@ export function CompanyIntelligenceProfile() {
   const [opened, setOpened] = useState(false);
   const [modalContent, setModalContent] = useState<string>("");
   const hasFetched = useRef(false);
+  const [jobId, setJobId] = useState<string | null>(null);
 
   useEffect(() => {
-    const job_id = "9e9470c8-450c-46c6-9098-3b441af9ef99";
-    if (!job_id) {
-      setError("Job ID not found.");
+    const currentJobId = localStorage.getItem("currentJobId");
+    console.log("[CompanyIntelligenceProfile] useEffect - currentJobId from localStorage:", currentJobId);
+    setJobId(currentJobId);
+
+    if (!currentJobId) {
+      setError("No analysis has been run yet. Please provide company information first.");
       setLoading(false);
       return;
     }
 
-    if (hasFetched.current) return;
+    if (hasFetched.current && jobId === currentJobId) return;
 
     const fetchData = async () => {
-      const { data, error } = await supabase
+      console.log(`[CompanyIntelligenceProfile] fetchData - Fetching raw data for job_id: ${currentJobId}, source: Crunchbase`);
+      const { data, error: dbError } = await supabase
         .from("intel_results")
-        .select("data")
-        .eq("job_id", job_id)
-        .in("source", ["Crunchbase", "Tavily"])
+        .select("data, source")
+        .eq("job_id", currentJobId)
+        .eq("source", "Crunchbase")
         .order("created_at", { ascending: false });
 
-      if (error) {
-        setError(`Error fetching raw data: ${error.message}`);
+      if (dbError) {
+        console.error("[CompanyIntelligenceProfile] fetchData - Supabase error:", dbError);
+        setError(`Error fetching raw data: ${dbError.message}`);
       } else {
-        const parsedResult = data.map((d: any) => {
+        console.log("[CompanyIntelligenceProfile] fetchData - Raw data received from Supabase (source Crunchbase):", data);
+        if (!data || data.length === 0) {
+          console.warn("[CompanyIntelligenceProfile] fetchData - No raw data found in Supabase for source Crunchbase and job_id:", currentJobId);
+          setRawData("No raw data found for Crunchbase.");
+        } else {
+          const latestCrunchbaseEntry = data[0];
+          console.log(`[CompanyIntelligenceProfile] fetchData - Processing source: ${latestCrunchbaseEntry.source}`);
+          let parsedResult = "";
           try {
-            return typeof d.data === "string"
-              ? JSON.stringify(JSON.parse(d.data), null, 2)
-              : JSON.stringify(d.data, null, 2);
+            parsedResult = typeof latestCrunchbaseEntry.data === "string"
+              ? JSON.stringify(JSON.parse(latestCrunchbaseEntry.data), null, 2)
+              : JSON.stringify(latestCrunchbaseEntry.data, null, 2);
           } catch {
-            return typeof d.data === "string" ? d.data : JSON.stringify(d.data, null, 2);
+            parsedResult = typeof latestCrunchbaseEntry.data === "string" ? latestCrunchbaseEntry.data : JSON.stringify(latestCrunchbaseEntry.data, null, 2);
           }
-        }).join("\n\n---\n\n");
-
-        setRawData(parsedResult);
+          setRawData(parsedResult);
+        }
       }
     };
 
     const fetchAiSummary = async () => {
-      const { data, error } = await supabase
+      console.log(`[CompanyIntelligenceProfile] fetchAiSummary - Fetching AI input data for job_id: ${currentJobId}, source: Crunchbase`);
+      const { data, error: dbError } = await supabase
         .from("intel_results")
         .select("data")
-        .eq("job_id", job_id)
+        .eq("job_id", currentJobId)
         .in("source", ["Crunchbase"])
         .order("created_at", { ascending: false });
 
-      if (error) {
-        setError(`Error fetching AI analysis: ${error.message}`);
+      if (dbError) {
+        console.error("[CompanyIntelligenceProfile] fetchAiSummary - Supabase error:", dbError);
+        setError(`Error fetching AI analysis input: ${dbError.message}`);
       } else {
+        console.log("[CompanyIntelligenceProfile] fetchAiSummary - AI input data received from Supabase (source Crunchbase):", data);
+        if (!data || data.length === 0) {
+          console.warn("[CompanyIntelligenceProfile] fetchAiSummary - No data found in Supabase for source Crunchbase (AI input) and job_id:", currentJobId);
+          setError("Could not load Crunchbase data to generate AI summary.");
+          setAiSummary(null);
+          return;
+        }
         const aiText = data.map((d: any) => {
           try {
             return typeof d.data === "string" ? d.data : JSON.stringify(d.data, null, 2);
@@ -72,11 +93,19 @@ export function CompanyIntelligenceProfile() {
             return typeof d.data === "string" ? d.data : JSON.stringify(d.data, null, 2);
           }
         }).join("\n\n---\n\n") || "";
+        console.log("[CompanyIntelligenceProfile] fetchAiSummary - Text being sent to restructureAiData:", aiText.substring(0, 500) + "...");
+        if (!aiText.trim()) {
+          console.warn("[CompanyIntelligenceProfile] fetchAiSummary - aiText for restructureAiData is empty.");
+          setError("Crunchbase data for AI summary was empty.");
+          setAiSummary(null);
+          return;
+        }
         await restructureAiData(aiText);
       }
     };
 
     const restructureAiData = async (aiText: string) => {
+      console.log("[CompanyIntelligenceProfile] restructureAiData - Calling /api/openai with context: company_intelligence");
       try {
         const response = await fetch("/api/openai", {
           method: "POST",
@@ -88,12 +117,14 @@ export function CompanyIntelligenceProfile() {
         });
 
         if (!response.ok) {
-          throw new Error("Failed to process AI data");
+          const errorText = await response.text();
+          console.error("[CompanyIntelligenceProfile] restructureAiData - API call failed:", response.status, errorText);
+          throw new Error(`Failed to process AI data. Status: ${response.status}. Details: ${errorText}`);
         }
 
         const { structuredData } = await response.json();
+        console.log("[CompanyIntelligenceProfile] restructureAiData - Structured data received from API:", structuredData);
         
-        // Ensure we have the required structure
         const defaultData = {
           company_overview: {
             official_company_name: "Unknown",
@@ -139,12 +170,9 @@ export function CompanyIntelligenceProfile() {
             other: {}
           }
         };
-
-        // Merge the received data with defaults
         const mergedData = {
           ...defaultData,
           ...structuredData,
-          // Ensure nested objects are properly merged
           company_overview: {
             ...defaultData.company_overview,
             ...(structuredData?.company_overview || {})
@@ -166,8 +194,6 @@ export function CompanyIntelligenceProfile() {
             ...(structuredData?.contact_information || {})
           }
         };
-
-        // Ensure arrays are properly initialized
         mergedData.investors = Array.isArray(mergedData.investors) ? mergedData.investors : [];
         mergedData.news_press = Array.isArray(mergedData.news_press) ? mergedData.news_press : [];
         mergedData.acquisitions = Array.isArray(mergedData.acquisitions) ? mergedData.acquisitions : [];
@@ -182,26 +208,34 @@ export function CompanyIntelligenceProfile() {
         mergedData.funding_rounds.rounds = Array.isArray(mergedData.funding_rounds.rounds) ? mergedData.funding_rounds.rounds : [];
 
         setAiSummary(mergedData);
-      } catch (err) {
-        console.error("Error restructuring AI data:", err);
-        setError("Failed to process AI analysis");
-      } finally {
-        setLoading(false);
+        setError("");
+      } catch (err: any) {
+        console.error("[CompanyIntelligenceProfile] restructureAiData - Error:", err);
+        setError(err.message || "Failed to process AI analysis");
+        setAiSummary(null);
       }
     };
 
     const fetchAllData = async () => {
+      setLoading(true);
+      setError("");
+      setRawData("");
+      setAiSummary(null);
       try {
-        await Promise.all([fetchData(), fetchAiSummary()]);
+        await fetchData();
+        await fetchAiSummary();
       } catch (err) {
-        console.error("Error fetching data:", err);
-        setError("Failed to fetch data");
+        console.error("[CompanyIntelligenceProfile] fetchAllData - General error during fetch sequence:", err);
+      } finally {
         setLoading(false);
+        hasFetched.current = true;
       }
     };
 
-    fetchAllData();
-    hasFetched.current = true;
+    if (currentJobId) {
+      console.log("[CompanyIntelligenceProfile] useEffect - Proceeding to fetchAllData for job_id:", currentJobId);
+      fetchAllData();
+    }
   }, []);
 
   if (loading) {
@@ -209,7 +243,7 @@ export function CompanyIntelligenceProfile() {
   }
 
   if (error) {
-    return <Text c="red">{error}</Text>;
+    return <Text c="red">Error: {error}</Text>;
   }
 
   return (
@@ -224,7 +258,7 @@ export function CompanyIntelligenceProfile() {
           {aiSummary ? (
             <CompanyIntelligenceProfileView data={aiSummary} />
           ) : (
-            <Text>No AI analysis available.</Text>
+            <Text>No AI analysis available. {error && `(Error: ${error})`}</Text>
           )}
         </Tabs.Panel>
 

@@ -27,22 +27,25 @@ export function Architecture() {
   const hasFetched = useRef(false);
   const [rawOpenAI, setRawOpenAI] = useState<string>("");
   const [expanded, setExpanded] = useState<{[key: string]: boolean}>({});
+  const [jobId, setJobId] = useState<string | null>(null);
 
   useEffect(() => {
-    const job_id = "9e9470c8-450c-46c6-9098-3b441af9ef99";
-    if (!job_id) {
-      setError("Job ID not found.");
+    const currentJobId = localStorage.getItem("report?jobId=e6faf05d-6999-4c98-8156-89fea65e4047");
+    setJobId(currentJobId);
+
+    if (!currentJobId) {
+      setError("No analysis has been run yet. Please provide company information first.");
       setLoading(false);
       return;
     }
 
-    if (hasFetched.current) return;
+    if (hasFetched.current && jobId === currentJobId) return;
 
     const fetchData = async () => {
       const { data, error } = await supabase
         .from("intel_results")
         .select("data")
-        .eq("job_id", job_id)
+        .eq("job_id", currentJobId)
         .in("source", ["BuiltWith", "PageSpeed"])
         .order("created_at", { ascending: false });
 
@@ -67,7 +70,7 @@ export function Architecture() {
       const { data, error } = await supabase
         .from("intel_results")
         .select("data")
-        .eq("job_id", job_id)
+        .eq("job_id", currentJobId)
         .in("source", ["BuiltWith_AI", "PageSpeed_AI"])
         .order("created_at", { ascending: false });
 
@@ -90,21 +93,31 @@ export function Architecture() {
           })
         });
 
-        if (!response.ok) throw new Error(`Failed to fetch AI analysis. Status: ${response.status}`);
+        if (response.status === 504) {
+          throw new Error("The request timed out. Please try again in a few moments.");
+        }
+
+        if (!response.ok) {
+          const errorData = await response.json().catch(() => ({}));
+          throw new Error(errorData.details || `Failed to fetch AI analysis. Status: ${response.status}`);
+        }
 
         const { structuredData, rawOpenAI } = await response.json();
         setRawOpenAI(rawOpenAI || "");
         setAiSummary(structuredData);
       } catch (error: any) {
         console.error("Error restructuring AI data:", error);
-        setError(`Error restructuring AI data: ${error.message}`);
+        setError(error.message || "An unexpected error occurred while processing the AI analysis.");
       }
     };
 
+    if (currentJobId) {
+      setLoading(true);
     fetchData().then(fetchAiSummary).finally(() => {
       setLoading(false);
       hasFetched.current = true;
     });
+    }
   }, []);
 
   const handleCardClick = (section: string) => {
@@ -159,7 +172,7 @@ export function Architecture() {
                     value={aiSummary.overall_score * 10}
                     w={180}
                     color={aiSummary.overall_score >= 7 ? "green" : aiSummary.overall_score >= 4 ? "yellow" : "red"}
-                    radius="md"
+                  radius="md"
                     size="md"
                     style={{ flex: 1 }}
                   />
@@ -170,7 +183,7 @@ export function Architecture() {
                     {aiSummary.badges.map((badge: any, idx: number) => (
                       <span
                         key={idx}
-                        style={{
+                  style={{
                           display: "inline-block",
                           background: badge.type === "positive" ? "#e0f7e9" : badge.type === "negative" ? "#ffeaea" : "#f0f0f0",
                           color: "#222",
@@ -228,7 +241,7 @@ export function Architecture() {
                       <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                         <IconAlertTriangle color="#c92a2a" size={20} />
                         <span style={{ color: "#c92a2a", fontSize: 16, fontWeight: 500 }}>{risk}</span>
-                      </div>
+                  </div>
                     ))}
                   </Stack>
                 </Box>
@@ -260,10 +273,10 @@ export function Architecture() {
                     <Collapse in={!!expanded[section]}>
                       <Text style={{ whiteSpace: "pre-wrap", fontSize: 15, marginTop: 4 }}>
                         {aiSummary[section].text || "No content available."}
-                      </Text>
+                  </Text>
                     </Collapse>
                   </Box>
-                ))}
+              ))}
               </Stack>
               <Box my={32} style={{ borderBottom: "1px solid #e5e7eb" }} />
 

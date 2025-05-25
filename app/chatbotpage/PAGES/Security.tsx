@@ -28,20 +28,26 @@ export function Security() {
   const [rawOpenAI, setRawOpenAI] = useState<string>("");
   const [expanded, setExpanded] = useState<{[key: string]: boolean}>({});
   const [findings, setFindings] = useState<any[]>([]);
+  const [jobId, setJobId] = useState<string | null>(null);
 
   useEffect(() => {
-    const job_id = "9e9470c8-450c-46c6-9098-3b441af9ef99";
-    if (!job_id) {
-      setError("Job ID not found.");
+    const currentJobId = localStorage.getItem("currentJobId");
+    setJobId(currentJobId);
+
+    if (!currentJobId) {
+      setError("No analysis has been run yet. Please provide company information first.");
       setLoading(false);
       return;
     }
-    if (hasFetched.current) return;
+
+    // Prevent refetching if already fetched for this job ID
+    if (hasFetched.current && jobId === currentJobId) return; 
+
     const fetchData = async () => {
       const { data, error } = await supabase
         .from("intel_results")
         .select("data")
-        .eq("job_id", job_id)
+        .eq("job_id", currentJobId) // Use currentJobId
         .in("source", ["DnsDumpster", "SubDomains", "SecureHeaders"])
         .order("created_at", { ascending: false });
       if (error) {
@@ -63,7 +69,7 @@ export function Security() {
       const { data, error } = await supabase
         .from("intel_results")
         .select("data")
-        .eq("job_id", job_id)
+        .eq("job_id", currentJobId) // Use currentJobId
         .in("source", ["DnsDumpster_AI", "SubDomains_AI", "SecureHeaders_AI"])
         .order("created_at", { ascending: false });
       if (error) {
@@ -83,21 +89,33 @@ export function Security() {
             context: "security"
           })
         });
-        if (!response.ok) throw new Error(`Failed to fetch AI analysis. Status: ${response.status}`);
+
+        if (response.status === 504) {
+          throw new Error("The request timed out. Please try again in a few moments.");
+        }
+
+        if (!response.ok) {
+          const errorData = await response.json().catch(() => ({}));
+          throw new Error(errorData.details || `Failed to fetch AI analysis. Status: ${response.status}`);
+        }
+
         const { structuredData, rawOpenAI } = await response.json();
         setRawOpenAI(rawOpenAI || "");
         setAiSummary(structuredData);
         setFindings(structuredData?.findings || []);
       } catch (error: any) {
         console.error("Error restructuring AI data:", error);
-        setError(`Error restructuring AI data: ${error.message}`);
+        setError(error.message || "An unexpected error occurred while processing the AI analysis.");
       }
     };
+    if (currentJobId) {
+      setLoading(true); // Set loading true when starting fetch
     fetchData().then(fetchAiSummary).finally(() => {
       setLoading(false);
       hasFetched.current = true;
     });
-  }, []);
+    }
+  }, []); // Run once on mount
 
   const handleCardClick = (section: string) => {
     const content = aiSummary?.[section] || "No content available.";
@@ -203,38 +221,38 @@ export function Security() {
               <Box mb={32} style={{ background: "transparent", padding: 0 }}>
                 <Title order={2} mb={8} style={{ color: "#003366", fontWeight: 700, fontSize: 20, textAlign: "left" }}>Critical Findings</Title>
                 <Box style={{ overflowX: "auto", background: "#fff", border: "1px solid #e5e7eb", borderRadius: 8, padding: 0 }}>
-                  <table style={{ width: "100%", borderCollapse: "collapse", borderSpacing: 0 }}>
-                    <thead>
-                      <tr style={{ backgroundColor: "#f0f0f0", textAlign: "left" }}>
-                        <th style={{ padding: "0.75rem 1rem" }}>Category</th>
-                        <th style={{ padding: "0.75rem 1rem" }}>Finding</th>
-                        <th style={{ padding: "0.75rem 1rem" }}>Status</th>
-                        <th style={{ padding: "0.75rem 1rem" }}>Fix Priority</th>
-                      </tr>
-                    </thead>
-                    <tbody>
+    <table style={{ width: "100%", borderCollapse: "collapse", borderSpacing: 0 }}>
+      <thead>
+        <tr style={{ backgroundColor: "#f0f0f0", textAlign: "left" }}>
+          <th style={{ padding: "0.75rem 1rem" }}>Category</th>
+          <th style={{ padding: "0.75rem 1rem" }}>Finding</th>
+          <th style={{ padding: "0.75rem 1rem" }}>Status</th>
+          <th style={{ padding: "0.75rem 1rem" }}>Fix Priority</th>
+        </tr>
+      </thead>
+      <tbody>
                       {(() => {
                         const minRows = 5;
                         const maxRows = 6;
                         let rows = findings.length > 0 ? findings.slice(0, maxRows) : [
-                          { category: "SSL/TLS", finding: "TLS 1.0 still enabled", status: "⚠️", priority: "High" },
-                          { category: "DNS Records", finding: "7 subdomains exposed", status: "🔥", priority: "Medium" },
-                          { category: "Headers", finding: "HSTS not enforced", status: "❌", priority: "Medium" }
+          { category: "SSL/TLS", finding: "TLS 1.0 still enabled", status: "⚠️", priority: "High" },
+          { category: "DNS Records", finding: "7 subdomains exposed", status: "🔥", priority: "Medium" },
+          { category: "Headers", finding: "HSTS not enforced", status: "❌", priority: "Medium" }
                         ];
                         if (rows.length < minRows) {
                           rows = rows.concat(Array.from({ length: minRows - rows.length }, () => ({ category: "", finding: "", status: "", priority: "" })));
                         }
                         return rows.map((row, index) => (
-                          <tr key={index} style={{ borderBottom: "1px solid #ddd" }}>
-                            <td style={{ padding: "0.75rem 1rem" }}>{row.category}</td>
-                            <td style={{ padding: "0.75rem 1rem" }}>{row.finding}</td>
-                            <td style={{ padding: "0.75rem 1rem" }}>{row.status}</td>
-                            <td style={{ padding: "0.75rem 1rem" }}>{row.priority}</td>
-                          </tr>
+          <tr key={index} style={{ borderBottom: "1px solid #ddd" }}>
+            <td style={{ padding: "0.75rem 1rem" }}>{row.category}</td>
+            <td style={{ padding: "0.75rem 1rem" }}>{row.finding}</td>
+            <td style={{ padding: "0.75rem 1rem" }}>{row.status}</td>
+            <td style={{ padding: "0.75rem 1rem" }}>{row.priority}</td>
+          </tr>
                         ));
                       })()}
-                    </tbody>
-                  </table>
+      </tbody>
+    </table>
                 </Box>
               </Box>
 
@@ -247,7 +265,7 @@ export function Security() {
                       <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                         <IconCheck color="#1a7f37" size={20} />
                         <span style={{ color: "#1a7f37", fontSize: 16, fontWeight: 500 }}>{good}</span>
-                      </div>
+  </div>
                     ))}
                   </Stack>
                 </Box>
@@ -258,7 +276,7 @@ export function Security() {
                       <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                         <IconAlertTriangle color="#c92a2a" size={20} />
                         <span style={{ color: "#c92a2a", fontSize: 16, fontWeight: 500 }}>{risk}</span>
-                      </div>
+</div>
                     ))}
                   </Stack>
                 </Box>
@@ -289,10 +307,10 @@ export function Security() {
                     <Collapse in={!!expanded[section]}>
                       <Text style={{ whiteSpace: "pre-wrap", fontSize: 15, marginTop: 4 }}>
                         {aiSummary[section].text || "No content available."}
-                      </Text>
+                  </Text>
                     </Collapse>
                   </Box>
-                ))}
+              ))}
               </Stack>
               <Box my={32} style={{ borderBottom: "1px solid #e5e7eb" }} />
               {/* Raw AI Output Debug */}
